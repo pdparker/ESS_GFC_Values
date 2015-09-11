@@ -1,3 +1,5 @@
+#based on http://www.ssoar.info/ssoar/bitstream/handle/document/6669/ssoar-2008-3-davidov_et_al-bringing_values_back_in_the.pdf
+
 #Load libraries
 library(lavaan)
 #set working directory
