@@ -70,9 +70,6 @@ mergedIntegratedData$achievement_CENTER <- mergedIntegratedData$achievement_RAW 
 mergedIntegratedData$power_CENTER <- mergedIntegratedData$power_RAW - mergedIntegratedData$mrat
 mergedIntegratedData$security_CENTER <- mergedIntegratedData$security_RAW - mergedIntegratedData$mrat
 
-#Export to SPSS
-write.foreign(mergedIntegratedData, "mergedData.txt", "mergedData.sps", package="SPSS")
-
 ####Preliminary Exploration####
 valueMeans <- 	ddply(mergedIntegratedData, .(essround, cntry),
 		  				function(x) sapply(x[,27:46], 
@@ -81,12 +78,16 @@ valueMeans <- 	ddply(mergedIntegratedData, .(essround, cntry),
 		  		)
 
 valueMeans$year <- recode(valueMeans$essround, "1 = 2002; 2 = 2004; 3 = 2006; 4 = 2008; 5 = 2010; 6 = 2012")
+#Add unemployment
+load("multilevelData/unEmployment_COUNTRY.rda")
+valueMeans_unemployment <- merge(valueMeans, unEmployment, all.x = TRUE)
 #### Interactive Plot ####
 library(googleVis)
 library(car)
 
 #op <- options(gvis.plot.tag='chart')
-M <- gvisMotionChart(valueMeans, 'cntry', 'year', xvar = 'essround', yvar = 'conformity_CENTER')
+M <- gvisMotionChart(valueMeans_unemployment, 'cntry', 'year', xvar = 'essround', yvar = 'conformity_CENTER',
+					 sizevar = "unemployment", options=list(state='{"yZoomedIn":false,"dimensions":{"iconDimensions":["dim0"]},"time":"2002","xZoomedDataMax":6,"orderedByX":false,"xAxisOption":"2","colorOption":"_UNIQUE_COLOR","xZoomedDataMin":1,"iconKeySettings":[{"key":{"dim0":"ES"},"trailStart":"2002"},{"key":{"dim0":"GB"},"trailStart":"2002"}],"yAxisOption":"3","yZoomedDataMax":3.461256388,"showTrails":true,"playDuration":15000,"xLambda":1,"xZoomedIn":false,"iconType":"BUBBLE","duration":{"timeUnit":"Y","multiplier":1},"sizeOption":"23","yZoomedDataMin":2.167843688,"uniColorForNonSelected":true,"nonSelectedAlpha":0.4,"orderedByY":false,"yLambda":1};'))
 #plot(M)
 capture.output(print(M, 'chart'), file = "VALUESchart.html")
 
