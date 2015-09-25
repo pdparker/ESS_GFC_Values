@@ -13,7 +13,16 @@ load("multilevelData/metaData25092015.rda")
 metaData <- tmp[,c(2,10:36)]
 rm(tmp)
 ##### Reorientation of Data #####
-wideArregrate <- metaData %>% group_by(cntry) %>%  summarise_each(funs(mean)) 
+wideArregrate <- metaData %>% group_by(cntry) %>%  summarise_each(funs(mean(., na.rm = TRUE))) 
+#unemployment
 unEmployment <- gather(wideArregrate[,c(1, 23:28)], "year", "unemployment", c_unraall_2002:c_unraall_2012)
 unEmployment$year <- gsub("(.+)([0-9]{4})", "\\2", unEmployment$year)
 save(unEmployment,file = "multilevelData/unEmployment_COUNTRY.rda")
+#gini
+gini <- gather(wideArregrate[,c(1, 11:16)], "year", "gini", c_gini_2002:c_gini_2012)
+gini$year <- gsub("(.+)([0-9]{4})", "\\2", gini$year)
+save(gini,file = "multilevelData/gini_COUNTRY.rda")
+#social expendeture as a proportion of GDP
+socExpGDP <- gather(wideArregrate[,c(1, 17:22)], "year", "socialExpenditure", c_soexgdp_2002:c_soexgdp_2012)
+socExpGDP$year <- gsub("(.+)([0-9]{4})", "\\2", socExpGDP$year)
+save(socExpGDP,file = "multilevelData/socExpGDP_COUNTRY.rda")

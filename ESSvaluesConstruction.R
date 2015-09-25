@@ -82,12 +82,12 @@ valueMeans$year <- recode(valueMeans$essround, "1 = 2002; 2 = 2004; 3 = 2006; 4 
 load("multilevelData/unEmployment_COUNTRY.rda")
 valueMeans_unemployment <- merge(valueMeans, unEmployment, all.x = TRUE)
 #### Interactive Plot ####
-library(googleVis)
-library(car)
 
-#op <- options(gvis.plot.tag='chart')
 M <- gvisMotionChart(valueMeans_unemployment, 'cntry', 'year', xvar = 'essround', yvar = 'conformity_CENTER',
-					 sizevar = "unemployment", options=list(state='{"yZoomedIn":false,"dimensions":{"iconDimensions":["dim0"]},"time":"2002","xZoomedDataMax":6,"orderedByX":false,"xAxisOption":"2","colorOption":"_UNIQUE_COLOR","xZoomedDataMin":1,"iconKeySettings":[{"key":{"dim0":"ES"},"trailStart":"2002"},{"key":{"dim0":"GB"},"trailStart":"2002"}],"yAxisOption":"3","yZoomedDataMax":3.461256388,"showTrails":true,"playDuration":15000,"xLambda":1,"xZoomedIn":false,"iconType":"BUBBLE","duration":{"timeUnit":"Y","multiplier":1},"sizeOption":"23","yZoomedDataMin":2.167843688,"uniColorForNonSelected":true,"nonSelectedAlpha":0.4,"orderedByY":false,"yLambda":1};'))
+					 sizevar = "unemployment", options=list(state='{"iconKeySettings":[{"key":{"dim0":"ES"},"trailStart":"2002"},{"key":{"dim0":"GB"},"trailStart":"2002"},{"key":{"dim0":"GR"}}],"nonSelectedAlpha":0.4,"yZoomedDataMax":3.461256388,"time":"2002","playDuration":15000,"xLambda":1,"xZoomedIn":false,"iconType":"BUBBLE","orderedByY":false,"xZoomedDataMin":1009843200000,"yZoomedIn":false,"xZoomedDataMax":1325376000000,"uniColorForNonSelected":true,"xAxisOption":"_TIME","sizeOption":"23","yLambda":1,"yZoomedDataMin":2.167843688,"duration":{"timeUnit":"Y","multiplier":1},"yAxisOption":"3","dimensions":{"iconDimensions":["dim0"]},"orderedByX":false,"showTrails":true,"colorOption":"_UNIQUE_COLOR"};'))
 #plot(M)
 capture.output(print(M, 'chart'), file = "VALUESchart.html")
+
+
+
 
