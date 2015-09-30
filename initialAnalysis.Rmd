@@ -1,0 +1,54 @@
+---
+title: "Preliminary Analaysis"
+author: "Phil Parker"
+date: "30 September 2015"
+output:
+  html_document:
+    toc: true
+    theme: journal
+    number_sections: true
+  md_document:
+    toc: true 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(warning=FALSE)
+knitr::opts_chunk$set(message=FALSE)
+```
+
+## Preliminary Analysis
+
+```{r cars}
+path <- system("locate /ess | grep /ess$",intern = TRUE)
+setwd(path)
+load("analysisData.rda")
+libs <- list("lme4")
+lapply(libs, library, character.only = TRUE)
+```
+
+```{r dataPrep}
+path <- system("locate /ess | grep /ess$",intern = TRUE)
+setwd(path)
+load("analysisData.rda")
+```
+
+```{r initialAnalaysis}
+GR <- ifelse(analysisData$year > 2008, 1, 0)
+M1 <- lmer(security_CENTER ~ essround + (1|cntry),
+		   data = analysisData, weights = dweight)
+summary(M1)
+
+M1a <- update(M1, ".~. + GR")
+summary(M1a)
+
+M2 <- lmer(security_CENTER ~ essround + GR + (1 + essround + GR|cntry),
+		   data = analysisData, weights = dweight)
+
+summary(M2)
+ranef(M2)
+
+M2a <- update(M2, ". ~ . + c_unraall+c_unraall*GR ")
+summary(M2a)
+```
+

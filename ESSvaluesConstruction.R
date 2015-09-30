@@ -79,8 +79,23 @@ analysisData <- merge(mergedIntegratedData, longMetaData, by = c("year", "cntry"
 
 
 ####checks ####
-tapply(analysisData$c_gini, list(analysisData$cntry, analysisData$year), mean, na.rm=TRUE)
-tapply(longMetaData$c_gini, list(longMetaData$cntry, longMetaData$year), unique)
+# Extract common countries across datasets
+commonCNT <- unique(longMetaData$cntry)[unique(longMetaData$cntry) %in% unique(analysisData$cntry)]
+#If any FALSE then there is a mistake
+# Checked 30 Sep 2015: No FALSE
+#Check gini
+tapply(analysisData$c_gini, list(analysisData$cntry, analysisData$year), mean, na.rm=TRUE)[commonCNT,] ==
+tapply(longMetaData$c_gini, list(longMetaData$cntry, longMetaData$year), unique)[commonCNT,]
+#Check social expenditure
+tapply(analysisData$c_soexgni, list(analysisData$cntry, analysisData$year), mean, na.rm=TRUE)[commonCNT,] ==
+	tapply(longMetaData$c_soexgni, list(longMetaData$cntry, longMetaData$year), unique)[commonCNT,]
+#Check unemployment
+tapply(analysisData$c_unraall, list(analysisData$cntry, analysisData$year), mean, na.rm=TRUE)[commonCNT,] ==
+	tapply(longMetaData$c_unraall, list(longMetaData$cntry, longMetaData$year), unique)[commonCNT,]
+#Check retirement replacement
+tapply(analysisData$replacement, list(analysisData$cntry, analysisData$year), mean, na.rm=TRUE)[c("CH","GB", "NO"),] ==
+	tapply(longMetaData$replacement, list(longMetaData$cntry, longMetaData$year), unique)[c("CH","GB", "NO"),]
+
 
 #### Export ####
 save(analysisData, file = "analysisData.rda")
