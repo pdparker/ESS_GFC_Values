@@ -6,7 +6,7 @@ if(Sys.info()[1] != "Darwin"){message("Only tested on Mac. Should also work on a
 path <- system("locate /ess | grep /ess$",intern = TRUE)
 setwd(path)
 #load required libraries
-libs <- list("lavaan", "survey", "Amelia", "foreign", "dplyr")
+libs <- list("lavaan", "survey", "Amelia", "foreign", "dplyr", "car")
 lapply(libs, library, character.only = TRUE)
 #find all integrated databases
 integratedDataLocation <- list.files(".",pattern = "integrated",recursive = TRUE, full.names = TRUE)
@@ -70,23 +70,38 @@ mergedIntegratedData$achievement_CENTER <- mergedIntegratedData$achievement_RAW 
 mergedIntegratedData$power_CENTER <- mergedIntegratedData$power_RAW - mergedIntegratedData$mrat
 mergedIntegratedData$security_CENTER <- mergedIntegratedData$security_RAW - mergedIntegratedData$mrat
 
-####Preliminary Exploration####
-valueMeans <- 	ddply(mergedIntegratedData, .(essround, cntry),
-		  				function(x) sapply(x[,27:46], 
-		  				   function(z) weighted.mean(z, x$dweight, na.rm=TRUE)
-		  				   )
-		  		)
 
-valueMeans$year <- recode(valueMeans$essround, "1 = 2002; 2 = 2004; 3 = 2006; 4 = 2008; 5 = 2010; 6 = 2012")
-#Add unemployment
-load("multilevelData/unEmployment_COUNTRY.rda")
-valueMeans_unemployment <- merge(valueMeans, unEmployment, all.x = TRUE)
-#### Interactive Plot ####
+##### Merge with meta data ####
+load("longMetaData_COUNTRY.rda")
+#add year
+mergedIntegratedData$year <- recode(mergedIntegratedData$essround, "1 = 2002; 2 = 2004; 3 = 2006; 4 = 2008; 5 = 2010; 6 = 2012")
+analysisData <- merge(mergedIntegratedData, longMetaData, by = c("year", "cntry"))
 
-M <- gvisMotionChart(valueMeans_unemployment, 'cntry', 'year', xvar = 'essround', yvar = 'conformity_CENTER',
-					 sizevar = "unemployment", options=list(state='{"iconKeySettings":[{"key":{"dim0":"ES"},"trailStart":"2002"},{"key":{"dim0":"GB"},"trailStart":"2002"},{"key":{"dim0":"GR"}}],"nonSelectedAlpha":0.4,"yZoomedDataMax":3.461256388,"time":"2002","playDuration":15000,"xLambda":1,"xZoomedIn":false,"iconType":"BUBBLE","orderedByY":false,"xZoomedDataMin":1009843200000,"yZoomedIn":false,"xZoomedDataMax":1325376000000,"uniColorForNonSelected":true,"xAxisOption":"_TIME","sizeOption":"23","yLambda":1,"yZoomedDataMin":2.167843688,"duration":{"timeUnit":"Y","multiplier":1},"yAxisOption":"3","dimensions":{"iconDimensions":["dim0"]},"orderedByX":false,"showTrails":true,"colorOption":"_UNIQUE_COLOR"};'))
-#plot(M)
-capture.output(print(M, 'chart'), file = "VALUESchart.html")
+
+####checks ####
+tapply(analysisData$c_gini, list(analysisData$cntry, analysisData$year), mean, na.rm=TRUE)
+tapply(longMetaData$c_gini, list(longMetaData$cntry, longMetaData$year), unique)
+
+#### Export ####
+save(analysisData, file = "analysisData.rda")
+
+# ####Preliminary Exploration####
+# valueMeans <- 	ddply(mergedIntegratedData, .(essround, cntry),
+# 		  				function(x) sapply(x[,c(2:3,26:46)], 
+# 		  				   function(z) weighted.mean(z, x$dweight, na.rm=TRUE)
+# 		  				   )
+# 		  		)
+# 
+# valueMeans$year <- recode(valueMeans$essround, "1 = 2002; 2 = 2004; 3 = 2006; 4 = 2008; 5 = 2010; 6 = 2012")
+# #Add unemployment
+# load("longMetaData_COUNTRY.rda")
+# valueMeans <- merge(valueMeans, longMetaData, all.x = TRUE)
+# #### Interactive Plot ####
+# 
+# M <- gvisMotionChart(valueMeans_unemployment, 'cntry', 'year', xvar = 'essround', yvar = 'conformity_CENTER',
+# 					 sizevar = "unemployment", options=list(state='{"iconKeySettings":[{"key":{"dim0":"ES"},"trailStart":"2002"},{"key":{"dim0":"GB"},"trailStart":"2002"},{"key":{"dim0":"GR"}}],"nonSelectedAlpha":0.4,"yZoomedDataMax":3.461256388,"time":"2002","playDuration":15000,"xLambda":1,"xZoomedIn":false,"iconType":"BUBBLE","orderedByY":false,"xZoomedDataMin":1009843200000,"yZoomedIn":false,"xZoomedDataMax":1325376000000,"uniColorForNonSelected":true,"xAxisOption":"_TIME","sizeOption":"23","yLambda":1,"yZoomedDataMin":2.167843688,"duration":{"timeUnit":"Y","multiplier":1},"yAxisOption":"3","dimensions":{"iconDimensions":["dim0"]},"orderedByX":false,"showTrails":true,"colorOption":"_UNIQUE_COLOR"};'))
+# #plot(M)
+# capture.output(print(M, 'chart'), file = "VALUESchart.html")
 
 
 

@@ -12,7 +12,7 @@ setwd(path)
 load("multilevelData/metaData_CountryLevel30092015.rda")
 extraction <- grep("c_(gini|soexgni|unraall)_20(02|04|06|08|10|12)", names(tmp))
 metaData <- tmp[,c(1,extraction)]
-#rm(tmp)
+rm(tmp)
 ##### Reorientation of Data #####
 longMetaData <- metaData %>% 
 	gather(key, value, -cntry) %>%
@@ -21,12 +21,12 @@ longMetaData <- metaData %>%
 
 ##### Add Replacement rates ####
 load("multilevelData/replacement30092015.rda")
+## Correct some SPSS issues
 replacement$cntry <- factor(replacement$cntry)
 longMetaData$year <- as.numeric(longMetaData$year)
 longMetaData$cntry <- gsub("[[:blank:]]","", longMetaData$cntry)
-
+## Merge by country and by year
 longMetaData <- merge(longMetaData, replacement, by = c("year", "cntry"), all.x = TRUE, all.y = FALSE)
-names(replacement)
-
+#Save to file
 save(longMetaData, file = "longMetaData_COUNTRY.rda")
 
