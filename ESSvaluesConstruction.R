@@ -6,14 +6,16 @@ if(Sys.info()[1] != "Darwin"){message("Only tested on Mac. Should also work on a
 path <- system("locate /ess | grep /ess$",intern = TRUE)
 setwd(path)
 #load required libraries
-libs <- list("lavaan", "survey", "Amelia", "foreign", "dplyr", "car")
+libs <- list("lavaan", "survey", "Amelia", "foreign", "dplyr", "car", "isco88conversion")
 lapply(libs, library, character.only = TRUE)
 #find all integrated databases
 integratedDataLocation <- list.files(".",pattern = "integrated",recursive = TRUE, full.names = TRUE)
 dates <- gsub("(.+)([0-9]{4})(.*)", "\\2", integratedDataLocation)
+
+load(integratedDataLocation[[1]])
 ####Extract required Data####
 #Common variable names across all rounds
-requiredVariableNames <- c("dweight", "essround", "cntry",
+requiredVariableNames <- c("dweight", "essround", "cntry", "agea","gndr", 
 						   "ipcrtiv", "imprich","ipeqopt", "ipshabt","impsafe","impdiff",
 						   "ipfrule", "ipudrst","ipmodst", "ipgdtim","impfree","iphlppl",
 						   "ipsuces", "ipstrgv","ipadvnt", "ipbhprp","iprspot","iplylfr",
@@ -23,14 +25,20 @@ integratedData <- list()
 for (i in seq_along(integratedDataLocation)){
 	cat("loading dataset: ", integratedDataLocation[[i]], "\n")
 	load(integratedDataLocation[[i]])
-	integratedData[[i]] <- x[,requiredVariableNames]
+	if(i == 6){requiredVariableNames2 = c(requiredVariableNames, 'isco08')
+	}else{requiredVariableNames2 = c(requiredVariableNames, 'iscoco')}
+	integratedData[[i]] <- x[,requiredVariableNames2]
 	names(integratedData)[i] <- dates[i]
 	rm(x)
 	cat("completed\n")
 }
+
+names(integratedData[[6]])[27] <- "iscoco"
+integratedData[[6]]$iscoco <- isco08to88(integratedData[[6]]$iscoco)
 #Merge all data into single data frame
 mergedIntegratedData <- do.call(rbind.data.frame, integratedData)
 rm(integratedData)
+mergedIntegratedData$ISEI <- convert(as.character(mergedIntegratedData$iscoco), type = "ISEI")
 #Export to SPSS
 write.foreign(mergedIntegratedData, "mergedData.txt", "mergedData.sps", package="SPSS")
 

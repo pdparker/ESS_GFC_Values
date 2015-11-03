@@ -1,0 +1,96 @@
+---
+title: "Preliminary Analaysis"
+author: "Phil Parker"
+date: "30 September 2015"
+output:
+  html_document:
+    toc: true
+    theme: journal
+    number_sections: true
+  md_document:
+    toc: true 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(warning=FALSE)
+knitr::opts_chunk$set(message=FALSE)
+```
+
+## Preliminary Analysis
+
+```{r cars, echo=FALSE}
+path <- system("locate /ess | grep /ess$",intern = TRUE)
+setwd(path)
+load("analysisData.rda")
+libs <- list("lme4", "car")
+lapply(libs, library, character.only = TRUE)
+```
+
+```{r dataPrep, echo=FALSE}
+path <- system("locate /ess | grep /ess$",intern = TRUE)
+setwd(path)
+load("analysisData.rda")
+#names(analysisData)
+analysisData <- subset(analysisData, agea > 14 & agea < 36)
+analysisData$CNTeffect <- recode(analysisData$cntry,
+								 "c('HU', 'LV', 'LT', 'IS', 'HR', 'CY', 'GR', 'IE', 'IT', 'PT', 'ES') = 'MOST'; c('AT', 'BE', 'FI', 'FR','DE', 'NL', 'RO', 'SK', 'SL', 'GB', 'IL') = 'MOD'; c('BG', 'CZ', 'DK', 'LU','NO', 'PL', 'SE', 'CH', 'TR') = 'LEAST'; c('AL','EE', 'RU', 'SI', 'UA', 'XK') = NA")
+```
+## Centered models
+```{r centered, echo=FALSE}
+analysisData$GR <- ifelse(analysisData$year > 2008, 1, 0)
+response <- grep(".+_CENTER", names(analysisData), value = TRUE)
+analysisData[,response] <- apply(analysisData[,response],2,scale)
+output <- list()
+for( i in seq_along(response)){
+	cat("\nNow working on ", response[i], "\n")
+	form <- as.formula(paste(response[i]," ~ GR*CNTeffect + (1|cntry/essround)"))
+	output[[i]] <- lmer(form, data = analysisData, weights = dweight)
+} 
+
+names(output) <- response
+#round(sapply(output, fixef),3)
+lapply(output, summary)
+
+
+output <- list()
+for( i in seq_along(response)){
+	cat("\nNow working on ", response[i], "\n")
+	form <- as.formula(paste(response[i]," ~ GR*CNTeffect*ISEI + (1|cntry/essround)"))
+	output[[i]] <- lmer(form, data = analysisData, weights = dweight)
+} 
+
+names(output) <- response
+#round(sapply(output, fixef),3)
+lapply(output, summary)
+```
+
+## Raw score models
+```{r raw, echo=FALSE}
+analysisData$GR <- ifelse(analysisData$year > 2008, 1, 0)
+response <- grep(".+_RAW", names(analysisData), value = TRUE)
+analysisData[,response] <- apply(analysisData[,response],2,scale)
+
+output <- list()
+for( i in seq_along(response)){
+	cat("\nNow working on ", response[i], "\n")
+	form <- as.formula(paste(response[i]," ~ GR*CNTeffect + (1|cntry/essround)"))
+	output[[i]] <- lmer(form, data = analysisData, weights = dweight)
+} 
+
+names(output) <- response
+#round(sapply(output, fixef),3)
+lapply(output, summary)
+
+
+output <- list()
+for( i in seq_along(response)){
+	cat("\nNow working on ", response[i], "\n")
+	form <- as.formula(paste(response[i]," ~ GR*CNTeffect*ISEI + (1|cntry/essround)"))
+	output[[i]] <- lmer(form, data = analysisData, weights = dweight)
+} 
+
+names(output) <- response
+#round(sapply(output, fixef),3)
+lapply(output, summary)
+```
