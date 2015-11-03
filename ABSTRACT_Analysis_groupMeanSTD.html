@@ -110,984 +110,562 @@ img {
 ## Now working on  security_CENTER</code></pre>
 <pre><code>## $conformity_CENTER
 ## Linear mixed model fit by REML ['lmerMod']
-## Formula: conformity_CENTER ~ GR * CNTeffect + (1 | cntry/essround)
+## Formula: 
+## conformity_CENTER ~ GR * CNTeffect + c_unraall + gndr + scale(ISEI) +  
+##     scale(agea) + (1 | cntry/essround)
 ##    Data: analysisData
 ## Weights: dweight
 ## 
-## REML criterion at convergence: 207658.4
+## REML criterion at convergence: 147977.7
 ## 
 ## Scaled residuals: 
 ##     Min      1Q  Median      3Q     Max 
-## -5.1549 -0.6845 -0.0831  0.5852  5.4704 
+## -5.8236 -0.6604 -0.0479  0.6178  6.1910 
 ## 
 ## Random effects:
 ##  Groups         Name        Variance Std.Dev.
-##  essround:cntry (Intercept) 0.007559 0.08694 
-##  cntry          (Intercept) 0.000000 0.00000 
-##  Residual                   1.048558 1.02399 
-## Number of obs: 71102, groups:  essround:cntry, 131; cntry, 30
+##  essround:cntry (Intercept) 0.007435 0.08622 
+##  cntry          (Intercept) 0.000832 0.02884 
+##  Residual                   0.793900 0.89101 
+## Number of obs: 55547, groups:  essround:cntry, 126; cntry, 29
 ## 
 ## Fixed effects:
 ##                   Estimate Std. Error t value
-## (Intercept)       0.007554   0.018495   0.408
-## GR                0.037428   0.032113   1.165
-## CNTeffectMOD      0.031511   0.024959   1.262
-## CNTeffectMOST    -0.015099   0.027250  -0.554
-## GR:CNTeffectMOD  -0.039389   0.043565  -0.904
-## GR:CNTeffectMOST  0.034120   0.045170   0.755
+## (Intercept)       0.157773   0.030466    5.18
+## GR               -0.026584   0.031970   -0.83
+## CNTeffectMOD      0.014367   0.029076    0.49
+## CNTeffectMOST     0.041661   0.030894    1.35
+## c_unraall        -0.003217   0.002798   -1.15
+## gndr             -0.083284   0.007501  -11.10
+## scale(ISEI)       0.018201   0.003911    4.65
+## scale(agea)      -0.458011   0.004236 -108.11
+## GR:CNTeffectMOD  -0.007770   0.044440   -0.17
+## GR:CNTeffectMOST  0.008983   0.047861    0.19
 ## 
 ## Correlation of Fixed Effects:
-##             (Intr) GR     CNTMOD CNTMOS GR:CNTMOD
-## GR          -0.576                               
-## CNTeffctMOD -0.741  0.427                        
-## CNTffctMOST -0.679  0.391  0.503                 
-## GR:CNTffMOD  0.425 -0.737 -0.573 -0.288          
-## GR:CNTfMOST  0.409 -0.711 -0.303 -0.603  0.524   
+##             (Intr) GR     CNTMOD CNTMOS c_nrll gndr   s(ISEI scl(g)
+## GR          -0.317                                                 
+## CNTeffctMOD -0.457  0.373                                          
+## CNTffctMOST -0.458  0.348  0.504                                   
+## c_unraall   -0.615 -0.057 -0.082 -0.030                            
+## gndr        -0.368  0.003 -0.004 -0.005  0.000                     
+## scale(ISEI)  0.018 -0.004 -0.012  0.005  0.025 -0.060              
+## scale(agea) -0.004  0.007  0.011 -0.010 -0.028 -0.017 -0.219       
+## GR:CNTffMOD  0.259 -0.717 -0.486 -0.249 -0.006 -0.008  0.006 -0.006
+## GR:CNTfMOST  0.440 -0.647 -0.219 -0.501 -0.331 -0.003 -0.004  0.001
+##             GR:CNTMOD
+## GR                   
+## CNTeffctMOD          
+## CNTffctMOST          
+## c_unraall            
+## gndr                 
+## scale(ISEI)          
+## scale(agea)          
+## GR:CNTffMOD          
+## GR:CNTfMOST  0.481   
 ## 
 ## $tradition_CENTER
 ## Linear mixed model fit by REML ['lmerMod']
-## Formula: tradition_CENTER ~ GR * CNTeffect + (1 | cntry/essround)
+## Formula: 
+## tradition_CENTER ~ GR * CNTeffect + c_unraall + gndr + scale(ISEI) +  
+##     scale(agea) + (1 | cntry/essround)
 ##    Data: analysisData
 ## Weights: dweight
 ## 
-## REML criterion at convergence: 208267.6
+## REML criterion at convergence: 147316.1
 ## 
 ## Scaled residuals: 
 ##     Min      1Q  Median      3Q     Max 
-## -5.2925 -0.6843 -0.0750  0.5908  6.7017 
-## 
-## Random effects:
-##  Groups         Name        Variance  Std.Dev.
-##  essround:cntry (Intercept) 0.0035396 0.05949 
-##  cntry          (Intercept) 0.0001355 0.01164 
-##  Residual                   1.0577168 1.02845 
-## Number of obs: 71119, groups:  essround:cntry, 131; cntry, 30
-## 
-## Fixed effects:
-##                  Estimate Std. Error t value
-## (Intercept)       0.01562    0.01466   1.065
-## GR                0.01772    0.02455   0.722
-## CNTeffectMOD      0.02720    0.01972   1.379
-## CNTeffectMOST    -0.00973    0.02160  -0.450
-## GR:CNTeffectMOD  -0.04975    0.03315  -1.501
-## GR:CNTeffectMOST  0.02131    0.03456   0.616
-## 
-## Correlation of Fixed Effects:
-##             (Intr) GR     CNTMOD CNTMOS GR:CNTMOD
-## GR          -0.550                               
-## CNTeffctMOD -0.743  0.409                        
-## CNTffctMOST -0.679  0.373  0.505                 
-## GR:CNTffMOD  0.407 -0.741 -0.547 -0.277          
-## GR:CNTfMOST  0.391 -0.710 -0.291 -0.582  0.526   
-## 
-## $benevolence_CENTER
-## Linear mixed model fit by REML ['lmerMod']
-## Formula: benevolence_CENTER ~ GR * CNTeffect + (1 | cntry/essround)
-##    Data: analysisData
-## Weights: dweight
-## 
-## REML criterion at convergence: 208365
-## 
-## Scaled residuals: 
-##     Min      1Q  Median      3Q     Max 
-## -6.7048 -0.6659 -0.0608  0.5754  7.4116 
-## 
-## Random effects:
-##  Groups         Name        Variance  Std.Dev.
-##  essround:cntry (Intercept) 0.0088786 0.09423 
-##  cntry          (Intercept) 0.0001623 0.01274 
-##  Residual                   1.0570126 1.02811 
-## Number of obs: 71142, groups:  essround:cntry, 131; cntry, 30
-## 
-## Fixed effects:
-##                  Estimate Std. Error t value
-## (Intercept)       0.03543    0.02025   1.750
-## GR               -0.01164    0.03430  -0.339
-## CNTeffectMOD      0.04811    0.02736   1.758
-## CNTeffectMOST     0.01722    0.02982   0.578
-## GR:CNTeffectMOD  -0.08247    0.04658  -1.770
-## GR:CNTeffectMOST -0.03704    0.04828  -0.767
-## 
-## Correlation of Fixed Effects:
-##             (Intr) GR     CNTMOD CNTMOS GR:CNTMOD
-## GR          -0.561                               
-## CNTeffctMOD -0.740  0.415                        
-## CNTffctMOST -0.679  0.381  0.502                 
-## GR:CNTffMOD  0.413 -0.736 -0.558 -0.280          
-## GR:CNTfMOST  0.398 -0.711 -0.295 -0.591  0.523   
-## 
-## $universalism_CENTER
-## Linear mixed model fit by REML ['lmerMod']
-## Formula: universalism_CENTER ~ GR * CNTeffect + (1 | cntry/essround)
-##    Data: analysisData
-## Weights: dweight
-## 
-## REML criterion at convergence: 208395.2
-## 
-## Scaled residuals: 
-##     Min      1Q  Median      3Q     Max 
-## -5.8548 -0.6778 -0.0689  0.5673  7.5777 
-## 
-## Random effects:
-##  Groups         Name        Variance  Std.Dev.
-##  essround:cntry (Intercept) 0.0091138 0.09547 
-##  cntry          (Intercept) 0.0006832 0.02614 
-##  Residual                   1.0570792 1.02814 
-## Number of obs: 71148, groups:  essround:cntry, 131; cntry, 30
-## 
-## Fixed effects:
-##                  Estimate Std. Error t value
-## (Intercept)       0.01164    0.02196   0.530
-## GR                0.06986    0.03476   2.010
-## CNTeffectMOD      0.02740    0.02973   0.922
-## CNTeffectMOST     0.03143    0.03226   0.974
-## GR:CNTeffectMOD  -0.01313    0.04722  -0.278
-## GR:CNTeffectMOST -0.07585    0.04901  -1.548
-## 
-## Correlation of Fixed Effects:
-##             (Intr) GR     CNTMOD CNTMOS GR:CNTMOD
-## GR          -0.520                               
-## CNTeffctMOD -0.738  0.384                        
-## CNTffctMOST -0.681  0.354  0.503                 
-## GR:CNTffMOD  0.383 -0.736 -0.516 -0.260          
-## GR:CNTfMOST  0.369 -0.709 -0.272 -0.558  0.522   
-## 
-## $selfDirection_CENTER
-## Linear mixed model fit by REML ['lmerMod']
-## Formula: selfDirection_CENTER ~ GR * CNTeffect + (1 | cntry/essround)
-##    Data: analysisData
-## Weights: dweight
-## 
-## REML criterion at convergence: 207669
-## 
-## Scaled residuals: 
-##     Min      1Q  Median      3Q     Max 
-## -4.5042 -0.6748 -0.0731  0.5682  6.8098 
-## 
-## Random effects:
-##  Groups         Name        Variance  Std.Dev.
-##  essround:cntry (Intercept) 0.0063078 0.07942 
-##  cntry          (Intercept) 0.0008537 0.02922 
-##  Residual                   1.0472883 1.02337 
-## Number of obs: 71136, groups:  essround:cntry, 131; cntry, 30
-## 
-## Fixed effects:
-##                  Estimate Std. Error t value
-## (Intercept)       0.01045    0.02002   0.522
-## GR                0.07105    0.03011   2.360
-## CNTeffectMOD      0.02377    0.02711   0.877
-## CNTeffectMOST     0.04435    0.02936   1.510
-## GR:CNTeffectMOD  -0.03558    0.04082  -0.872
-## GR:CNTeffectMOST -0.09081    0.04251  -2.136
-## 
-## Correlation of Fixed Effects:
-##             (Intr) GR     CNTMOD CNTMOS GR:CNTMOD
-## GR          -0.489                               
-## CNTeffctMOD -0.739  0.362                        
-## CNTffctMOST -0.682  0.334  0.504                 
-## GR:CNTffMOD  0.361 -0.737 -0.485 -0.246          
-## GR:CNTfMOST  0.347 -0.708 -0.256 -0.533  0.522   
-## 
-## $stimulation_CENTER
-## Linear mixed model fit by REML ['lmerMod']
-## Formula: stimulation_CENTER ~ GR * CNTeffect + (1 | cntry/essround)
-##    Data: analysisData
-## Weights: dweight
-## 
-## REML criterion at convergence: 207784.5
-## 
-## Scaled residuals: 
-##     Min      1Q  Median      3Q     Max 
-## -4.7655 -0.6767 -0.0506  0.6186  8.2996 
+## -5.2243 -0.6559 -0.0409  0.6215  6.2056 
 ## 
 ## Random effects:
 ##  Groups         Name        Variance Std.Dev.
-##  essround:cntry (Intercept) 0.003095 0.05563 
-##  cntry          (Intercept) 0.000000 0.00000 
-##  Residual                   1.050252 1.02482 
-## Number of obs: 71133, groups:  essround:cntry, 131; cntry, 30
+##  essround:cntry (Intercept) 0.005654 0.07519 
+##  cntry          (Intercept) 0.001707 0.04132 
+##  Residual                   0.783860 0.88536 
+## Number of obs: 55570, groups:  essround:cntry, 126; cntry, 29
+## 
+## Fixed effects:
+##                   Estimate Std. Error t value
+## (Intercept)       0.309279   0.031199    9.91
+## GR               -0.045424   0.028796   -1.58
+## CNTeffectMOD      0.023388   0.030479    0.77
+## CNTeffectMOST     0.028268   0.031961    0.88
+## c_unraall        -0.003889   0.002806   -1.39
+## gndr             -0.177760   0.007451  -23.86
+## scale(ISEI)       0.065237   0.003885   16.79
+## scale(agea)      -0.455470   0.004209 -108.21
+## GR:CNTeffectMOD  -0.055302   0.040002   -1.38
+## GR:CNTeffectMOST -0.004092   0.044016   -0.09
+## 
+## Correlation of Fixed Effects:
+##             (Intr) GR     CNTMOD CNTMOS c_nrll gndr   s(ISEI scl(g)
+## GR          -0.269                                                 
+## CNTeffctMOD -0.469  0.315                                          
+## CNTffctMOST -0.481  0.297  0.505                                   
+## c_unraall   -0.607 -0.059 -0.075 -0.014                            
+## gndr        -0.357  0.004 -0.004 -0.005  0.000                     
+## scale(ISEI)  0.018 -0.004 -0.012  0.004  0.025 -0.060              
+## scale(agea) -0.006  0.008  0.011 -0.008 -0.027 -0.017 -0.219       
+## GR:CNTffMOD  0.223 -0.717 -0.409 -0.213 -0.002 -0.009  0.007 -0.007
+## GR:CNTfMOST  0.425 -0.630 -0.175 -0.438 -0.370 -0.003 -0.004 -0.001
+##             GR:CNTMOD
+## GR                   
+## CNTeffctMOD          
+## CNTffctMOST          
+## c_unraall            
+## gndr                 
+## scale(ISEI)          
+## scale(agea)          
+## GR:CNTffMOD          
+## GR:CNTfMOST  0.470   
+## 
+## $benevolence_CENTER
+## Linear mixed model fit by REML ['lmerMod']
+## Formula: 
+## benevolence_CENTER ~ GR * CNTeffect + c_unraall + gndr + scale(ISEI) +  
+##     scale(agea) + (1 | cntry/essround)
+##    Data: analysisData
+## Weights: dweight
+## 
+## REML criterion at convergence: 141081.7
+## 
+## Scaled residuals: 
+##      Min       1Q   Median       3Q      Max 
+## -10.9792  -0.6303  -0.0250   0.5859   6.4346 
+## 
+## Random effects:
+##  Groups         Name        Variance Std.Dev.
+##  essround:cntry (Intercept) 0.016537 0.12860 
+##  cntry          (Intercept) 0.002211 0.04702 
+##  Residual                   0.698811 0.83595 
+## Number of obs: 55584, groups:  essround:cntry, 126; cntry, 29
+## 
+## Fixed effects:
+##                   Estimate Std. Error t value
+## (Intercept)       0.562695   0.042420   13.26
+## GR               -0.117282   0.044694   -2.62
+## CNTeffectMOD      0.052627   0.042491    1.24
+## CNTeffectMOST     0.068428   0.044758    1.53
+## c_unraall        -0.001912   0.004038   -0.47
+## gndr             -0.354643   0.007037  -50.40
+## scale(ISEI)      -0.019985   0.003670   -5.45
+## scale(agea)      -0.480493   0.003978 -120.79
+## GR:CNTeffectMOD  -0.077942   0.062314   -1.25
+## GR:CNTeffectMOST -0.065022   0.067008   -0.97
+## 
+## Correlation of Fixed Effects:
+##             (Intr) GR     CNTMOD CNTMOS c_nrll gndr   s(ISEI scl(g)
+## GR          -0.315                                                 
+## CNTeffctMOD -0.477  0.356                                          
+## CNTffctMOST -0.487  0.335  0.503                                   
+## c_unraall   -0.639 -0.060 -0.081 -0.023                            
+## gndr        -0.248  0.002 -0.003 -0.003  0.000                     
+## scale(ISEI)  0.012 -0.003 -0.008  0.003  0.017 -0.060              
+## scale(agea) -0.003  0.005  0.007 -0.006 -0.018 -0.017 -0.219       
+## GR:CNTffMOD  0.257 -0.714 -0.467 -0.239 -0.005 -0.005  0.004 -0.004
+## GR:CNTfMOST  0.452 -0.644 -0.207 -0.487 -0.340 -0.002 -0.003  0.000
+##             GR:CNTMOD
+## GR                   
+## CNTeffctMOD          
+## CNTffctMOST          
+## c_unraall            
+## gndr                 
+## scale(ISEI)          
+## scale(agea)          
+## GR:CNTffMOD          
+## GR:CNTfMOST  0.478   
+## 
+## $universalism_CENTER
+## Linear mixed model fit by REML ['lmerMod']
+## Formula: 
+## universalism_CENTER ~ GR * CNTeffect + c_unraall + gndr + scale(ISEI) +  
+##     scale(agea) + (1 | cntry/essround)
+##    Data: analysisData
+## Weights: dweight
+## 
+## REML criterion at convergence: 140575.1
+## 
+## Scaled residuals: 
+##     Min      1Q  Median      3Q     Max 
+## -9.7897 -0.6355 -0.0289  0.5878  7.1793 
+## 
+## Random effects:
+##  Groups         Name        Variance Std.Dev.
+##  essround:cntry (Intercept) 0.012691 0.11265 
+##  cntry          (Intercept) 0.002492 0.04992 
+##  Residual                   0.692621 0.83224 
+## Number of obs: 55588, groups:  essround:cntry, 126; cntry, 29
+## 
+## Fixed effects:
+##                   Estimate Std. Error t value
+## (Intercept)       0.446474   0.039851   11.20
+## GR               -0.034835   0.039723   -0.88
+## CNTeffectMOD      0.032888   0.040015    0.82
+## CNTeffectMOST     0.083278   0.041964    1.98
+## c_unraall        -0.006714   0.003742   -1.79
+## gndr             -0.262259   0.007005  -37.44
+## scale(ISEI)      -0.055234   0.003654  -15.12
+## scale(agea)      -0.516481   0.003960 -130.44
+## GR:CNTeffectMOD  -0.001852   0.055359   -0.03
+## GR:CNTeffectMOST -0.079526   0.060054   -1.32
+## 
+## Correlation of Fixed Effects:
+##             (Intr) GR     CNTMOD CNTMOS c_nrll gndr   s(ISEI scl(g)
+## GR          -0.293                                                 
+## CNTeffctMOD -0.479  0.334                                          
+## CNTffctMOST -0.492  0.315  0.504                                   
+## c_unraall   -0.632 -0.061 -0.079 -0.018                            
+## gndr        -0.263  0.003 -0.003 -0.004  0.000                     
+## scale(ISEI)  0.013 -0.003 -0.009  0.003  0.018 -0.060              
+## scale(agea) -0.004  0.005  0.008 -0.006 -0.019 -0.017 -0.219       
+## GR:CNTffMOD  0.241 -0.715 -0.437 -0.225 -0.003 -0.006  0.004 -0.005
+## GR:CNTfMOST  0.444 -0.638 -0.190 -0.462 -0.355 -0.002 -0.003  0.000
+##             GR:CNTMOD
+## GR                   
+## CNTeffctMOD          
+## CNTffctMOST          
+## c_unraall            
+## gndr                 
+## scale(ISEI)          
+## scale(agea)          
+## GR:CNTffMOD          
+## GR:CNTfMOST  0.474   
+## 
+## $selfDirection_CENTER
+## Linear mixed model fit by REML ['lmerMod']
+## Formula: 
+## selfDirection_CENTER ~ GR * CNTeffect + c_unraall + gndr + scale(ISEI) +  
+##     scale(agea) + (1 | cntry/essround)
+##    Data: analysisData
+## Weights: dweight
+## 
+## REML criterion at convergence: 148848.2
+## 
+## Scaled residuals: 
+##     Min      1Q  Median      3Q     Max 
+## -9.3230 -0.6507 -0.0531  0.5837  6.2100 
+## 
+## Random effects:
+##  Groups         Name        Variance Std.Dev.
+##  essround:cntry (Intercept) 0.008853 0.09409 
+##  cntry          (Intercept) 0.001686 0.04106 
+##  Residual                   0.804682 0.89704 
+## Number of obs: 55585, groups:  essround:cntry, 126; cntry, 29
 ## 
 ## Fixed effects:
 ##                    Estimate Std. Error t value
-## (Intercept)       0.0119119  0.0134773   0.884
-## GR                0.0080734  0.0234752   0.344
-## CNTeffectMOD     -0.0038561  0.0180841  -0.213
-## CNTeffectMOST    -0.0004084  0.0198626  -0.021
-## GR:CNTeffectMOD  -0.0005167  0.0316594  -0.016
-## GR:CNTeffectMOST -0.0133719  0.0330158  -0.405
+## (Intercept)       0.0315816  0.0346616    0.91
+## GR               -0.0096640  0.0344124   -0.28
+## CNTeffectMOD      0.0448964  0.0339661    1.32
+## CNTeffectMOST     0.0772700  0.0357766    2.16
+## c_unraall        -0.0063495  0.0031999   -1.98
+## gndr              0.0004271  0.0075495    0.06
+## scale(ISEI)      -0.1255236  0.0039370  -31.88
+## scale(agea)      -0.3765920  0.0042659  -88.28
+## GR:CNTeffectMOD  -0.0714318  0.0478801   -1.49
+## GR:CNTeffectMOST -0.1176920  0.0520155   -2.26
 ## 
 ## Correlation of Fixed Effects:
-##             (Intr) GR     CNTMOD CNTMOS GR:CNTMOD
-## GR          -0.574                               
-## CNTeffctMOD -0.745  0.428                        
-## CNTffctMOST -0.679  0.390  0.506                 
-## GR:CNTffMOD  0.426 -0.741 -0.571 -0.289          
-## GR:CNTfMOST  0.408 -0.711 -0.304 -0.602  0.527   
-## 
-## $headonism_CENTER
-## Linear mixed model fit by REML ['lmerMod']
-## Formula: headonism_CENTER ~ GR * CNTeffect + (1 | cntry/essround)
-##    Data: analysisData
-## Weights: dweight
-## 
-## REML criterion at convergence: 207124.1
-## 
-## Scaled residuals: 
-##     Min      1Q  Median      3Q     Max 
-## -5.0758 -0.6652 -0.0829  0.5778  8.2661 
-## 
-## Random effects:
-##  Groups         Name        Variance  Std.Dev. 
-##  essround:cntry (Intercept) 5.774e-03 7.599e-02
-##  cntry          (Intercept) 2.633e-17 5.132e-09
-##  Residual                   1.040e+00 1.020e+00
-## Number of obs: 71128, groups:  essround:cntry, 131; cntry, 30
-## 
-## Fixed effects:
-##                   Estimate Std. Error t value
-## (Intercept)       0.006654   0.016654   0.400
-## GR                0.024108   0.028940   0.833
-## CNTeffectMOD     -0.008311   0.022442  -0.370
-## CNTeffectMOST    -0.012094   0.024541  -0.493
-## GR:CNTeffectMOD   0.018313   0.039202   0.467
-## GR:CNTeffectMOST  0.036739   0.040710   0.902
-## 
-## Correlation of Fixed Effects:
-##             (Intr) GR     CNTMOD CNTMOS GR:CNTMOD
-## GR          -0.575                               
-## CNTeffctMOD -0.742  0.427                        
-## CNTffctMOST -0.679  0.391  0.504                 
-## GR:CNTffMOD  0.425 -0.738 -0.572 -0.288          
-## GR:CNTfMOST  0.409 -0.711 -0.304 -0.603  0.525   
-## 
-## $achievement_CENTER
-## Linear mixed model fit by REML ['lmerMod']
-## Formula: achievement_CENTER ~ GR * CNTeffect + (1 | cntry/essround)
-##    Data: analysisData
-## Weights: dweight
-## 
-## REML criterion at convergence: 207421.9
-## 
-## Scaled residuals: 
-##     Min      1Q  Median      3Q     Max 
-## -4.4122 -0.6798 -0.0853  0.5808  6.7892 
-## 
-## Random effects:
-##  Groups         Name        Variance Std.Dev.
-##  essround:cntry (Intercept) 0.006002 0.07748 
-##  cntry          (Intercept) 0.000000 0.00000 
-##  Residual                   1.043983 1.02175 
-## Number of obs: 71135, groups:  essround:cntry, 131; cntry, 30
-## 
-## Fixed effects:
-##                   Estimate Std. Error t value
-## (Intercept)       0.033163   0.016907   1.962
-## GR               -0.040907   0.029375  -1.393
-## CNTeffectMOD     -0.006086   0.022787  -0.267
-## CNTeffectMOST     0.010763   0.024913   0.432
-## GR:CNTeffectMOD   0.004815   0.039800   0.121
-## GR:CNTeffectMOST -0.010674   0.041321  -0.258
-## 
-## Correlation of Fixed Effects:
-##             (Intr) GR     CNTMOD CNTMOS GR:CNTMOD
-## GR          -0.576                               
-## CNTeffctMOD -0.742  0.427                        
-## CNTffctMOST -0.679  0.391  0.504                 
-## GR:CNTffMOD  0.425 -0.738 -0.573 -0.288          
-## GR:CNTfMOST  0.409 -0.711 -0.304 -0.603  0.525   
-## 
-## $power_CENTER
-## Linear mixed model fit by REML ['lmerMod']
-## Formula: power_CENTER ~ GR * CNTeffect + (1 | cntry/essround)
-##    Data: analysisData
-## Weights: dweight
-## 
-## REML criterion at convergence: 207421.9
-## 
-## Scaled residuals: 
-##     Min      1Q  Median      3Q     Max 
-## -4.4122 -0.6798 -0.0853  0.5808  6.7892 
-## 
-## Random effects:
-##  Groups         Name        Variance Std.Dev.
-##  essround:cntry (Intercept) 0.006002 0.07748 
-##  cntry          (Intercept) 0.000000 0.00000 
-##  Residual                   1.043983 1.02175 
-## Number of obs: 71135, groups:  essround:cntry, 131; cntry, 30
-## 
-## Fixed effects:
-##                   Estimate Std. Error t value
-## (Intercept)       0.033163   0.016907   1.962
-## GR               -0.040907   0.029375  -1.393
-## CNTeffectMOD     -0.006086   0.022787  -0.267
-## CNTeffectMOST     0.010763   0.024913   0.432
-## GR:CNTeffectMOD   0.004815   0.039800   0.121
-## GR:CNTeffectMOST -0.010674   0.041321  -0.258
-## 
-## Correlation of Fixed Effects:
-##             (Intr) GR     CNTMOD CNTMOS GR:CNTMOD
-## GR          -0.576                               
-## CNTeffctMOD -0.742  0.427                        
-## CNTffctMOST -0.679  0.391  0.504                 
-## GR:CNTffMOD  0.425 -0.738 -0.573 -0.288          
-## GR:CNTfMOST  0.409 -0.711 -0.304 -0.603  0.525   
-## 
-## $security_CENTER
-## Linear mixed model fit by REML ['lmerMod']
-## Formula: security_CENTER ~ GR * CNTeffect + (1 | cntry/essround)
-##    Data: analysisData
-## Weights: dweight
-## 
-## REML criterion at convergence: 207870.2
-## 
-## Scaled residuals: 
-##     Min      1Q  Median      3Q     Max 
-## -5.1951 -0.6722 -0.0620  0.6031  6.7674 
-## 
-## Random effects:
-##  Groups         Name        Variance Std.Dev.
-##  essround:cntry (Intercept) 0.01422  0.1192  
-##  cntry          (Intercept) 0.00000  0.0000  
-##  Residual                   1.04920  1.0243  
-## Number of obs: 71136, groups:  essround:cntry, 131; cntry, 30
-## 
-## Fixed effects:
-##                   Estimate Std. Error t value
-## (Intercept)       0.042861   0.024092   1.779
-## GR               -0.057959   0.041784  -1.387
-## CNTeffectMOD     -0.029914   0.032609  -0.917
-## CNTeffectMOST     0.003969   0.035488   0.112
-## GR:CNTeffectMOD   0.053520   0.056845   0.942
-## GR:CNTeffectMOST  0.033686   0.058750   0.573
-## 
-## Correlation of Fixed Effects:
-##             (Intr) GR     CNTMOD CNTMOS GR:CNTMOD
-## GR          -0.577                               
-## CNTeffctMOD -0.739  0.426                        
-## CNTffctMOST -0.679  0.391  0.502                 
-## GR:CNTffMOD  0.424 -0.735 -0.574 -0.288          
-## GR:CNTfMOST  0.410 -0.711 -0.303 -0.604  0.523</code></pre>
-<pre><code>## 
-## Now working on  conformity_CENTER 
-## 
-## Now working on  tradition_CENTER 
-## 
-## Now working on  benevolence_CENTER 
-## 
-## Now working on  universalism_CENTER 
-## 
-## Now working on  selfDirection_CENTER 
-## 
-## Now working on  stimulation_CENTER 
-## 
-## Now working on  headonism_CENTER 
-## 
-## Now working on  achievement_CENTER 
-## 
-## Now working on  power_CENTER 
-## 
-## Now working on  security_CENTER</code></pre>
-<pre><code>## $conformity_CENTER
-## Linear mixed model fit by REML ['lmerMod']
-## Formula: conformity_CENTER ~ GR * CNTeffect * ISEI + (1 | cntry/essround)
-##    Data: analysisData
-## Weights: dweight
-## 
-## REML criterion at convergence: 156785.1
-## 
-## Scaled residuals: 
-##     Min      1Q  Median      3Q     Max 
-## -4.9780 -0.6885 -0.0793  0.5956  5.7114 
-## 
-## Random effects:
-##  Groups         Name        Variance Std.Dev.
-##  essround:cntry (Intercept) 0.007999 0.08944 
-##  cntry          (Intercept) 0.002446 0.04946 
-##  Residual                   0.983390 0.99166 
-## Number of obs: 54485, groups:  essround:cntry, 131; cntry, 30
-## 
-## Fixed effects:
-##                         Estimate Std. Error t value
-## (Intercept)            0.0327897  0.0357134   0.918
-## GR                     0.1121223  0.0549367   2.041
-## CNTeffectMOD           0.1210877  0.0478078   2.533
-## CNTeffectMOST         -0.2123668  0.0526206  -4.036
-## ISEI                  -0.0028259  0.0005934  -4.762
-## GR:CNTeffectMOD       -0.1287110  0.0733454  -1.755
-## GR:CNTeffectMOST      -0.0338508  0.0786608  -0.430
-## GR:ISEI               -0.0017749  0.0010367  -1.712
-## CNTeffectMOD:ISEI     -0.0018382  0.0007711  -2.384
-## CNTeffectMOST:ISEI     0.0045265  0.0008889   5.092
-## GR:CNTeffectMOD:ISEI   0.0020156  0.0013602   1.482
-## GR:CNTeffectMOST:ISEI  0.0007435  0.0015037   0.494
-## 
-## Correlation of Fixed Effects:
-##             (Intr) GR     CNTfMOD CNTfMOST ISEI   GR:CNTfMOD GR:CNTfMOST
-## GR          -0.497                                                      
-## CNTeffctMOD -0.747  0.372                                               
-## CNTffctMOST -0.679  0.338  0.507                                        
-## ISEI        -0.689  0.449  0.515   0.468                                
-## GR:CNTffMOD  0.373 -0.749 -0.491  -0.253   -0.336                       
-## GR:CNTfMOST  0.347 -0.698 -0.259  -0.534   -0.313  0.523                
-## GR:ISEI      0.395 -0.787 -0.295  -0.268   -0.572  0.590      0.550     
-## CNTMOD:ISEI  0.530 -0.345 -0.678  -0.360   -0.770  0.442      0.241     
-## CNTMOST:ISE  0.460 -0.300 -0.344  -0.699   -0.668  0.224      0.468     
-## GR:CNTMOD:I -0.301  0.600  0.385   0.204    0.436 -0.780     -0.419     
-## GR:CNTMOST: -0.272  0.543  0.204   0.412    0.395 -0.407     -0.789     
-##             GR:ISE CNTMOD: CNTMOST: GR:CNTMOD:
-## GR                                            
-## CNTeffctMOD                                   
-## CNTffctMOST                                   
-## ISEI                                          
-## GR:CNTffMOD                                   
-## GR:CNTfMOST                                   
-## GR:ISEI                                       
-## CNTMOD:ISEI  0.440                            
-## CNTMOST:ISE  0.382  0.514                     
-## GR:CNTMOD:I -0.762 -0.567  -0.291             
-## GR:CNTMOST: -0.689 -0.304  -0.591    0.525    
-## 
-## $tradition_CENTER
-## Linear mixed model fit by REML ['lmerMod']
-## Formula: tradition_CENTER ~ GR * CNTeffect * ISEI + (1 | cntry/essround)
-##    Data: analysisData
-## Weights: dweight
-## 
-## REML criterion at convergence: 156342.1
-## 
-## Scaled residuals: 
-##     Min      1Q  Median      3Q     Max 
-## -5.1781 -0.6848 -0.0646  0.5937  6.0375 
-## 
-## Random effects:
-##  Groups         Name        Variance Std.Dev.
-##  essround:cntry (Intercept) 0.003001 0.05478 
-##  cntry          (Intercept) 0.003347 0.05785 
-##  Residual                   0.975611 0.98773 
-## Number of obs: 54504, groups:  essround:cntry, 131; cntry, 30
-## 
-## Fixed effects:
-##                         Estimate Std. Error t value
-## (Intercept)           -0.1717162  0.0344577  -4.983
-## GR                     0.0601887  0.0495680   1.214
-## CNTeffectMOD           0.2238201  0.0461626   4.849
-## CNTeffectMOST         -0.0498085  0.0504147  -0.988
-## ISEI                   0.0019304  0.0005905   3.269
-## GR:CNTeffectMOD       -0.1271471  0.0658319  -1.931
-## GR:CNTeffectMOST      -0.0096515  0.0711244  -0.136
-## GR:ISEI               -0.0008162  0.0010308  -0.792
-## CNTeffectMOD:ISEI     -0.0040739  0.0007673  -5.309
-## CNTeffectMOST:ISEI     0.0003521  0.0008840   0.398
-## GR:CNTeffectMOD:ISEI   0.0012153  0.0013530   0.898
-## GR:CNTeffectMOST:ISEI -0.0002264  0.0014950  -0.151
-## 
-## Correlation of Fixed Effects:
-##             (Intr) GR     CNTfMOD CNTfMOST ISEI   GR:CNTfMOD GR:CNTfMOST
-## GR          -0.463                                                      
-## CNTeffctMOD -0.746  0.345                                               
-## CNTffctMOST -0.683  0.316  0.510                                        
-## ISEI        -0.711  0.495  0.531   0.486                                
-## GR:CNTffMOD  0.348 -0.753 -0.454  -0.238   -0.373                       
-## GR:CNTfMOST  0.322 -0.697 -0.241  -0.500   -0.345  0.525                
-## GR:ISEI      0.408 -0.868 -0.305  -0.279   -0.573  0.654      0.605     
-## CNTMOD:ISEI  0.547 -0.381 -0.699  -0.374   -0.770  0.491      0.266     
-## CNTMOST:ISE  0.475 -0.331 -0.354  -0.725   -0.668  0.249      0.514     
-## GR:CNTMOD:I -0.311  0.662  0.397   0.213    0.436 -0.864     -0.461     
-## GR:CNTMOST: -0.281  0.599  0.210   0.426    0.395 -0.451     -0.867     
-##             GR:ISE CNTMOD: CNTMOST: GR:CNTMOD:
-## GR                                            
-## CNTeffctMOD                                   
-## CNTffctMOST                                   
-## ISEI                                          
-## GR:CNTffMOD                                   
-## GR:CNTfMOST                                   
-## GR:ISEI                                       
-## CNTMOD:ISEI  0.441                            
-## CNTMOST:ISE  0.382  0.514                     
-## GR:CNTMOD:I -0.762 -0.567  -0.291             
-## GR:CNTMOST: -0.689 -0.304  -0.591    0.525    
-## 
-## $benevolence_CENTER
-## Linear mixed model fit by REML ['lmerMod']
-## Formula: benevolence_CENTER ~ GR * CNTeffect * ISEI + (1 | cntry/essround)
-##    Data: analysisData
-## Weights: dweight
-## 
-## REML criterion at convergence: 155227
-## 
-## Scaled residuals: 
-##     Min      1Q  Median      3Q     Max 
-## -6.4955 -0.6545 -0.0510  0.5782  6.3760 
-## 
-## Random effects:
-##  Groups         Name        Variance Std.Dev.
-##  essround:cntry (Intercept) 0.008156 0.09031 
-##  cntry          (Intercept) 0.003352 0.05789 
-##  Residual                   0.953768 0.97661 
-## Number of obs: 54520, groups:  essround:cntry, 131; cntry, 30
-## 
-## Fixed effects:
-##                         Estimate Std. Error t value
-## (Intercept)            0.1308275  0.0369473   3.541
-## GR                    -0.0609969  0.0545263  -1.119
-## CNTeffectMOD           0.0823802  0.0495859   1.661
-## CNTeffectMOST         -0.0685964  0.0542264  -1.265
-## ISEI                  -0.0055242  0.0005841  -9.458
-## GR:CNTeffectMOD       -0.0016893  0.0728334  -0.023
-## GR:CNTeffectMOST       0.0117960  0.0781052   0.151
-## GR:ISEI                0.0010321  0.0010204   1.011
-## CNTeffectMOD:ISEI     -0.0002122  0.0007591  -0.280
-## CNTeffectMOST:ISEI     0.0014340  0.0008752   1.639
-## GR:CNTeffectMOD:ISEI  -0.0023762  0.0013391  -1.774
-## GR:CNTeffectMOST:ISEI -0.0018366  0.0014803  -1.241
-## 
-## Correlation of Fixed Effects:
-##             (Intr) GR     CNTfMOD CNTfMOST ISEI   GR:CNTfMOD GR:CNTfMOST
-## GR          -0.475                                                      
-## CNTeffctMOD -0.745  0.354                                               
-## CNTffctMOST -0.681  0.324  0.508                                        
-## ISEI        -0.656  0.445  0.489   0.447                                
-## GR:CNTffMOD  0.356 -0.749 -0.469  -0.243   -0.333                       
-## GR:CNTfMOST  0.332 -0.698 -0.247  -0.515   -0.311  0.523                
-## GR:ISEI      0.376 -0.781 -0.280  -0.256   -0.572  0.585      0.545     
-## CNTMOD:ISEI  0.505 -0.342 -0.644  -0.344   -0.769  0.439      0.239     
-## CNTMOST:ISE  0.438 -0.297 -0.326  -0.667   -0.667  0.222      0.464     
-## GR:CNTMOD:I -0.287  0.595  0.365   0.195    0.436 -0.773     -0.415     
-## GR:CNTMOST: -0.259  0.538  0.193   0.393    0.395 -0.403     -0.783     
-##             GR:ISE CNTMOD: CNTMOST: GR:CNTMOD:
-## GR                                            
-## CNTeffctMOD                                   
-## CNTffctMOST                                   
-## ISEI                                          
-## GR:CNTffMOD                                   
-## GR:CNTfMOST                                   
-## GR:ISEI                                       
-## CNTMOD:ISEI  0.440                            
-## CNTMOST:ISE  0.382  0.514                     
-## GR:CNTMOD:I -0.762 -0.567  -0.291             
-## GR:CNTMOST: -0.689 -0.304  -0.591    0.525    
-## 
-## $universalism_CENTER
-## Linear mixed model fit by REML ['lmerMod']
-## Formula: 
-## universalism_CENTER ~ GR * CNTeffect * ISEI + (1 | cntry/essround)
-##    Data: analysisData
-## Weights: dweight
-## 
-## REML criterion at convergence: 155437.3
-## 
-## Scaled residuals: 
-##     Min      1Q  Median      3Q     Max 
-## -5.3632 -0.6711 -0.0631  0.5753  8.0377 
-## 
-## Random effects:
-##  Groups         Name        Variance Std.Dev.
-##  essround:cntry (Intercept) 0.007373 0.08586 
-##  cntry          (Intercept) 0.006038 0.07770 
-##  Residual                   0.957252 0.97839 
-## Number of obs: 54523, groups:  essround:cntry, 131; cntry, 30
-## 
-## Fixed effects:
-##                         Estimate Std. Error t value
-## (Intercept)            2.083e-01  4.059e-02   5.132
-## GR                     7.116e-02  5.390e-02   1.320
-## CNTeffectMOD           1.129e-01  5.473e-02   2.063
-## CNTeffectMOST         -9.131e-02  5.893e-02  -1.549
-## ISEI                  -7.884e-03  5.852e-04 -13.473
-## GR:CNTeffectMOD        2.979e-05  7.194e-02   0.000
-## GR:CNTeffectMOST       7.735e-03  7.732e-02   0.100
-## GR:ISEI               -2.087e-04  1.022e-03  -0.204
-## CNTeffectMOD:ISEI     -1.259e-03  7.605e-04  -1.656
-## CNTeffectMOST:ISEI     2.363e-03  8.767e-04   2.695
-## GR:CNTeffectMOD:ISEI  -9.284e-04  1.342e-03  -0.692
-## GR:CNTeffectMOST:ISEI -2.812e-03  1.483e-03  -1.896
-## 
-## Correlation of Fixed Effects:
-##             (Intr) GR     CNTfMOD CNTfMOST ISEI   GR:CNTfMOD GR:CNTfMOST
-## GR          -0.424                                                      
-## CNTeffctMOD -0.742  0.315                                               
-## CNTffctMOST -0.689  0.292  0.511                                        
-## ISEI        -0.598  0.451  0.443   0.412                                
-## GR:CNTffMOD  0.318 -0.749 -0.417  -0.219   -0.338                       
-## GR:CNTfMOST  0.296 -0.697 -0.219  -0.470   -0.315  0.522                
-## GR:ISEI      0.343 -0.792 -0.254  -0.236   -0.572  0.593      0.552     
-## CNTMOD:ISEI  0.460 -0.347 -0.585  -0.317   -0.769  0.445      0.242     
-## CNTMOST:ISE  0.399 -0.301 -0.296  -0.615   -0.667  0.226      0.470     
-## GR:CNTMOD:I -0.261  0.603  0.332   0.180    0.436 -0.784     -0.421     
-## GR:CNTMOST: -0.237  0.546  0.175   0.362    0.395 -0.409     -0.792     
-##             GR:ISE CNTMOD: CNTMOST: GR:CNTMOD:
-## GR                                            
-## CNTeffctMOD                                   
-## CNTffctMOST                                   
-## ISEI                                          
-## GR:CNTffMOD                                   
-## GR:CNTfMOST                                   
-## GR:ISEI                                       
-## CNTMOD:ISEI  0.440                            
-## CNTMOST:ISE  0.382  0.514                     
-## GR:CNTMOD:I -0.762 -0.567  -0.291             
-## GR:CNTMOST: -0.689 -0.304  -0.591    0.525    
-## 
-## $selfDirection_CENTER
-## Linear mixed model fit by REML ['lmerMod']
-## Formula: 
-## selfDirection_CENTER ~ GR * CNTeffect * ISEI + (1 | cntry/essround)
-##    Data: analysisData
-## Weights: dweight
-## 
-## REML criterion at convergence: 154981.2
-## 
-## Scaled residuals: 
-##     Min      1Q  Median      3Q     Max 
-## -4.5750 -0.6672 -0.0632  0.5747  6.0794 
-## 
-## Random effects:
-##  Groups         Name        Variance Std.Dev.
-##  essround:cntry (Intercept) 0.005356 0.07319 
-##  cntry          (Intercept) 0.004154 0.06445 
-##  Residual                   0.949969 0.97466 
-## Number of obs: 54520, groups:  essround:cntry, 131; cntry, 30
-## 
-## Fixed effects:
-##                         Estimate Std. Error t value
-## (Intercept)            3.652e-01  3.675e-02   9.936
-## GR                     9.223e-02  5.161e-02   1.787
-## CNTeffectMOD           1.558e-02  4.938e-02   0.316
-## CNTeffectMOST         -1.278e-01  5.366e-02  -2.382
-## ISEI                  -1.104e-02  5.828e-04 -18.944
-## GR:CNTeffectMOD       -6.748e-02  6.875e-02  -0.982
-## GR:CNTeffectMOST      -1.138e-01  7.403e-02  -1.537
-## GR:ISEI               -6.389e-04  1.018e-03  -0.627
-## CNTeffectMOD:ISEI      7.152e-04  7.574e-04   0.944
-## CNTeffectMOST:ISEI     3.392e-03  8.730e-04   3.885
-## GR:CNTeffectMOD:ISEI   3.521e-04  1.336e-03   0.264
-## GR:CNTeffectMOST:ISEI -9.239e-05  1.477e-03  -0.063
-## 
-## Correlation of Fixed Effects:
-##             (Intr) GR     CNTfMOD CNTfMOST ISEI   GR:CNTfMOD GR:CNTfMOST
-## GR          -0.450                                                      
-## CNTeffctMOD -0.744  0.335                                               
-## CNTffctMOST -0.685  0.308  0.510                                        
-## ISEI        -0.658  0.469  0.489   0.450                                
-## GR:CNTffMOD  0.338 -0.751 -0.443  -0.232   -0.352                       
-## GR:CNTfMOST  0.314 -0.697 -0.234  -0.492   -0.327  0.523                
-## GR:ISEI      0.377 -0.824 -0.281  -0.258   -0.572  0.618      0.574     
-## CNTMOD:ISEI  0.506 -0.361 -0.645  -0.347   -0.770  0.464      0.252     
-## CNTMOST:ISE  0.439 -0.313 -0.327  -0.673   -0.668  0.235      0.488     
-## GR:CNTMOD:I -0.288  0.628  0.366   0.197    0.436 -0.817     -0.438     
-## GR:CNTMOST: -0.260  0.568  0.194   0.396    0.395 -0.426     -0.823     
-##             GR:ISE CNTMOD: CNTMOST: GR:CNTMOD:
-## GR                                            
-## CNTeffctMOD                                   
-## CNTffctMOST                                   
-## ISEI                                          
-## GR:CNTffMOD                                   
-## GR:CNTfMOST                                   
-## GR:ISEI                                       
-## CNTMOD:ISEI  0.440                            
-## CNTMOST:ISE  0.382  0.514                     
-## GR:CNTMOD:I -0.762 -0.567  -0.291             
-## GR:CNTMOST: -0.689 -0.304  -0.591    0.525    
+##             (Intr) GR     CNTMOD CNTMOS c_nrll gndr   s(ISEI scl(g)
+## GR          -0.294                                                 
+## CNTeffctMOD -0.469  0.341                                          
+## CNTffctMOST -0.478  0.320  0.504                                   
+## c_unraall   -0.621 -0.059 -0.079 -0.020                            
+## gndr        -0.325  0.003 -0.004 -0.005  0.000                     
+## scale(ISEI)  0.016 -0.004 -0.011  0.004  0.022 -0.060              
+## scale(agea) -0.005  0.007  0.010 -0.008 -0.024 -0.017 -0.219       
+## GR:CNTffMOD  0.242 -0.716 -0.445 -0.229 -0.004 -0.007  0.006 -0.006
+## GR:CNTfMOST  0.438 -0.638 -0.195 -0.468 -0.352 -0.003 -0.003  0.000
+##             GR:CNTMOD
+## GR                   
+## CNTeffctMOD          
+## CNTffctMOST          
+## c_unraall            
+## gndr                 
+## scale(ISEI)          
+## scale(agea)          
+## GR:CNTffMOD          
+## GR:CNTfMOST  0.475   
 ## 
 ## $stimulation_CENTER
 ## Linear mixed model fit by REML ['lmerMod']
-## Formula: stimulation_CENTER ~ GR * CNTeffect * ISEI + (1 | cntry/essround)
+## Formula: 
+## stimulation_CENTER ~ GR * CNTeffect + c_unraall + gndr + scale(ISEI) +  
+##     scale(agea) + (1 | cntry/essround)
 ##    Data: analysisData
 ## Weights: dweight
 ## 
-## REML criterion at convergence: 158893.8
+## REML criterion at convergence: 160791.1
 ## 
 ## Scaled residuals: 
 ##     Min      1Q  Median      3Q     Max 
-## -4.7870 -0.6798 -0.0470  0.6286  6.4175 
+## -5.3159 -0.6719 -0.0394  0.6270  6.6291 
 ## 
 ## Random effects:
 ##  Groups         Name        Variance Std.Dev.
-##  essround:cntry (Intercept) 0.002701 0.05197 
+##  essround:cntry (Intercept) 0.004219 0.06495 
 ##  cntry          (Intercept) 0.000000 0.00000 
-##  Residual                   1.022789 1.01133 
-## Number of obs: 54512, groups:  essround:cntry, 131; cntry, 30
+##  Residual                   0.999832 0.99992 
+## Number of obs: 55576, groups:  essround:cntry, 126; cntry, 29
 ## 
 ## Fixed effects:
-##                         Estimate Std. Error t value
-## (Intercept)            9.705e-02  2.858e-02   3.395
-## GR                    -7.879e-02  5.002e-02  -1.575
-## CNTeffectMOD          -1.941e-01  3.773e-02  -5.144
-## CNTeffectMOST         -1.548e-02  4.245e-02  -0.365
-## ISEI                  -2.549e-03  6.041e-04  -4.219
-## GR:CNTeffectMOD        1.852e-01  6.639e-02   2.789
-## GR:CNTeffectMOST       1.631e-02  7.165e-02   0.228
-## GR:ISEI                1.827e-03  1.055e-03   1.732
-## CNTeffectMOD:ISEI      4.288e-03  7.848e-04   5.463
-## CNTeffectMOST:ISEI     8.424e-05  9.040e-04   0.093
-## GR:CNTeffectMOD:ISEI  -4.129e-03  1.384e-03  -2.982
-## GR:CNTeffectMOST:ISEI -5.072e-04  1.530e-03  -0.332
+##                   Estimate Std. Error t value
+## (Intercept)      -0.159107   0.024288  -6.551
+## GR               -0.054128   0.026787  -2.021
+## CNTeffectMOD      0.002699   0.021074   0.128
+## CNTeffectMOST     0.028230   0.022816   1.237
+## c_unraall        -0.006232   0.002067  -3.015
+## gndr              0.141462   0.008411  16.819
+## scale(ISEI)      -0.049378   0.004383 -11.266
+## scale(agea)      -0.069681   0.004743 -14.691
+## GR:CNTeffectMOD  -0.032067   0.037063  -0.865
+## GR:CNTeffectMOST -0.028064   0.039555  -0.709
 ## 
 ## Correlation of Fixed Effects:
-##             (Intr) GR     CNTfMOD CNTfMOST ISEI   GR:CNTfMOD GR:CNTfMOST
-## GR          -0.571                                                      
-## CNTeffctMOD -0.758  0.433                                               
-## CNTffctMOST -0.673  0.385  0.510                                        
-## ISEI        -0.878  0.502  0.665   0.591                                
-## GR:CNTffMOD  0.431 -0.753 -0.568  -0.290   -0.378                       
-## GR:CNTfMOST  0.399 -0.698 -0.302  -0.592   -0.350  0.526                
-## GR:ISEI      0.503 -0.879 -0.381  -0.339   -0.573  0.663      0.614     
-## CNTMOD:ISEI  0.676 -0.386 -0.875  -0.455   -0.770  0.498      0.270     
-## CNTMOST:ISE  0.587 -0.335 -0.445  -0.879   -0.668  0.253      0.521     
-## GR:CNTMOD:I -0.383  0.670  0.496   0.258    0.436 -0.876     -0.468     
-## GR:CNTMOST: -0.347  0.606  0.263   0.519    0.395 -0.457     -0.881     
-##             GR:ISE CNTMOD: CNTMOST: GR:CNTMOD:
-## GR                                            
-## CNTeffctMOD                                   
-## CNTffctMOST                                   
-## ISEI                                          
-## GR:CNTffMOD                                   
-## GR:CNTfMOST                                   
-## GR:ISEI                                       
-## CNTMOD:ISEI  0.441                            
-## CNTMOST:ISE  0.383  0.514                     
-## GR:CNTMOD:I -0.762 -0.567  -0.292             
-## GR:CNTMOST: -0.689 -0.304  -0.591    0.525    
+##             (Intr) GR     CNTMOD CNTMOS c_nrll gndr   s(ISEI scl(g)
+## GR          -0.344                                                 
+## CNTeffctMOD -0.423  0.432                                          
+## CNTffctMOST -0.402  0.398  0.506                                   
+## c_unraall   -0.567 -0.052 -0.081 -0.051                            
+## gndr        -0.519  0.004 -0.007 -0.008  0.001                     
+## scale(ISEI)  0.025 -0.004 -0.018  0.012  0.037 -0.060              
+## scale(agea) -0.004  0.008  0.017 -0.019 -0.043 -0.017 -0.219       
+## GR:CNTffMOD  0.279 -0.720 -0.564 -0.285 -0.010 -0.010  0.007 -0.008
+## GR:CNTfMOST  0.419 -0.660 -0.266 -0.560 -0.292 -0.004 -0.007  0.002
+##             GR:CNTMOD
+## GR                   
+## CNTeffctMOD          
+## CNTffctMOST          
+## c_unraall            
+## gndr                 
+## scale(ISEI)          
+## scale(agea)          
+## GR:CNTffMOD          
+## GR:CNTfMOST  0.491   
 ## 
 ## $headonism_CENTER
 ## Linear mixed model fit by REML ['lmerMod']
-## Formula: headonism_CENTER ~ GR * CNTeffect * ISEI + (1 | cntry/essround)
+## Formula: 
+## headonism_CENTER ~ GR * CNTeffect + c_unraall + gndr + scale(ISEI) +  
+##     scale(agea) + (1 | cntry/essround)
 ##    Data: analysisData
 ## Weights: dweight
 ## 
-## REML criterion at convergence: 158463.2
+## REML criterion at convergence: 159806.4
 ## 
 ## Scaled residuals: 
 ##     Min      1Q  Median      3Q     Max 
-## -4.5184 -0.6615 -0.0837  0.5812  7.0978 
-## 
-## Random effects:
-##  Groups         Name        Variance Std.Dev.
-##  essround:cntry (Intercept) 0.006168 0.07854 
-##  cntry          (Intercept) 0.000000 0.00000 
-##  Residual                   1.013361 1.00666 
-## Number of obs: 54514, groups:  essround:cntry, 131; cntry, 30
-## 
-## Fixed effects:
-##                         Estimate Std. Error t value
-## (Intercept)            0.0478603  0.0305878   1.565
-## GR                    -0.0381673  0.0534884  -0.714
-## CNTeffectMOD          -0.0713828  0.0405475  -1.760
-## CNTeffectMOST          0.0492253  0.0454400   1.083
-## ISEI                  -0.0018049  0.0006017  -2.999
-## GR:CNTeffectMOD        0.1355037  0.0712611   1.902
-## GR:CNTeffectMOST       0.0503438  0.0765023   0.658
-## GR:ISEI                0.0014083  0.0010514   1.340
-## CNTeffectMOD:ISEI      0.0013310  0.0007819   1.702
-## CNTeffectMOST:ISEI    -0.0025159  0.0009013  -2.791
-## GR:CNTeffectMOD:ISEI  -0.0027275  0.0013797  -1.977
-## GR:CNTeffectMOST:ISEI -0.0003266  0.0015251  -0.214
-## 
-## Correlation of Fixed Effects:
-##             (Intr) GR     CNTfMOD CNTfMOST ISEI   GR:CNTfMOD GR:CNTfMOST
-## GR          -0.572                                                      
-## CNTeffctMOD -0.754  0.431                                               
-## CNTffctMOST -0.673  0.385  0.508                                        
-## ISEI        -0.817  0.467  0.616   0.550                                
-## GR:CNTffMOD  0.429 -0.751 -0.569  -0.289   -0.351                       
-## GR:CNTfMOST  0.400 -0.699 -0.302  -0.594   -0.327  0.525                
-## GR:ISEI      0.468 -0.820 -0.353  -0.315   -0.572  0.615      0.573     
-## CNTMOD:ISEI  0.629 -0.360 -0.811  -0.423   -0.770  0.462      0.251     
-## CNTMOST:ISE  0.546 -0.312 -0.412  -0.819   -0.668  0.234      0.487     
-## GR:CNTMOD:I -0.356  0.625  0.460   0.240    0.436 -0.814     -0.437     
-## GR:CNTMOST: -0.322  0.565  0.243   0.484    0.395 -0.424     -0.823     
-##             GR:ISE CNTMOD: CNTMOST: GR:CNTMOD:
-## GR                                            
-## CNTeffctMOD                                   
-## CNTffctMOST                                   
-## ISEI                                          
-## GR:CNTffMOD                                   
-## GR:CNTfMOST                                   
-## GR:ISEI                                       
-## CNTMOD:ISEI  0.440                            
-## CNTMOST:ISE  0.382  0.514                     
-## GR:CNTMOD:I -0.762 -0.567  -0.291             
-## GR:CNTMOST: -0.689 -0.304  -0.591    0.525    
-## 
-## $achievement_CENTER
-## Linear mixed model fit by REML ['lmerMod']
-## Formula: achievement_CENTER ~ GR * CNTeffect * ISEI + (1 | cntry/essround)
-##    Data: analysisData
-## Weights: dweight
-## 
-## REML criterion at convergence: 157290.2
-## 
-## Scaled residuals: 
-##     Min      1Q  Median      3Q     Max 
-## -4.3358 -0.6769 -0.0854  0.5865  7.1200 
-## 
-## Random effects:
-##  Groups         Name        Variance Std.Dev.
-##  essround:cntry (Intercept) 0.005841 0.07642 
-##  cntry          (Intercept) 0.001149 0.03389 
-##  Residual                   0.991526 0.99575 
-## Number of obs: 54517, groups:  essround:cntry, 131; cntry, 30
-## 
-## Fixed effects:
-##                         Estimate Std. Error t value
-## (Intercept)            3.884e-01  3.238e-02  11.996
-## GR                    -1.045e-01  5.283e-02  -1.977
-## CNTeffectMOD           4.610e-03  4.312e-02   0.107
-## CNTeffectMOST         -1.231e-01  4.795e-02  -2.568
-## ISEI                  -1.010e-02  5.953e-04 -16.960
-## GR:CNTeffectMOD        5.072e-02  7.039e-02   0.721
-## GR:CNTeffectMOST       1.006e-02  7.565e-02   0.133
-## GR:ISEI                1.103e-03  1.040e-03   1.060
-## CNTeffectMOD:ISEI      2.032e-07  7.736e-04   0.000
-## CNTeffectMOST:ISEI     2.603e-03  8.917e-04   2.920
-## GR:CNTeffectMOD:ISEI  -8.490e-04  1.365e-03  -0.622
-## GR:CNTeffectMOST:ISEI -6.688e-04  1.509e-03  -0.443
-## 
-## Correlation of Fixed Effects:
-##             (Intr) GR     CNTfMOD CNTfMOST ISEI   GR:CNTfMOD GR:CNTfMOST
-## GR          -0.530                                                      
-## CNTeffctMOD -0.751  0.398                                               
-## CNTffctMOST -0.675  0.358  0.507                                        
-## ISEI        -0.763  0.468  0.573   0.515                                
-## GR:CNTffMOD  0.398 -0.751 -0.525  -0.269   -0.351                       
-## GR:CNTfMOST  0.370 -0.698 -0.278  -0.560   -0.327  0.524                
-## GR:ISEI      0.437 -0.821 -0.328  -0.295   -0.572  0.617      0.574     
-## CNTMOD:ISEI  0.587 -0.360 -0.755  -0.397   -0.770  0.463      0.252     
-## CNTMOST:ISE  0.509 -0.313 -0.383  -0.768   -0.668  0.235      0.487     
-## GR:CNTMOD:I -0.333  0.626  0.428   0.225    0.436 -0.815     -0.437     
-## GR:CNTMOST: -0.301  0.566  0.226   0.453    0.395 -0.425     -0.823     
-##             GR:ISE CNTMOD: CNTMOST: GR:CNTMOD:
-## GR                                            
-## CNTeffctMOD                                   
-## CNTffctMOST                                   
-## ISEI                                          
-## GR:CNTffMOD                                   
-## GR:CNTfMOST                                   
-## GR:ISEI                                       
-## CNTMOD:ISEI  0.440                            
-## CNTMOST:ISE  0.382  0.514                     
-## GR:CNTMOD:I -0.762 -0.567  -0.291             
-## GR:CNTMOST: -0.689 -0.304  -0.591    0.525    
-## 
-## $power_CENTER
-## Linear mixed model fit by REML ['lmerMod']
-## Formula: power_CENTER ~ GR * CNTeffect * ISEI + (1 | cntry/essround)
-##    Data: analysisData
-## Weights: dweight
-## 
-## REML criterion at convergence: 157290.2
-## 
-## Scaled residuals: 
-##     Min      1Q  Median      3Q     Max 
-## -4.3358 -0.6769 -0.0854  0.5865  7.1200 
-## 
-## Random effects:
-##  Groups         Name        Variance Std.Dev.
-##  essround:cntry (Intercept) 0.005841 0.07642 
-##  cntry          (Intercept) 0.001149 0.03389 
-##  Residual                   0.991526 0.99575 
-## Number of obs: 54517, groups:  essround:cntry, 131; cntry, 30
-## 
-## Fixed effects:
-##                         Estimate Std. Error t value
-## (Intercept)            3.884e-01  3.238e-02  11.996
-## GR                    -1.045e-01  5.283e-02  -1.977
-## CNTeffectMOD           4.610e-03  4.312e-02   0.107
-## CNTeffectMOST         -1.231e-01  4.795e-02  -2.568
-## ISEI                  -1.010e-02  5.953e-04 -16.960
-## GR:CNTeffectMOD        5.072e-02  7.039e-02   0.721
-## GR:CNTeffectMOST       1.006e-02  7.565e-02   0.133
-## GR:ISEI                1.103e-03  1.040e-03   1.060
-## CNTeffectMOD:ISEI      2.032e-07  7.736e-04   0.000
-## CNTeffectMOST:ISEI     2.603e-03  8.917e-04   2.920
-## GR:CNTeffectMOD:ISEI  -8.490e-04  1.365e-03  -0.622
-## GR:CNTeffectMOST:ISEI -6.688e-04  1.509e-03  -0.443
-## 
-## Correlation of Fixed Effects:
-##             (Intr) GR     CNTfMOD CNTfMOST ISEI   GR:CNTfMOD GR:CNTfMOST
-## GR          -0.530                                                      
-## CNTeffctMOD -0.751  0.398                                               
-## CNTffctMOST -0.675  0.358  0.507                                        
-## ISEI        -0.763  0.468  0.573   0.515                                
-## GR:CNTffMOD  0.398 -0.751 -0.525  -0.269   -0.351                       
-## GR:CNTfMOST  0.370 -0.698 -0.278  -0.560   -0.327  0.524                
-## GR:ISEI      0.437 -0.821 -0.328  -0.295   -0.572  0.617      0.574     
-## CNTMOD:ISEI  0.587 -0.360 -0.755  -0.397   -0.770  0.463      0.252     
-## CNTMOST:ISE  0.509 -0.313 -0.383  -0.768   -0.668  0.235      0.487     
-## GR:CNTMOD:I -0.333  0.626  0.428   0.225    0.436 -0.815     -0.437     
-## GR:CNTMOST: -0.301  0.566  0.226   0.453    0.395 -0.425     -0.823     
-##             GR:ISE CNTMOD: CNTMOST: GR:CNTMOD:
-## GR                                            
-## CNTeffctMOD                                   
-## CNTffctMOST                                   
-## ISEI                                          
-## GR:CNTffMOD                                   
-## GR:CNTfMOST                                   
-## GR:ISEI                                       
-## CNTMOD:ISEI  0.440                            
-## CNTMOST:ISE  0.382  0.514                     
-## GR:CNTMOD:I -0.762 -0.567  -0.291             
-## GR:CNTMOST: -0.689 -0.304  -0.591    0.525    
-## 
-## $security_CENTER
-## Linear mixed model fit by REML ['lmerMod']
-## Formula: security_CENTER ~ GR * CNTeffect * ISEI + (1 | cntry/essround)
-##    Data: analysisData
-## Weights: dweight
-## 
-## REML criterion at convergence: 157399.3
-## 
-## Scaled residuals: 
-##     Min      1Q  Median      3Q     Max 
-## -5.0833 -0.6659 -0.0499  0.6126  6.0362 
+## -6.4021 -0.6580 -0.0790  0.5878  6.8959 
 ## 
 ## Random effects:
 ##  Groups         Name        Variance  Std.Dev. 
-##  essround:cntry (Intercept) 1.558e-02 1.248e-01
-##  cntry          (Intercept) 4.004e-14 2.001e-07
-##  Residual                   9.919e-01 9.959e-01
-## Number of obs: 54518, groups:  essround:cntry, 131; cntry, 30
+##  essround:cntry (Intercept) 7.560e-03 8.695e-02
+##  cntry          (Intercept) 3.024e-14 1.739e-07
+##  Residual                   9.812e-01 9.905e-01
+## Number of obs: 55579, groups:  essround:cntry, 126; cntry, 29
 ## 
 ## Fixed effects:
-##                         Estimate Std. Error t value
-## (Intercept)            2.770e-01  3.547e-02   7.810
-## GR                    -5.080e-02  6.185e-02  -0.821
-## CNTeffectMOD          -8.151e-03  4.734e-02  -0.172
-## CNTeffectMOST         -2.138e-01  5.259e-02  -4.065
-## ISEI                  -6.990e-03  5.957e-04 -11.733
-## GR:CNTeffectMOD        2.341e-02  8.297e-02   0.282
-## GR:CNTeffectMOST       1.759e-04  8.811e-02   0.002
-## GR:ISEI               -6.144e-05  1.041e-03  -0.059
-## CNTeffectMOD:ISEI     -1.519e-04  7.742e-04  -0.196
-## CNTeffectMOST:ISEI     4.646e-03  8.928e-04   5.204
-## GR:CNTeffectMOD:ISEI   2.953e-04  1.366e-03   0.216
-## GR:CNTeffectMOST:ISEI  8.981e-05  1.510e-03   0.059
+##                    Estimate Std. Error t value
+## (Intercept)      -0.0687976  0.0283764  -2.424
+## GR               -0.0335907  0.0328248  -1.023
+## CNTeffectMOD      0.0009653  0.0259890   0.037
+## CNTeffectMOST    -0.0084470  0.0279698  -0.302
+## c_unraall        -0.0029483  0.0025374  -1.162
+## gndr              0.0617415  0.0083346   7.408
+## scale(ISEI)      -0.0442233  0.0043450 -10.178
+## scale(agea)      -0.1375597  0.0047054 -29.235
+## GR:CNTeffectMOD  -0.0231272  0.0455603  -0.508
+## GR:CNTeffectMOST -0.0023017  0.0483137  -0.048
 ## 
 ## Correlation of Fixed Effects:
-##             (Intr) GR     CNTfMOD CNTfMOST ISEI   GR:CNTfMOD GR:CNTfMOST
-## GR          -0.573                                                      
-## CNTeffctMOD -0.749  0.430                                               
-## CNTffctMOST -0.674  0.387  0.505                                        
-## ISEI        -0.698  0.400  0.523   0.470                                
-## GR:CNTffMOD  0.427 -0.745 -0.571  -0.288   -0.298                       
-## GR:CNTfMOST  0.403 -0.702 -0.302  -0.597   -0.281  0.523                
-## GR:ISEI      0.399 -0.702 -0.299  -0.269   -0.572  0.523      0.493     
-## CNTMOD:ISEI  0.537 -0.308 -0.688  -0.362   -0.769  0.393      0.216     
-## CNTMOST:ISE  0.465 -0.267 -0.349  -0.701   -0.667  0.199      0.419     
-## GR:CNTMOD:I -0.304  0.535  0.390   0.205    0.436 -0.692     -0.375     
-## GR:CNTMOST: -0.275  0.484  0.206   0.415    0.394 -0.361     -0.708     
-##             GR:ISE CNTMOD: CNTMOST: GR:CNTMOD:
-## GR                                            
-## CNTeffctMOD                                   
-## CNTffctMOST                                   
-## ISEI                                          
-## GR:CNTffMOD                                   
-## GR:CNTfMOST                                   
-## GR:ISEI                                       
-## CNTMOD:ISEI  0.440                            
-## CNTMOST:ISE  0.382  0.513                     
-## GR:CNTMOD:I -0.762 -0.567  -0.291             
-## GR:CNTMOST: -0.689 -0.303  -0.591    0.525</code></pre>
+##             (Intr) GR     CNTMOD CNTMOS c_nrll gndr   s(ISEI scl(g)
+## GR          -0.361                                                 
+## CNTeffctMOD -0.443  0.432                                          
+## CNTffctMOST -0.427  0.399  0.505                                   
+## c_unraall   -0.595 -0.054 -0.083 -0.048                            
+## gndr        -0.440  0.003 -0.005 -0.006  0.001                     
+## scale(ISEI)  0.021 -0.003 -0.015  0.009  0.030 -0.060              
+## scale(agea) -0.003  0.006  0.013 -0.015 -0.036 -0.017 -0.219       
+## GR:CNTffMOD  0.291 -0.718 -0.566 -0.285 -0.010 -0.008  0.006 -0.006
+## GR:CNTfMOST  0.440 -0.662 -0.266 -0.563 -0.291 -0.003 -0.005  0.002
+##             GR:CNTMOD
+## GR                   
+## CNTeffctMOD          
+## CNTffctMOST          
+## c_unraall            
+## gndr                 
+## scale(ISEI)          
+## scale(agea)          
+## GR:CNTffMOD          
+## GR:CNTfMOST  0.491   
+## 
+## $achievement_CENTER
+## Linear mixed model fit by REML ['lmerMod']
+## Formula: 
+## achievement_CENTER ~ GR * CNTeffect + c_unraall + gndr + scale(ISEI) +  
+##     scale(agea) + (1 | cntry/essround)
+##    Data: analysisData
+## Weights: dweight
+## 
+## REML criterion at convergence: 156455
+## 
+## Scaled residuals: 
+##     Min      1Q  Median      3Q     Max 
+## -6.3159 -0.6688 -0.0777  0.5976  7.0725 
+## 
+## Random effects:
+##  Groups         Name        Variance Std.Dev.
+##  essround:cntry (Intercept) 0.009222 0.09603 
+##  cntry          (Intercept) 0.000000 0.00000 
+##  Residual                   0.923335 0.96090 
+## Number of obs: 55580, groups:  essround:cntry, 126; cntry, 29
+## 
+## Fixed effects:
+##                   Estimate Std. Error t value
+## (Intercept)      -0.091025   0.029948   -3.04
+## GR               -0.125533   0.035264   -3.56
+## CNTeffectMOD      0.005413   0.027983    0.19
+## CNTeffectMOST     0.021592   0.030050    0.72
+## c_unraall        -0.004087   0.002727   -1.50
+## gndr              0.095218   0.008086   11.78
+## scale(ISEI)      -0.144463   0.004216  -34.26
+## scale(agea)      -0.213815   0.004566  -46.82
+## GR:CNTeffectMOD  -0.011520   0.049001   -0.24
+## GR:CNTeffectMOST -0.026919   0.051837   -0.52
+## 
+## Correlation of Fixed Effects:
+##             (Intr) GR     CNTMOD CNTMOS c_nrll gndr   s(ISEI scl(g)
+## GR          -0.367                                                 
+## CNTeffctMOD -0.450  0.431                                          
+## CNTffctMOST -0.437  0.400  0.505                                   
+## c_unraall   -0.605 -0.054 -0.084 -0.047                            
+## gndr        -0.404  0.003 -0.005 -0.005  0.001                     
+## scale(ISEI)  0.019 -0.003 -0.013  0.008  0.028 -0.060              
+## scale(agea) -0.003  0.006  0.012 -0.013 -0.032 -0.017 -0.219       
+## GR:CNTffMOD  0.296 -0.717 -0.566 -0.285 -0.010 -0.007  0.005 -0.006
+## GR:CNTfMOST  0.448 -0.663 -0.266 -0.564 -0.290 -0.003 -0.005  0.002
+##             GR:CNTMOD
+## GR                   
+## CNTeffctMOD          
+## CNTffctMOST          
+## c_unraall            
+## gndr                 
+## scale(ISEI)          
+## scale(agea)          
+## GR:CNTffMOD          
+## GR:CNTfMOST  0.491   
+## 
+## $power_CENTER
+## Linear mixed model fit by REML ['lmerMod']
+## Formula: power_CENTER ~ GR * CNTeffect + c_unraall + gndr + scale(ISEI) +  
+##     scale(agea) + (1 | cntry/essround)
+##    Data: analysisData
+## Weights: dweight
+## 
+## REML criterion at convergence: 156455
+## 
+## Scaled residuals: 
+##     Min      1Q  Median      3Q     Max 
+## -6.3159 -0.6688 -0.0777  0.5976  7.0725 
+## 
+## Random effects:
+##  Groups         Name        Variance Std.Dev.
+##  essround:cntry (Intercept) 0.009222 0.09603 
+##  cntry          (Intercept) 0.000000 0.00000 
+##  Residual                   0.923335 0.96090 
+## Number of obs: 55580, groups:  essround:cntry, 126; cntry, 29
+## 
+## Fixed effects:
+##                   Estimate Std. Error t value
+## (Intercept)      -0.091025   0.029948   -3.04
+## GR               -0.125533   0.035264   -3.56
+## CNTeffectMOD      0.005413   0.027983    0.19
+## CNTeffectMOST     0.021592   0.030050    0.72
+## c_unraall        -0.004087   0.002727   -1.50
+## gndr              0.095218   0.008086   11.78
+## scale(ISEI)      -0.144463   0.004216  -34.26
+## scale(agea)      -0.213815   0.004566  -46.82
+## GR:CNTeffectMOD  -0.011520   0.049001   -0.24
+## GR:CNTeffectMOST -0.026919   0.051837   -0.52
+## 
+## Correlation of Fixed Effects:
+##             (Intr) GR     CNTMOD CNTMOS c_nrll gndr   s(ISEI scl(g)
+## GR          -0.367                                                 
+## CNTeffctMOD -0.450  0.431                                          
+## CNTffctMOST -0.437  0.400  0.505                                   
+## c_unraall   -0.605 -0.054 -0.084 -0.047                            
+## gndr        -0.404  0.003 -0.005 -0.005  0.001                     
+## scale(ISEI)  0.019 -0.003 -0.013  0.008  0.028 -0.060              
+## scale(agea) -0.003  0.006  0.012 -0.013 -0.032 -0.017 -0.219       
+## GR:CNTffMOD  0.296 -0.717 -0.566 -0.285 -0.010 -0.007  0.005 -0.006
+## GR:CNTfMOST  0.448 -0.663 -0.266 -0.564 -0.290 -0.003 -0.005  0.002
+##             GR:CNTMOD
+## GR                   
+## CNTeffctMOD          
+## CNTffctMOST          
+## c_unraall            
+## gndr                 
+## scale(ISEI)          
+## scale(agea)          
+## GR:CNTffMOD          
+## GR:CNTfMOST  0.491   
+## 
+## $security_CENTER
+## Linear mixed model fit by REML ['lmerMod']
+## Formula: 
+## security_CENTER ~ GR * CNTeffect + c_unraall + gndr + scale(ISEI) +  
+##     scale(agea) + (1 | cntry/essround)
+##    Data: analysisData
+## Weights: dweight
+## 
+## REML criterion at convergence: 153940.1
+## 
+## Scaled residuals: 
+##     Min      1Q  Median      3Q     Max 
+## -6.7287 -0.6527 -0.0282  0.6337  5.4847 
+## 
+## Random effects:
+##  Groups         Name        Variance  Std.Dev. 
+##  essround:cntry (Intercept) 1.769e-02 1.330e-01
+##  cntry          (Intercept) 3.525e-14 1.877e-07
+##  Residual                   8.812e-01 9.387e-01
+## Number of obs: 55584, groups:  essround:cntry, 126; cntry, 29
+## 
+## Fixed effects:
+##                   Estimate Std. Error t value
+## (Intercept)      -0.286908   0.037972   -7.56
+## GR               -0.103223   0.046415   -2.22
+## CNTeffectMOD     -0.015816   0.036991   -0.43
+## CNTeffectMOST     0.036434   0.039543    0.92
+## c_unraall        -0.001537   0.003593   -0.43
+## gndr              0.224823   0.007901   28.46
+## scale(ISEI)      -0.081497   0.004120  -19.78
+## scale(agea)      -0.296174   0.004465  -66.33
+## GR:CNTeffectMOD  -0.002408   0.064638   -0.04
+## GR:CNTeffectMOST -0.028276   0.068030   -0.42
+## 
+## Correlation of Fixed Effects:
+##             (Intr) GR     CNTMOD CNTMOS c_nrll gndr   s(ISEI scl(g)
+## GR          -0.381                                                 
+## CNTeffctMOD -0.466  0.431                                          
+## CNTffctMOST -0.457  0.401  0.504                                   
+## c_unraall   -0.629 -0.055 -0.086 -0.045                            
+## gndr        -0.311  0.002 -0.003 -0.004  0.000                     
+## scale(ISEI)  0.015 -0.002 -0.010  0.006  0.021 -0.060              
+## scale(agea) -0.002  0.004  0.009 -0.010 -0.024 -0.017 -0.219       
+## GR:CNTffMOD  0.306 -0.715 -0.567 -0.286 -0.010 -0.005  0.004 -0.004
+## GR:CNTfMOST  0.466 -0.664 -0.266 -0.567 -0.289 -0.002 -0.004  0.001
+##             GR:CNTMOD
+## GR                   
+## CNTeffctMOD          
+## CNTffctMOST          
+## c_unraall            
+## gndr                 
+## scale(ISEI)          
+## scale(agea)          
+## GR:CNTffMOD          
+## GR:CNTfMOST  0.491</code></pre>
 </div>
 <div id="raw-score-models" class="section level2">
 <h2><span class="header-section-number">0.3</span> Raw score models</h2>
@@ -1113,982 +691,561 @@ img {
 ## Now working on  security_RAW</code></pre>
 <pre><code>## $conformity_RAW
 ## Linear mixed model fit by REML ['lmerMod']
-## Formula: conformity_RAW ~ GR * CNTeffect + (1 | cntry/essround)
+## Formula: 
+## conformity_RAW ~ GR * CNTeffect + c_unraall + gndr + scale(ISEI) +  
+##     scale(agea) + (1 | cntry/essround)
 ##    Data: analysisData
 ## Weights: dweight
 ## 
-## REML criterion at convergence: 207081.8
+## REML criterion at convergence: 160379
 ## 
 ## Scaled residuals: 
 ##     Min      1Q  Median      3Q     Max 
-## -4.5918 -0.6894 -0.0864  0.6364  5.5803 
+## -4.7308 -0.6853 -0.0451  0.6447  5.4387 
 ## 
 ## Random effects:
 ##  Groups         Name        Variance Std.Dev.
-##  essround:cntry (Intercept) 0.009381 0.09685 
+##  essround:cntry (Intercept) 0.008903 0.09435 
 ##  cntry          (Intercept) 0.000000 0.00000 
-##  Residual                   1.039756 1.01968 
-## Number of obs: 71102, groups:  essround:cntry, 131; cntry, 30
-## 
-## Fixed effects:
-##                   Estimate Std. Error t value
-## (Intercept)       0.026992   0.020167   1.338
-## GR               -0.090518   0.035000  -2.586
-## CNTeffectMOD     -0.008705   0.027248  -0.320
-## CNTeffectMOST    -0.042261   0.029712  -1.422
-## GR:CNTeffectMOD   0.039016   0.047535   0.821
-## GR:CNTeffectMOST  0.108446   0.049224   2.203
-## 
-## Correlation of Fixed Effects:
-##             (Intr) GR     CNTMOD CNTMOS GR:CNTMOD
-## GR          -0.576                               
-## CNTeffctMOD -0.740  0.426                        
-## CNTffctMOST -0.679  0.391  0.502                 
-## GR:CNTffMOD  0.424 -0.736 -0.573 -0.288          
-## GR:CNTfMOST  0.410 -0.711 -0.303 -0.604  0.524   
-## 
-## $tradition_RAW
-## Linear mixed model fit by REML ['lmerMod']
-## Formula: tradition_RAW ~ GR * CNTeffect + (1 | cntry/essround)
-##    Data: analysisData
-## Weights: dweight
-## 
-## REML criterion at convergence: 207910.7
-## 
-## Scaled residuals: 
-##     Min      1Q  Median      3Q     Max 
-## -4.5065 -0.7250 -0.0496  0.6493  5.5655 
-## 
-## Random effects:
-##  Groups         Name        Variance Std.Dev.
-##  essround:cntry (Intercept) 0.003675 0.06062 
-##  cntry          (Intercept) 0.000000 0.00000 
-##  Residual                   1.052409 1.02587 
-## Number of obs: 71119, groups:  essround:cntry, 131; cntry, 30
-## 
-## Fixed effects:
-##                  Estimate Std. Error t value
-## (Intercept)       0.03561    0.01424   2.501
-## GR               -0.11171    0.02478  -4.508
-## CNTeffectMOD     -0.01037    0.01913  -0.542
-## CNTeffectMOST    -0.03989    0.02098  -1.901
-## GR:CNTeffectMOD   0.02729    0.03346   0.816
-## GR:CNTeffectMOST  0.09882    0.03486   2.835
-## 
-## Correlation of Fixed Effects:
-##             (Intr) GR     CNTMOD CNTMOS GR:CNTMOD
-## GR          -0.575                               
-## CNTeffctMOD -0.744  0.428                        
-## CNTffctMOST -0.679  0.390  0.505                 
-## GR:CNTffMOD  0.426 -0.741 -0.572 -0.289          
-## GR:CNTfMOST  0.408 -0.711 -0.304 -0.602  0.526   
-## 
-## $benevolence_RAW
-## Linear mixed model fit by REML ['lmerMod']
-## Formula: benevolence_RAW ~ GR * CNTeffect + (1 | cntry/essround)
-##    Data: analysisData
-## Weights: dweight
-## 
-## REML criterion at convergence: 207270.8
-## 
-## Scaled residuals: 
-##     Min      1Q  Median      3Q     Max 
-## -3.4612 -0.6812 -0.0635  0.5567  8.9398 
-## 
-## Random effects:
-##  Groups         Name        Variance Std.Dev.
-##  essround:cntry (Intercept) 0.009842 0.09921 
-##  cntry          (Intercept) 0.000000 0.00000 
-##  Residual                   1.040724 1.02016 
-## Number of obs: 71142, groups:  essround:cntry, 131; cntry, 30
-## 
-## Fixed effects:
-##                   Estimate Std. Error t value
-## (Intercept)       0.063976   0.020572   3.110
-## GR               -0.196992   0.035698  -5.518
-## CNTeffectMOD     -0.009033   0.027802  -0.325
-## CNTeffectMOST    -0.026270   0.030307  -0.867
-## GR:CNTeffectMOD   0.034721   0.048497   0.716
-## GR:CNTeffectMOST  0.084926   0.050207   1.692
-## 
-## Correlation of Fixed Effects:
-##             (Intr) GR     CNTMOD CNTMOS GR:CNTMOD
-## GR          -0.576                               
-## CNTeffctMOD -0.740  0.426                        
-## CNTffctMOST -0.679  0.391  0.502                 
-## GR:CNTffMOD  0.424 -0.736 -0.573 -0.288          
-## GR:CNTfMOST  0.410 -0.711 -0.303 -0.604  0.523   
-## 
-## $universalism_RAW
-## Linear mixed model fit by REML ['lmerMod']
-## Formula: universalism_RAW ~ GR * CNTeffect + (1 | cntry/essround)
-##    Data: analysisData
-## Weights: dweight
-## 
-## REML criterion at convergence: 207870.5
-## 
-## Scaled residuals: 
-##     Min      1Q  Median      3Q     Max 
-## -3.8054 -0.6961 -0.0728  0.5801  8.4531 
-## 
-## Random effects:
-##  Groups         Name        Variance Std.Dev.
-##  essround:cntry (Intercept) 0.007799 0.08831 
-##  cntry          (Intercept) 0.000000 0.00000 
-##  Residual                   1.049625 1.02451 
-## Number of obs: 71148, groups:  essround:cntry, 131; cntry, 30
-## 
-## Fixed effects:
-##                  Estimate Std. Error t value
-## (Intercept)       0.03755    0.01873   2.005
-## GR               -0.10879    0.03251  -3.346
-## CNTeffectMOD     -0.02343    0.02528  -0.927
-## CNTeffectMOST    -0.01062    0.02759  -0.385
-## GR:CNTeffectMOD   0.09146    0.04411   2.073
-## GR:CNTeffectMOST  0.03688    0.04573   0.806
-## 
-## Correlation of Fixed Effects:
-##             (Intr) GR     CNTMOD CNTMOS GR:CNTMOD
-## GR          -0.576                               
-## CNTeffctMOD -0.741  0.427                        
-## CNTffctMOST -0.679  0.391  0.503                 
-## GR:CNTffMOD  0.424 -0.737 -0.573 -0.288          
-## GR:CNTfMOST  0.409 -0.711 -0.303 -0.603  0.524   
-## 
-## $selfDirection_RAW
-## Linear mixed model fit by REML ['lmerMod']
-## Formula: selfDirection_RAW ~ GR * CNTeffect + (1 | cntry/essround)
-##    Data: analysisData
-## Weights: dweight
-## 
-## REML criterion at convergence: 207636.9
-## 
-## Scaled residuals: 
-##     Min      1Q  Median      3Q     Max 
-## -3.2906 -0.6964 -0.1109  0.5984  8.5355 
-## 
-## Random effects:
-##  Groups         Name        Variance Std.Dev.
-##  essround:cntry (Intercept) 0.004873 0.06981 
-##  cntry          (Intercept) 0.000000 0.00000 
-##  Residual                   1.047308 1.02338 
-## Number of obs: 71136, groups:  essround:cntry, 131; cntry, 30
+##  Residual                   0.992741 0.99636 
+## Number of obs: 55547, groups:  essround:cntry, 126; cntry, 29
 ## 
 ## Fixed effects:
 ##                    Estimate Std. Error t value
-## (Intercept)       0.0336861  0.0156687   2.150
-## GR               -0.0920837  0.0272413  -3.380
-## CNTeffectMOD     -0.0238056  0.0210905  -1.129
-## CNTeffectMOST     0.0006907  0.0230898   0.030
-## GR:CNTeffectMOD   0.0602391  0.0368600   1.634
-## GR:CNTeffectMOST  0.0163485  0.0383210   0.427
+## (Intercept)       0.0574019  0.0299623   1.916
+## GR               -0.0906322  0.0350286  -2.587
+## CNTeffectMOD     -0.0270675  0.0277708  -0.975
+## CNTeffectMOST    -0.0303923  0.0298500  -1.018
+## c_unraall         0.0009787  0.0027086   0.361
+## gndr             -0.0214681  0.0083867  -2.560
+## scale(ISEI)       0.0120557  0.0043729   2.757
+## scale(agea)      -0.0950808  0.0047351 -20.080
+## GR:CNTeffectMOD   0.0525945  0.0486501   1.081
+## GR:CNTeffectMOST  0.1013673  0.0515179   1.968
 ## 
 ## Correlation of Fixed Effects:
-##             (Intr) GR     CNTMOD CNTMOS GR:CNTMOD
-## GR          -0.575                               
-## CNTeffctMOD -0.743  0.427                        
-## CNTffctMOST -0.679  0.390  0.504                 
-## GR:CNTffMOD  0.425 -0.739 -0.572 -0.288          
-## GR:CNTfMOST  0.409 -0.711 -0.304 -0.603  0.525   
-## 
-## $stimulation_RAW
-## Linear mixed model fit by REML ['lmerMod']
-## Formula: stimulation_RAW ~ GR * CNTeffect + (1 | cntry/essround)
-##    Data: analysisData
-## Weights: dweight
-## 
-## REML criterion at convergence: 207991.1
-## 
-## Scaled residuals: 
-##     Min      1Q  Median      3Q     Max 
-## -4.3585 -0.7167  0.0018  0.6563  5.3870 
-## 
-## Random effects:
-##  Groups         Name        Variance Std.Dev.
-##  essround:cntry (Intercept) 0.004118 0.06417 
-##  cntry          (Intercept) 0.000000 0.00000 
-##  Residual                   1.052966 1.02614 
-## Number of obs: 71133, groups:  essround:cntry, 131; cntry, 30
-## 
-## Fixed effects:
-##                  Estimate Std. Error t value
-## (Intercept)       0.02908    0.01479   1.966
-## GR               -0.11295    0.02573  -4.390
-## CNTeffectMOD     -0.03928    0.01988  -1.975
-## CNTeffectMOST    -0.02966    0.02179  -1.361
-## GR:CNTeffectMOD   0.07048    0.03477   2.027
-## GR:CNTeffectMOST  0.06164    0.03619   1.703
-## 
-## Correlation of Fixed Effects:
-##             (Intr) GR     CNTMOD CNTMOS GR:CNTMOD
-## GR          -0.575                               
-## CNTeffctMOD -0.744  0.428                        
-## CNTffctMOST -0.679  0.390  0.505                 
-## GR:CNTffMOD  0.425 -0.740 -0.572 -0.289          
-## GR:CNTfMOST  0.409 -0.711 -0.304 -0.602  0.526   
-## 
-## $headonism_RAW
-## Linear mixed model fit by REML ['lmerMod']
-## Formula: headonism_RAW ~ GR * CNTeffect + (1 | cntry/essround)
-##    Data: analysisData
-## Weights: dweight
-## 
-## REML criterion at convergence: 207387.8
-## 
-## Scaled residuals: 
-##     Min      1Q  Median      3Q     Max 
-## -3.5218 -0.6798 -0.1079  0.6200  7.4027 
-## 
-## Random effects:
-##  Groups         Name        Variance Std.Dev.
-##  essround:cntry (Intercept) 0.005797 0.07614 
-##  cntry          (Intercept) 0.000000 0.00000 
-##  Residual                   1.043808 1.02167 
-## Number of obs: 71128, groups:  essround:cntry, 131; cntry, 30
-## 
-## Fixed effects:
-##                  Estimate Std. Error t value
-## (Intercept)       0.02921    0.01669   1.750
-## GR               -0.11729    0.02900  -4.045
-## CNTeffectMOD     -0.04984    0.02249  -2.216
-## CNTeffectMOST    -0.04188    0.02459  -1.703
-## GR:CNTeffectMOD   0.10189    0.03928   2.594
-## GR:CNTeffectMOST  0.11420    0.04079   2.800
-## 
-## Correlation of Fixed Effects:
-##             (Intr) GR     CNTMOD CNTMOS GR:CNTMOD
-## GR          -0.575                               
-## CNTeffctMOD -0.742  0.427                        
-## CNTffctMOST -0.679  0.391  0.504                 
-## GR:CNTffMOD  0.425 -0.738 -0.572 -0.288          
-## GR:CNTfMOST  0.409 -0.711 -0.304 -0.603  0.525   
-## 
-## $achievement_RAW
-## Linear mixed model fit by REML ['lmerMod']
-## Formula: achievement_RAW ~ GR * CNTeffect + (1 | cntry/essround)
-##    Data: analysisData
-## Weights: dweight
-## 
-## REML criterion at convergence: 207355.2
-## 
-## Scaled residuals: 
-##     Min      1Q  Median      3Q     Max 
-## -3.5972 -0.6785 -0.0938  0.6444  5.7336 
-## 
-## Random effects:
-##  Groups         Name        Variance  Std.Dev. 
-##  essround:cntry (Intercept) 6.621e-03 8.137e-02
-##  cntry          (Intercept) 4.171e-14 2.042e-07
-##  Residual                   1.043e+00 1.021e+00
-## Number of obs: 71135, groups:  essround:cntry, 131; cntry, 30
-## 
-## Fixed effects:
-##                  Estimate Std. Error t value
-## (Intercept)       0.04584    0.01755   2.612
-## GR               -0.15757    0.03048  -5.170
-## CNTeffectMOD     -0.04236    0.02367  -1.790
-## CNTeffectMOST    -0.02149    0.02586  -0.831
-## GR:CNTeffectMOD   0.07887    0.04132   1.909
-## GR:CNTeffectMOST  0.06789    0.04288   1.583
-## 
-## Correlation of Fixed Effects:
-##             (Intr) GR     CNTMOD CNTMOS GR:CNTMOD
-## GR          -0.576                               
-## CNTeffctMOD -0.742  0.427                        
-## CNTffctMOST -0.679  0.391  0.503                 
-## GR:CNTffMOD  0.425 -0.738 -0.573 -0.288          
-## GR:CNTfMOST  0.409 -0.711 -0.303 -0.603  0.524   
-## 
-## $power_RAW
-## Linear mixed model fit by REML ['lmerMod']
-## Formula: power_RAW ~ GR * CNTeffect + (1 | cntry/essround)
-##    Data: analysisData
-## Weights: dweight
-## 
-## REML criterion at convergence: 207355.2
-## 
-## Scaled residuals: 
-##     Min      1Q  Median      3Q     Max 
-## -3.5972 -0.6785 -0.0938  0.6444  5.7336 
-## 
-## Random effects:
-##  Groups         Name        Variance  Std.Dev. 
-##  essround:cntry (Intercept) 6.621e-03 8.137e-02
-##  cntry          (Intercept) 4.171e-14 2.042e-07
-##  Residual                   1.043e+00 1.021e+00
-## Number of obs: 71135, groups:  essround:cntry, 131; cntry, 30
-## 
-## Fixed effects:
-##                  Estimate Std. Error t value
-## (Intercept)       0.04584    0.01755   2.612
-## GR               -0.15757    0.03048  -5.170
-## CNTeffectMOD     -0.04236    0.02367  -1.790
-## CNTeffectMOST    -0.02149    0.02586  -0.831
-## GR:CNTeffectMOD   0.07887    0.04132   1.909
-## GR:CNTeffectMOST  0.06789    0.04288   1.583
-## 
-## Correlation of Fixed Effects:
-##             (Intr) GR     CNTMOD CNTMOS GR:CNTMOD
-## GR          -0.576                               
-## CNTeffctMOD -0.742  0.427                        
-## CNTffctMOST -0.679  0.391  0.503                 
-## GR:CNTffMOD  0.425 -0.738 -0.573 -0.288          
-## GR:CNTfMOST  0.409 -0.711 -0.303 -0.603  0.524   
-## 
-## $security_RAW
-## Linear mixed model fit by REML ['lmerMod']
-## Formula: security_RAW ~ GR * CNTeffect + (1 | cntry/essround)
-##    Data: analysisData
-## Weights: dweight
-## 
-## REML criterion at convergence: 207518
-## 
-## Scaled residuals: 
-##     Min      1Q  Median      3Q     Max 
-## -5.1363 -0.6373 -0.0192  0.6748  6.0067 
-## 
-## Random effects:
-##  Groups         Name        Variance Std.Dev.
-##  essround:cntry (Intercept) 0.01273  0.1128  
-##  cntry          (Intercept) 0.00000  0.0000  
-##  Residual                   1.04418  1.0219  
-## Number of obs: 71136, groups:  essround:cntry, 131; cntry, 30
-## 
-## Fixed effects:
-##                  Estimate Std. Error t value
-## (Intercept)       0.05971    0.02295   2.602
-## GR               -0.18429    0.03981  -4.629
-## CNTeffectMOD     -0.06786    0.03105  -2.186
-## CNTeffectMOST    -0.02899    0.03381  -0.858
-## GR:CNTeffectMOD   0.13117    0.05414   2.423
-## GR:CNTeffectMOST  0.11511    0.05598   2.056
-## 
-## Correlation of Fixed Effects:
-##             (Intr) GR     CNTMOD CNTMOS GR:CNTMOD
-## GR          -0.576                               
-## CNTeffctMOD -0.739  0.426                        
-## CNTffctMOST -0.679  0.391  0.502                 
-## GR:CNTffMOD  0.424 -0.735 -0.574 -0.288          
-## GR:CNTfMOST  0.410 -0.711 -0.303 -0.604  0.523</code></pre>
-<pre><code>## 
-## Now working on  conformity_RAW 
-## 
-## Now working on  tradition_RAW 
-## 
-## Now working on  benevolence_RAW 
-## 
-## Now working on  universalism_RAW 
-## 
-## Now working on  selfDirection_RAW 
-## 
-## Now working on  stimulation_RAW 
-## 
-## Now working on  headonism_RAW 
-## 
-## Now working on  achievement_RAW 
-## 
-## Now working on  power_RAW 
-## 
-## Now working on  security_RAW</code></pre>
-<pre><code>## $conformity_RAW
-## Linear mixed model fit by REML ['lmerMod']
-## Formula: conformity_RAW ~ GR * CNTeffect * ISEI + (1 | cntry/essround)
-##    Data: analysisData
-## Weights: dweight
-## 
-## REML criterion at convergence: 157873.7
-## 
-## Scaled residuals: 
-##     Min      1Q  Median      3Q     Max 
-## -4.6163 -0.6834 -0.0759  0.6386  5.4572 
-## 
-## Random effects:
-##  Groups         Name        Variance Std.Dev.
-##  essround:cntry (Intercept) 0.009819 0.09909 
-##  cntry          (Intercept) 0.000000 0.00000 
-##  Residual                   1.003234 1.00162 
-## Number of obs: 54485, groups:  essround:cntry, 131; cntry, 30
-## 
-## Fixed effects:
-##                         Estimate Std. Error t value
-## (Intercept)            0.0322121  0.0325646   0.989
-## GR                    -0.0622050  0.0568669  -1.094
-## CNTeffectMOD           0.0277192  0.0433058   0.640
-## CNTeffectMOST         -0.1316809  0.0483433  -2.724
-## ISEI                  -0.0003132  0.0005993  -0.522
-## GR:CNTeffectMOD        0.0099285  0.0759994   0.131
-## GR:CNTeffectMOST       0.1433757  0.0811950   1.766
-## GR:ISEI               -0.0007456  0.0010471  -0.712
-## CNTeffectMOD:ISEI     -0.0010653  0.0007787  -1.368
-## CNTeffectMOST:ISEI     0.0021167  0.0008978   2.358
-## GR:CNTeffectMOD:ISEI   0.0008450  0.0013739   0.615
-## GR:CNTeffectMOST:ISEI -0.0009577  0.0015189  -0.630
-## 
-## Correlation of Fixed Effects:
-##             (Intr) GR     CNTfMOD CNTfMOST ISEI   GR:CNTfMOD GR:CNTfMOST
-## GR          -0.573                                                      
-## CNTeffctMOD -0.752  0.431                                               
-## CNTffctMOST -0.674  0.386  0.507                                        
-## ISEI        -0.764  0.438  0.575   0.515                                
-## GR:CNTffMOD  0.428 -0.748 -0.570  -0.289   -0.327                       
-## GR:CNTfMOST  0.401 -0.700 -0.302  -0.595   -0.307  0.524                
-## GR:ISEI      0.437 -0.768 -0.329  -0.295   -0.572  0.574      0.538     
-## CNTMOD:ISEI  0.588 -0.337 -0.757  -0.396   -0.770  0.431      0.236     
-## CNTMOST:ISE  0.510 -0.292 -0.384  -0.767   -0.668  0.219      0.457     
-## GR:CNTMOD:I -0.333  0.585  0.429   0.225    0.436 -0.760     -0.410     
-## GR:CNTMOST: -0.302  0.529  0.227   0.453    0.395 -0.396     -0.773     
-##             GR:ISE CNTMOD: CNTMOST: GR:CNTMOD:
-## GR                                            
-## CNTeffctMOD                                   
-## CNTffctMOST                                   
-## ISEI                                          
-## GR:CNTffMOD                                   
-## GR:CNTfMOST                                   
-## GR:ISEI                                       
-## CNTMOD:ISEI  0.440                            
-## CNTMOST:ISE  0.382  0.514                     
-## GR:CNTMOD:I -0.762 -0.567  -0.291             
-## GR:CNTMOST: -0.689 -0.304  -0.591    0.525    
+##             (Intr) GR     CNTMOD CNTMOS c_nrll gndr   s(ISEI scl(g)
+## GR          -0.365                                                 
+## CNTeffctMOD -0.447  0.431                                          
+## CNTffctMOST -0.433  0.400  0.505                                   
+## c_unraall   -0.601 -0.054 -0.084 -0.048                            
+## gndr        -0.419  0.003 -0.005 -0.006  0.001                     
+## scale(ISEI)  0.020 -0.003 -0.014  0.008  0.029 -0.060              
+## scale(agea) -0.003  0.006  0.013 -0.014 -0.034 -0.017 -0.219       
+## GR:CNTffMOD  0.294 -0.717 -0.566 -0.285 -0.010 -0.007  0.006 -0.006
+## GR:CNTfMOST  0.445 -0.662 -0.266 -0.564 -0.290 -0.003 -0.005  0.002
+##             GR:CNTMOD
+## GR                   
+## CNTeffctMOD          
+## CNTffctMOST          
+## c_unraall            
+## gndr                 
+## scale(ISEI)          
+## scale(agea)          
+## GR:CNTffMOD          
+## GR:CNTfMOST  0.491   
 ## 
 ## $tradition_RAW
 ## Linear mixed model fit by REML ['lmerMod']
-## Formula: tradition_RAW ~ GR * CNTeffect * ISEI + (1 | cntry/essround)
+## Formula: 
+## tradition_RAW ~ GR * CNTeffect + c_unraall + gndr + scale(ISEI) +  
+##     scale(agea) + (1 | cntry/essround)
 ##    Data: analysisData
 ## Weights: dweight
 ## 
-## REML criterion at convergence: 157812
+## REML criterion at convergence: 159977.6
 ## 
 ## Scaled residuals: 
 ##     Min      1Q  Median      3Q     Max 
-## -4.6288 -0.7163 -0.0581  0.6547  5.0158 
+## -4.9624 -0.6867 -0.0338  0.6546  5.4217 
 ## 
 ## Random effects:
 ##  Groups         Name        Variance Std.Dev.
-##  essround:cntry (Intercept) 0.003742 0.06117 
-##  cntry          (Intercept) 0.000000 0.00000 
-##  Residual                   1.002628 1.00131 
-## Number of obs: 54504, groups:  essround:cntry, 131; cntry, 30
+##  essround:cntry (Intercept) 0.00302  0.05496 
+##  cntry          (Intercept) 0.00000  0.00000 
+##  Residual                   0.98598  0.99297 
+## Number of obs: 55570, groups:  essround:cntry, 126; cntry, 29
 ## 
 ## Fixed effects:
-##                         Estimate Std. Error t value
-## (Intercept)           -1.763e-01  2.900e-02  -6.078
-## GR                    -1.154e-01  5.072e-02  -2.275
-## CNTeffectMOD           1.340e-01  3.834e-02   3.496
-## CNTeffectMOST          3.072e-02  4.307e-02   0.713
-## ISEI                   4.535e-03  5.984e-04   7.578
-## GR:CNTeffectMOD        7.596e-03  6.741e-02   0.113
-## GR:CNTeffectMOST       1.666e-01  7.263e-02   2.294
-## GR:ISEI                9.203e-05  1.045e-03   0.088
-## CNTeffectMOD:ISEI     -3.456e-03  7.774e-04  -4.445
-## CNTeffectMOST:ISEI    -2.010e-03  8.957e-04  -2.244
-## GR:CNTeffectMOD:ISEI   2.658e-04  1.371e-03   0.194
-## GR:CNTeffectMOST:ISEI -1.944e-03  1.515e-03  -1.283
+##                    Estimate Std. Error t value
+## (Intercept)       0.2202209  0.0224977   9.789
+## GR               -0.1129897  0.0241411  -4.680
+## CNTeffectMOD     -0.0167243  0.0189188  -0.884
+## CNTeffectMOST    -0.0361715  0.0205524  -1.760
+## c_unraall        -0.0001188  0.0018608  -0.064
+## gndr             -0.1235756  0.0083511 -14.798
+## scale(ISEI)       0.0630049  0.0043506  14.482
+## scale(agea)      -0.1089346  0.0047065 -23.146
+## GR:CNTeffectMOD   0.0116850  0.0333379   0.351
+## GR:CNTeffectMOST  0.0951407  0.0357097   2.664
 ## 
 ## Correlation of Fixed Effects:
-##             (Intr) GR     CNTfMOD CNTfMOST ISEI   GR:CNTfMOD GR:CNTfMOST
-## GR          -0.572                                                      
-## CNTeffctMOD -0.756  0.432                                               
-## CNTffctMOST -0.673  0.385  0.509                                        
-## ISEI        -0.857  0.490  0.649   0.577                                
-## GR:CNTffMOD  0.430 -0.752 -0.569  -0.290   -0.369                       
-## GR:CNTfMOST  0.399 -0.698 -0.302  -0.593   -0.342  0.525                
-## GR:ISEI      0.491 -0.859 -0.371  -0.331   -0.573  0.646      0.600     
-## CNTMOD:ISEI  0.660 -0.377 -0.853  -0.444   -0.770  0.485      0.263     
-## CNTMOST:ISE  0.573 -0.328 -0.433  -0.858   -0.668  0.246      0.509     
-## GR:CNTMOD:I -0.374  0.654  0.484   0.252    0.436 -0.855     -0.457     
-## GR:CNTMOST: -0.339  0.592  0.256   0.507    0.395 -0.446     -0.861     
-##             GR:ISE CNTMOD: CNTMOST: GR:CNTMOD:
-## GR                                            
-## CNTeffctMOD                                   
-## CNTffctMOST                                   
-## ISEI                                          
-## GR:CNTffMOD                                   
-## GR:CNTfMOST                                   
-## GR:ISEI                                       
-## CNTMOD:ISEI  0.441                            
-## CNTMOST:ISE  0.383  0.514                     
-## GR:CNTMOD:I -0.762 -0.567  -0.292             
-## GR:CNTMOST: -0.689 -0.304  -0.591    0.525    
+##             (Intr) GR     CNTMOD CNTMOS c_nrll gndr   s(ISEI scl(g)
+## GR          -0.334                                                 
+## CNTeffctMOD -0.413  0.432                                          
+## CNTffctMOST -0.389  0.397  0.507                                   
+## c_unraall   -0.551 -0.052 -0.079 -0.052                            
+## gndr        -0.556  0.004 -0.007 -0.009  0.002                     
+## scale(ISEI)  0.027 -0.004 -0.020  0.013  0.041 -0.060              
+## scale(agea) -0.004  0.009  0.018 -0.021 -0.047 -0.017 -0.219       
+## GR:CNTffMOD  0.273 -0.722 -0.563 -0.285 -0.010 -0.011  0.008 -0.009
+## GR:CNTfMOST  0.407 -0.659 -0.267 -0.558 -0.293 -0.004 -0.007  0.003
+##             GR:CNTMOD
+## GR                   
+## CNTeffctMOD          
+## CNTffctMOST          
+## c_unraall            
+## gndr                 
+## scale(ISEI)          
+## scale(agea)          
+## GR:CNTffMOD          
+## GR:CNTfMOST  0.491   
 ## 
 ## $benevolence_RAW
 ## Linear mixed model fit by REML ['lmerMod']
-## Formula: benevolence_RAW ~ GR * CNTeffect * ISEI + (1 | cntry/essround)
+## Formula: 
+## benevolence_RAW ~ GR * CNTeffect + c_unraall + gndr + scale(ISEI) +  
+##     scale(agea) + (1 | cntry/essround)
 ##    Data: analysisData
 ## Weights: dweight
 ## 
-## REML criterion at convergence: 156993.1
+## REML criterion at convergence: 158945.4
 ## 
 ## Scaled residuals: 
 ##     Min      1Q  Median      3Q     Max 
-## -3.4514 -0.6953 -0.0576  0.5507  8.3195 
+## -3.8066 -0.6919 -0.0733  0.5634  8.1857 
 ## 
 ## Random effects:
 ##  Groups         Name        Variance Std.Dev.
-##  essround:cntry (Intercept) 0.009249 0.09617 
+##  essround:cntry (Intercept) 0.008072 0.08985 
 ##  cntry          (Intercept) 0.000000 0.00000 
-##  Residual                   0.985409 0.99268 
-## Number of obs: 54520, groups:  essround:cntry, 131; cntry, 30
+##  Residual                   0.965749 0.98273 
+## Number of obs: 55584, groups:  essround:cntry, 126; cntry, 29
 ## 
 ## Fixed effects:
-##                         Estimate Std. Error t value
-## (Intercept)            0.1101097  0.0320420   3.436
-## GR                    -0.3020741  0.0559566  -5.398
-## CNTeffectMOD          -0.0305497  0.0425994  -0.717
-## CNTeffectMOST          0.0388153  0.0475692   0.816
-## ISEI                  -0.0015648  0.0005936  -2.636
-## GR:CNTeffectMOD        0.1833988  0.0747701   2.453
-## GR:CNTeffectMOST       0.2557110  0.0799118   3.200
-## GR:ISEI                0.0023024  0.0010371   2.220
-## CNTeffectMOD:ISEI      0.0005669  0.0007714   0.735
-## CNTeffectMOST:ISEI    -0.0016910  0.0008893  -1.901
-## GR:CNTeffectMOD:ISEI  -0.0035955  0.0013610  -2.642
-## GR:CNTeffectMOST:ISEI -0.0037999  0.0015046  -2.526
+##                   Estimate Std. Error t value
+## (Intercept)       0.431122   0.028883   14.93
+## GR               -0.212733   0.033603   -6.33
+## CNTeffectMOD     -0.001330   0.026627   -0.05
+## CNTeffectMOST    -0.028818   0.028635   -1.01
+## c_unraall         0.002475   0.002598    0.95
+## gndr             -0.269034   0.008269  -32.54
+## scale(ISEI)      -0.023676   0.004311   -5.49
+## scale(agea)       0.015031   0.004668    3.22
+## GR:CNTeffectMOD   0.012632   0.046659    0.27
+## GR:CNTeffectMOST  0.088598   0.049441    1.79
 ## 
 ## Correlation of Fixed Effects:
-##             (Intr) GR     CNTfMOD CNTfMOST ISEI   GR:CNTfMOD GR:CNTfMOST
-## GR          -0.573                                                      
-## CNTeffctMOD -0.752  0.431                                               
-## CNTffctMOST -0.674  0.386  0.507                                        
-## ISEI        -0.769  0.441  0.579   0.518                                
-## GR:CNTffMOD  0.429 -0.748 -0.570  -0.289   -0.330                       
-## GR:CNTfMOST  0.401 -0.700 -0.302  -0.595   -0.309  0.524                
-## GR:ISEI      0.440 -0.773 -0.331  -0.297   -0.572  0.578      0.541     
-## CNTMOD:ISEI  0.592 -0.339 -0.762  -0.399   -0.770  0.434      0.237     
-## CNTMOST:ISE  0.514 -0.294 -0.386  -0.772   -0.667  0.220      0.460     
-## GR:CNTMOD:I -0.336  0.589  0.432   0.226    0.436 -0.765     -0.412     
-## GR:CNTMOST: -0.304  0.533  0.228   0.456    0.395 -0.399     -0.778     
-##             GR:ISE CNTMOD: CNTMOST: GR:CNTMOD:
-## GR                                            
-## CNTeffctMOD                                   
-## CNTffctMOST                                   
-## ISEI                                          
-## GR:CNTffMOD                                   
-## GR:CNTfMOST                                   
-## GR:ISEI                                       
-## CNTMOD:ISEI  0.441                            
-## CNTMOST:ISE  0.382  0.514                     
-## GR:CNTMOD:I -0.762 -0.567  -0.291             
-## GR:CNTMOST: -0.689 -0.304  -0.591    0.525    
+##             (Intr) GR     CNTMOD CNTMOS c_nrll gndr   s(ISEI scl(g)
+## GR          -0.363                                                 
+## CNTeffctMOD -0.445  0.431                                          
+## CNTffctMOST -0.430  0.400  0.505                                   
+## c_unraall   -0.598 -0.054 -0.084 -0.048                            
+## gndr        -0.429  0.003 -0.005 -0.006  0.001                     
+## scale(ISEI)  0.021 -0.003 -0.014  0.009  0.030 -0.060              
+## scale(agea) -0.003  0.006  0.013 -0.014 -0.034 -0.017 -0.219       
+## GR:CNTffMOD  0.293 -0.718 -0.566 -0.285 -0.010 -0.008  0.006 -0.006
+## GR:CNTfMOST  0.443 -0.662 -0.266 -0.564 -0.290 -0.003 -0.005  0.002
+##             GR:CNTMOD
+## GR                   
+## CNTeffctMOD          
+## CNTffctMOST          
+## c_unraall            
+## gndr                 
+## scale(ISEI)          
+## scale(agea)          
+## GR:CNTffMOD          
+## GR:CNTfMOST  0.491   
 ## 
 ## $universalism_RAW
 ## Linear mixed model fit by REML ['lmerMod']
-## Formula: universalism_RAW ~ GR * CNTeffect * ISEI + (1 | cntry/essround)
+## Formula: 
+## universalism_RAW ~ GR * CNTeffect + c_unraall + gndr + scale(ISEI) +  
+##     scale(agea) + (1 | cntry/essround)
 ##    Data: analysisData
 ## Weights: dweight
 ## 
-## REML criterion at convergence: 157442.5
+## REML criterion at convergence: 159791
 ## 
 ## Scaled residuals: 
 ##     Min      1Q  Median      3Q     Max 
-## -4.0224 -0.6812 -0.0843  0.5806  7.4950 
+## -4.0268 -0.6753 -0.0855  0.5868  7.5602 
 ## 
 ## Random effects:
 ##  Groups         Name        Variance Std.Dev.
-##  essround:cntry (Intercept) 0.006576 0.08109 
+##  essround:cntry (Intercept) 0.005743 0.07578 
 ##  cntry          (Intercept) 0.000000 0.00000 
-##  Residual                   0.993976 0.99698 
-## Number of obs: 54523, groups:  essround:cntry, 131; cntry, 30
+##  Residual                   0.980880 0.99039 
+## Number of obs: 55588, groups:  essround:cntry, 126; cntry, 29
 ## 
 ## Fixed effects:
-##                         Estimate Std. Error t value
-## (Intercept)            0.1990925  0.0306093   6.504
-## GR                    -0.1530849  0.0534963  -2.862
-## CNTeffectMOD          -0.0036282  0.0405943  -0.089
-## CNTeffectMOST          0.0048834  0.0454594   0.107
-## ISEI                  -0.0041278  0.0005961  -6.925
-## GR:CNTeffectMOD        0.1588355  0.0713137   2.227
-## GR:CNTeffectMOST       0.2150034  0.0764946   2.811
-## GR:ISEI                0.0007999  0.0010412   0.768
-## CNTeffectMOD:ISEI     -0.0003999  0.0007745  -0.516
-## CNTeffectMOST:ISEI    -0.0004709  0.0008927  -0.527
-## GR:CNTeffectMOD:ISEI  -0.0019588  0.0013664  -1.434
-## GR:CNTeffectMOST:ISEI -0.0041594  0.0015103  -2.754
+##                   Estimate Std. Error t value
+## (Intercept)       0.329324   0.026171  12.584
+## GR               -0.124325   0.029649  -4.193
+## CNTeffectMOD     -0.020070   0.023412  -0.857
+## CNTeffectMOST    -0.007179   0.025262  -0.284
+## c_unraall        -0.001908   0.002290  -0.833
+## gndr             -0.186323   0.008332 -22.364
+## scale(ISEI)      -0.062474   0.004343 -14.386
+## scale(agea)      -0.053639   0.004701 -11.409
+## GR:CNTeffectMOD   0.077998   0.041097   1.898
+## GR:CNTeffectMOST  0.066547   0.043703   1.523
 ## 
 ## Correlation of Fixed Effects:
-##             (Intr) GR     CNTfMOD CNTfMOST ISEI   GR:CNTfMOD GR:CNTfMOST
-## GR          -0.572                                                      
-## CNTeffctMOD -0.754  0.431                                               
-## CNTffctMOST -0.673  0.385  0.508                                        
-## ISEI        -0.809  0.463  0.610   0.545                                
-## GR:CNTffMOD  0.429 -0.750 -0.569  -0.289   -0.347                       
-## GR:CNTfMOST  0.400 -0.699 -0.302  -0.594   -0.324  0.525                
-## GR:ISEI      0.463 -0.812 -0.349  -0.312   -0.572  0.609      0.568     
-## CNTMOD:ISEI  0.623 -0.356 -0.803  -0.419   -0.770  0.457      0.249     
-## CNTMOST:ISE  0.540 -0.309 -0.407  -0.811   -0.668  0.232      0.482     
-## GR:CNTMOD:I -0.353  0.618  0.455   0.238    0.436 -0.805     -0.432     
-## GR:CNTMOST: -0.319  0.560  0.241   0.479    0.395 -0.420     -0.815     
-##             GR:ISE CNTMOD: CNTMOST: GR:CNTMOD:
-## GR                                            
-## CNTeffctMOD                                   
-## CNTffctMOST                                   
-## ISEI                                          
-## GR:CNTffMOD                                   
-## GR:CNTfMOST                                   
-## GR:ISEI                                       
-## CNTMOD:ISEI  0.441                            
-## CNTMOST:ISE  0.382  0.514                     
-## GR:CNTMOD:I -0.762 -0.567  -0.291             
-## GR:CNTMOST: -0.689 -0.304  -0.591    0.525    
+##             (Intr) GR     CNTMOD CNTMOS c_nrll gndr   s(ISEI scl(g)
+## GR          -0.353                                                 
+## CNTeffctMOD -0.434  0.432                                          
+## CNTffctMOST -0.416  0.399  0.505                                   
+## c_unraall   -0.582 -0.053 -0.082 -0.049                            
+## gndr        -0.477  0.003 -0.006 -0.007  0.001                     
+## scale(ISEI)  0.023 -0.004 -0.016  0.010  0.034 -0.060              
+## scale(agea) -0.004  0.007  0.015 -0.016 -0.039 -0.017 -0.219       
+## GR:CNTffMOD  0.286 -0.719 -0.565 -0.285 -0.010 -0.009  0.007 -0.007
+## GR:CNTfMOST  0.431 -0.661 -0.266 -0.562 -0.291 -0.003 -0.006  0.002
+##             GR:CNTMOD
+## GR                   
+## CNTeffctMOD          
+## CNTffctMOST          
+## c_unraall            
+## gndr                 
+## scale(ISEI)          
+## scale(agea)          
+## GR:CNTffMOD          
+## GR:CNTfMOST  0.491   
 ## 
 ## $selfDirection_RAW
 ## Linear mixed model fit by REML ['lmerMod']
-## Formula: selfDirection_RAW ~ GR * CNTeffect * ISEI + (1 | cntry/essround)
+## Formula: 
+## selfDirection_RAW ~ GR * CNTeffect + c_unraall + gndr + scale(ISEI) +  
+##     scale(agea) + (1 | cntry/essround)
 ##    Data: analysisData
 ## Weights: dweight
 ## 
-## REML criterion at convergence: 157398.8
+## REML criterion at convergence: 160187.5
 ## 
 ## Scaled residuals: 
 ##     Min      1Q  Median      3Q     Max 
-## -3.4936 -0.6979 -0.1003  0.6063  7.4232 
+## -3.6823 -0.7054 -0.0986  0.6046  7.6307 
 ## 
 ## Random effects:
-##  Groups         Name        Variance Std.Dev.
-##  essround:cntry (Intercept) 0.005093 0.07136 
-##  cntry          (Intercept) 0.000000 0.00000 
-##  Residual                   0.993754 0.99687 
-## Number of obs: 54520, groups:  essround:cntry, 131; cntry, 30
+##  Groups         Name        Variance  Std.Dev. 
+##  essround:cntry (Intercept) 5.243e-03 7.241e-02
+##  cntry          (Intercept) 1.506e-15 3.881e-08
+##  Residual                   9.882e-01 9.941e-01
+## Number of obs: 55585, groups:  essround:cntry, 126; cntry, 29
 ## 
 ## Fixed effects:
-##                         Estimate Std. Error t value
-## (Intercept)            0.3131195  0.0297177  10.536
-## GR                    -0.1249614  0.0519711  -2.404
-## CNTeffectMOD          -0.0724642  0.0393530  -1.841
-## CNTeffectMOST         -0.0362719  0.0441442  -0.822
-## ISEI                  -0.0067656  0.0005958 -11.355
-## GR:CNTeffectMOD        0.0895536  0.0691796   1.295
-## GR:CNTeffectMOST       0.1107145  0.0743653   1.489
-## GR:ISEI                0.0005713  0.0010407   0.549
-## CNTeffectMOD:ISEI      0.0012941  0.0007742   1.672
-## CNTeffectMOST:ISEI     0.0005811  0.0008922   0.651
-## GR:CNTeffectMOD:ISEI  -0.0009139  0.0013660  -0.669
-## GR:CNTeffectMOST:ISEI -0.0018029  0.0015096  -1.194
+##                   Estimate Std. Error t value
+## (Intercept)      -0.076192   0.025576  -2.979
+## GR               -0.090091   0.028746  -3.134
+## CNTeffectMOD     -0.001990   0.022675  -0.088
+## CNTeffectMOST    -0.016926   0.024490  -0.691
+## c_unraall        -0.002596   0.002220  -1.169
+## gndr              0.070785   0.008362   8.465
+## scale(ISEI)      -0.120606   0.004358 -27.672
+## scale(agea)       0.074826   0.004718  15.859
+## GR:CNTeffectMOD   0.010772   0.039826   0.270
+## GR:CNTeffectMOST  0.034441   0.042396   0.812
 ## 
 ## Correlation of Fixed Effects:
-##             (Intr) GR     CNTfMOD CNTfMOST ISEI   GR:CNTfMOD GR:CNTfMOST
-## GR          -0.572                                                      
-## CNTeffctMOD -0.755  0.432                                               
-## CNTffctMOST -0.673  0.385  0.508                                        
-## ISEI        -0.833  0.476  0.629   0.561                                
-## GR:CNTffMOD  0.430 -0.751 -0.569  -0.289   -0.358                       
-## GR:CNTfMOST  0.400 -0.699 -0.302  -0.594   -0.333  0.525                
-## GR:ISEI      0.477 -0.835 -0.360  -0.321   -0.573  0.627      0.584     
-## CNTMOD:ISEI  0.641 -0.367 -0.828  -0.432   -0.770  0.471      0.256     
-## CNTMOST:ISE  0.556 -0.318 -0.420  -0.834   -0.668  0.239      0.495     
-## GR:CNTMOD:I -0.363  0.636  0.469   0.245    0.436 -0.830     -0.445     
-## GR:CNTMOST: -0.329  0.576  0.248   0.493    0.395 -0.433     -0.838     
-##             GR:ISE CNTMOD: CNTMOST: GR:CNTMOD:
-## GR                                            
-## CNTeffctMOD                                   
-## CNTffctMOST                                   
-## ISEI                                          
-## GR:CNTffMOD                                   
-## GR:CNTfMOST                                   
-## GR:ISEI                                       
-## CNTMOD:ISEI  0.441                            
-## CNTMOST:ISE  0.382  0.514                     
-## GR:CNTMOD:I -0.762 -0.567  -0.291             
-## GR:CNTMOST: -0.689 -0.304  -0.591    0.525    
+##             (Intr) GR     CNTMOD CNTMOS c_nrll gndr   s(ISEI scl(g)
+## GR          -0.350                                                 
+## CNTeffctMOD -0.431  0.432                                          
+## CNTffctMOST -0.412  0.398  0.506                                   
+## c_unraall   -0.578 -0.053 -0.082 -0.050                            
+## gndr        -0.490  0.004 -0.006 -0.007  0.001                     
+## scale(ISEI)  0.024 -0.004 -0.017  0.010  0.035 -0.060              
+## scale(agea) -0.004  0.007  0.015 -0.017 -0.040 -0.017 -0.219       
+## GR:CNTffMOD  0.284 -0.719 -0.565 -0.285 -0.010 -0.009  0.007 -0.007
+## GR:CNTfMOST  0.427 -0.661 -0.266 -0.561 -0.291 -0.004 -0.006  0.002
+##             GR:CNTMOD
+## GR                   
+## CNTeffctMOD          
+## CNTffctMOST          
+## c_unraall            
+## gndr                 
+## scale(ISEI)          
+## scale(agea)          
+## GR:CNTffMOD          
+## GR:CNTfMOST  0.491   
 ## 
 ## $stimulation_RAW
 ## Linear mixed model fit by REML ['lmerMod']
-## Formula: stimulation_RAW ~ GR * CNTeffect * ISEI + (1 | cntry/essround)
+## Formula: 
+## stimulation_RAW ~ GR * CNTeffect + c_unraall + gndr + scale(ISEI) +  
+##     scale(agea) + (1 | cntry/essround)
 ##    Data: analysisData
 ## Weights: dweight
 ## 
-## REML criterion at convergence: 158574.8
+## REML criterion at convergence: 157813.7
 ## 
 ## Scaled residuals: 
 ##     Min      1Q  Median      3Q     Max 
-## -4.4168 -0.7135 -0.0154  0.6587  4.9892 
+## -4.6598 -0.6968 -0.0350  0.6526  5.5876 
 ## 
 ## Random effects:
 ##  Groups         Name        Variance  Std.Dev.
-##  essround:cntry (Intercept) 0.0042641 0.06530 
-##  cntry          (Intercept) 0.0009774 0.03126 
-##  Residual                   1.0159632 1.00795 
-## Number of obs: 54512, groups:  essround:cntry, 131; cntry, 30
+##  essround:cntry (Intercept) 0.0040262 0.06345 
+##  cntry          (Intercept) 0.0009483 0.03080 
+##  Residual                   0.9474533 0.97337 
+## Number of obs: 55576, groups:  essround:cntry, 126; cntry, 29
 ## 
 ## Fixed effects:
-##                         Estimate Std. Error t value
-## (Intercept)            0.0745137  0.0314366   2.370
-## GR                    -0.2198269  0.0516847  -4.253
-## CNTeffectMOD          -0.2389090  0.0417781  -5.719
-## CNTeffectMOST          0.0651472  0.0465830   1.399
-## ISEI                   0.0001833  0.0006025   0.304
-## GR:CNTeffectMOD        0.2712525  0.0687355   3.946
-## GR:CNTeffectMOST       0.1670442  0.0740472   2.256
-## GR:ISEI                0.0022880  0.0010523   2.174
-## CNTeffectMOD:ISEI      0.0042360  0.0007829   5.411
-## CNTeffectMOST:ISEI    -0.0020408  0.0009022  -2.262
-## GR:CNTeffectMOD:ISEI  -0.0043072  0.0013811  -3.119
-## GR:CNTeffectMOST:ISEI -0.0017804  0.0015262  -1.167
+##                   Estimate Std. Error t value
+## (Intercept)      -0.226178   0.027713   -8.16
+## GR               -0.107219   0.026264   -4.08
+## CNTeffectMOD     -0.032778   0.025627   -1.28
+## CNTeffectMOST    -0.037402   0.027198   -1.38
+## c_unraall        -0.001453   0.002429   -0.60
+## gndr              0.173932   0.008189   21.24
+## scale(ISEI)      -0.045292   0.004269  -10.61
+## scale(agea)       0.272431   0.004622   58.94
+## GR:CNTeffectMOD   0.035389   0.036378    0.97
+## GR:CNTeffectMOST  0.066032   0.039878    1.66
 ## 
 ## Correlation of Fixed Effects:
-##             (Intr) GR     CNTfMOD CNTfMOST ISEI   GR:CNTfMOD GR:CNTfMOST
-## GR          -0.534                                                      
-## CNTeffctMOD -0.752  0.402                                               
-## CNTffctMOST -0.675  0.360  0.508                                        
-## ISEI        -0.796  0.484  0.599   0.537                                
-## GR:CNTffMOD  0.402 -0.752 -0.529  -0.271   -0.364                       
-## GR:CNTfMOST  0.373 -0.698 -0.280  -0.562   -0.338  0.525                
-## GR:ISEI      0.456 -0.850 -0.343  -0.308   -0.572  0.639      0.593     
-## CNTMOD:ISEI  0.612 -0.373 -0.788  -0.413   -0.770  0.479      0.260     
-## CNTMOST:ISE  0.531 -0.323 -0.400  -0.800   -0.668  0.243      0.504     
-## GR:CNTMOD:I -0.348  0.647  0.447   0.235    0.436 -0.845     -0.452     
-## GR:CNTMOST: -0.315  0.586  0.237   0.472    0.395 -0.440     -0.851     
-##             GR:ISE CNTMOD: CNTMOST: GR:CNTMOD:
-## GR                                            
-## CNTeffctMOD                                   
-## CNTffctMOST                                   
-## ISEI                                          
-## GR:CNTffMOD                                   
-## GR:CNTfMOST                                   
-## GR:ISEI                                       
-## CNTMOD:ISEI  0.441                            
-## CNTMOST:ISE  0.382  0.514                     
-## GR:CNTMOD:I -0.762 -0.567  -0.291             
-## GR:CNTMOST: -0.690 -0.304  -0.591    0.525    
+##             (Intr) GR     CNTMOD CNTMOS c_nrll gndr   s(ISEI scl(g)
+## GR          -0.283                                                 
+## CNTeffctMOD -0.446  0.343                                          
+## CNTffctMOST -0.448  0.320  0.504                                   
+## c_unraall   -0.590 -0.056 -0.077 -0.023                            
+## gndr        -0.441  0.005 -0.006 -0.007  0.000                     
+## scale(ISEI)  0.022 -0.005 -0.015  0.007  0.032 -0.060              
+## scale(agea) -0.006  0.010  0.015 -0.012 -0.034 -0.017 -0.219       
+## GR:CNTffMOD  0.234 -0.720 -0.445 -0.230 -0.004 -0.010  0.008 -0.008
+## GR:CNTfMOST  0.417 -0.637 -0.196 -0.466 -0.354 -0.004 -0.005  0.000
+##             GR:CNTMOD
+## GR                   
+## CNTeffctMOD          
+## CNTffctMOST          
+## c_unraall            
+## gndr                 
+## scale(ISEI)          
+## scale(agea)          
+## GR:CNTffMOD          
+## GR:CNTfMOST  0.476   
 ## 
 ## $headonism_RAW
 ## Linear mixed model fit by REML ['lmerMod']
-## Formula: headonism_RAW ~ GR * CNTeffect * ISEI + (1 | cntry/essround)
+## Formula: 
+## headonism_RAW ~ GR * CNTeffect + c_unraall + gndr + scale(ISEI) +  
+##     scale(agea) + (1 | cntry/essround)
 ##    Data: analysisData
 ## Weights: dweight
 ## 
-## REML criterion at convergence: 158725.8
+## REML criterion at convergence: 158808.3
 ## 
 ## Scaled residuals: 
 ##     Min      1Q  Median      3Q     Max 
-## -3.6030 -0.6583 -0.0834  0.6202  5.7910 
+## -4.0465 -0.6872 -0.0837  0.6089  6.6477 
 ## 
 ## Random effects:
-##  Groups         Name        Variance  Std.Dev.
-##  essround:cntry (Intercept) 7.153e-03 0.084573
-##  cntry          (Intercept) 9.209e-05 0.009596
-##  Residual                   1.018e+00 1.008956
-## Number of obs: 54514, groups:  essround:cntry, 131; cntry, 30
+##  Groups         Name        Variance Std.Dev.
+##  essround:cntry (Intercept) 0.005867 0.0766  
+##  cntry          (Intercept) 0.000000 0.0000  
+##  Residual                   0.964053 0.9819  
+## Number of obs: 55579, groups:  essround:cntry, 126; cntry, 29
 ## 
 ## Fixed effects:
-##                         Estimate Std. Error t value
-## (Intercept)            0.0218733  0.0313978   0.697
-## GR                    -0.2106389  0.0545802  -3.859
-## CNTeffectMOD          -0.1401012  0.0416754  -3.362
-## CNTeffectMOST          0.1369813  0.0466326   2.937
-## ISEI                   0.0012211  0.0006032   2.024
-## GR:CNTeffectMOD        0.2479129  0.0727808   3.406
-## GR:CNTeffectMOST       0.2147322  0.0780353   2.752
-## GR:ISEI                0.0021671  0.0010540   2.056
-## CNTeffectMOD:ISEI      0.0017817  0.0007838   2.273
-## CNTeffectMOST:ISEI    -0.0046568  0.0009037  -5.153
-## GR:CNTeffectMOD:ISEI  -0.0032453  0.0013831  -2.346
-## GR:CNTeffectMOST:ISEI -0.0018321  0.0015290  -1.198
+##                    Estimate Std. Error t value
+## (Intercept)      -0.1512266  0.0262292   -5.77
+## GR               -0.1041344  0.0298056   -3.49
+## CNTeffectMOD     -0.0365993  0.0235443   -1.55
+## CNTeffectMOST    -0.0763102  0.0253946   -3.00
+## c_unraall         0.0004448  0.0023027    0.19
+## gndr              0.1127005  0.0082606   13.64
+## scale(ISEI)      -0.0408232  0.0043058   -9.48
+## scale(agea)       0.2482417  0.0046618   53.25
+## GR:CNTeffectMOD   0.0512040  0.0413226    1.24
+## GR:CNTeffectMOST  0.1051544  0.0439252    2.39
 ## 
 ## Correlation of Fixed Effects:
-##             (Intr) GR     CNTfMOD CNTfMOST ISEI   GR:CNTfMOD GR:CNTfMOST
-## GR          -0.568                                                      
-## CNTeffctMOD -0.753  0.428                                               
-## CNTffctMOST -0.673  0.383  0.507                                        
-## ISEI        -0.798  0.459  0.601   0.537                                
-## GR:CNTffMOD  0.426 -0.750 -0.565  -0.287   -0.344                       
-## GR:CNTfMOST  0.398 -0.699 -0.300  -0.591   -0.321  0.525                
-## GR:ISEI      0.457 -0.805 -0.344  -0.307   -0.572  0.604      0.563     
-## CNTMOD:ISEI  0.614 -0.353 -0.791  -0.413   -0.770  0.453      0.247     
-## CNTMOST:ISE  0.533 -0.306 -0.401  -0.800   -0.667  0.230      0.478     
-## GR:CNTMOD:I -0.348  0.614  0.448   0.234    0.436 -0.799     -0.429     
-## GR:CNTMOST: -0.315  0.555  0.237   0.473    0.395 -0.416     -0.809     
-##             GR:ISE CNTMOD: CNTMOST: GR:CNTMOD:
-## GR                                            
-## CNTeffctMOD                                   
-## CNTffctMOST                                   
-## ISEI                                          
-## GR:CNTffMOD                                   
-## GR:CNTfMOST                                   
-## GR:ISEI                                       
-## CNTMOD:ISEI  0.440                            
-## CNTMOST:ISE  0.382  0.514                     
-## GR:CNTMOD:I -0.762 -0.567  -0.291             
-## GR:CNTMOST: -0.689 -0.304  -0.591    0.525    
+##             (Intr) GR     CNTMOD CNTMOS c_nrll gndr   s(ISEI scl(g)
+## GR          -0.354                                                 
+## CNTeffctMOD -0.435  0.432                                          
+## CNTffctMOST -0.418  0.399  0.505                                   
+## c_unraall   -0.584 -0.053 -0.082 -0.049                            
+## gndr        -0.472  0.003 -0.006 -0.007  0.001                     
+## scale(ISEI)  0.023 -0.004 -0.016  0.010  0.033 -0.060              
+## scale(agea) -0.004  0.007  0.015 -0.016 -0.039 -0.017 -0.219       
+## GR:CNTffMOD  0.287 -0.719 -0.565 -0.285 -0.010 -0.009  0.006 -0.007
+## GR:CNTfMOST  0.432 -0.661 -0.266 -0.562 -0.291 -0.003 -0.006  0.002
+##             GR:CNTMOD
+## GR                   
+## CNTeffctMOD          
+## CNTffctMOST          
+## c_unraall            
+## gndr                 
+## scale(ISEI)          
+## scale(agea)          
+## GR:CNTffMOD          
+## GR:CNTfMOST  0.491   
 ## 
 ## $achievement_RAW
 ## Linear mixed model fit by REML ['lmerMod']
-## Formula: achievement_RAW ~ GR * CNTeffect * ISEI + (1 | cntry/essround)
+## Formula: 
+## achievement_RAW ~ GR * CNTeffect + c_unraall + gndr + scale(ISEI) +  
+##     scale(agea) + (1 | cntry/essround)
 ##    Data: analysisData
 ## Weights: dweight
 ## 
-## REML criterion at convergence: 158168.8
+## REML criterion at convergence: 159622.4
 ## 
 ## Scaled residuals: 
 ##     Min      1Q  Median      3Q     Max 
-## -3.4060 -0.6884 -0.0795  0.6451  5.7021 
+## -3.5797 -0.6947 -0.0714  0.6284  5.6354 
 ## 
 ## Random effects:
 ##  Groups         Name        Variance Std.Dev.
-##  essround:cntry (Intercept) 0.007621 0.0873  
-##  cntry          (Intercept) 0.000000 0.0000  
-##  Residual                   1.007440 1.0037  
-## Number of obs: 54517, groups:  essround:cntry, 131; cntry, 30
+##  essround:cntry (Intercept) 0.007092 0.08421 
+##  cntry          (Intercept) 0.000000 0.00000 
+##  Residual                   0.978019 0.98895 
+## Number of obs: 55580, groups:  essround:cntry, 126; cntry, 29
 ## 
 ## Fixed effects:
-##                         Estimate Std. Error t value
-## (Intercept)            0.3120090  0.0313652   9.948
-## GR                    -0.2514248  0.0548133  -4.587
-## CNTeffectMOD          -0.0824607  0.0416357  -1.981
-## CNTeffectMOST         -0.0399400  0.0465788  -0.857
-## ISEI                  -0.0057376  0.0006001  -9.561
-## GR:CNTeffectMOD        0.1635945  0.0731284   2.237
-## GR:CNTeffectMOST       0.1819634  0.0783439   2.323
-## GR:ISEI                0.0018831  0.0010485   1.796
-## CNTeffectMOD:ISEI      0.0007646  0.0007798   0.980
-## CNTeffectMOST:ISEI     0.0001190  0.0008989   0.132
-## GR:CNTeffectMOD:ISEI  -0.0016699  0.0013760  -1.214
-## GR:CNTeffectMOST:ISEI -0.0021162  0.0015211  -1.391
+##                   Estimate Std. Error t value
+## (Intercept)      -0.173257   0.027808   -6.23
+## GR               -0.165230   0.032023   -5.16
+## CNTeffectMOD     -0.034962   0.025341   -1.38
+## CNTeffectMOST    -0.058237   0.027288   -2.13
+## c_unraall         0.001032   0.002475    0.42
+## gndr              0.137681   0.008321   16.55
+## scale(ISEI)      -0.122126   0.004338  -28.15
+## scale(agea)       0.171834   0.004697   36.59
+## GR:CNTeffectMOD   0.044001   0.044436    0.99
+## GR:CNTeffectMOST  0.074775   0.047150    1.59
 ## 
 ## Correlation of Fixed Effects:
-##             (Intr) GR     CNTfMOD CNTfMOST ISEI   GR:CNTfMOD GR:CNTfMOST
-## GR          -0.572                                                      
-## CNTeffctMOD -0.753  0.431                                               
-## CNTffctMOST -0.673  0.385  0.507                                        
-## ISEI        -0.795  0.455  0.599   0.535                                
-## GR:CNTffMOD  0.429 -0.750 -0.569  -0.289   -0.341                       
-## GR:CNTfMOST  0.400 -0.700 -0.302  -0.595   -0.318  0.524                
-## GR:ISEI      0.455 -0.798 -0.343  -0.306   -0.572  0.598      0.558     
-## CNTMOD:ISEI  0.612 -0.350 -0.788  -0.412   -0.770  0.449      0.245     
-## CNTMOST:ISE  0.531 -0.304 -0.400  -0.797   -0.668  0.228      0.474     
-## GR:CNTMOD:I -0.347  0.608  0.447   0.233    0.436 -0.791     -0.425     
-## GR:CNTMOST: -0.314  0.550  0.236   0.471    0.395 -0.412     -0.802     
-##             GR:ISE CNTMOD: CNTMOST: GR:CNTMOD:
-## GR                                            
-## CNTeffctMOD                                   
-## CNTffctMOST                                   
-## ISEI                                          
-## GR:CNTffMOD                                   
-## GR:CNTfMOST                                   
-## GR:ISEI                                       
-## CNTMOD:ISEI  0.440                            
-## CNTMOST:ISE  0.382  0.514                     
-## GR:CNTMOD:I -0.762 -0.567  -0.291             
-## GR:CNTMOST: -0.689 -0.304  -0.591    0.525    
+##             (Intr) GR     CNTMOD CNTMOS c_nrll gndr   s(ISEI scl(g)
+## GR          -0.359                                                 
+## CNTeffctMOD -0.441  0.432                                          
+## CNTffctMOST -0.425  0.399  0.505                                   
+## c_unraall   -0.592 -0.054 -0.083 -0.049                            
+## gndr        -0.448  0.003 -0.005 -0.006  0.001                     
+## scale(ISEI)  0.021 -0.004 -0.015  0.009  0.031 -0.060              
+## scale(agea) -0.003  0.007  0.014 -0.015 -0.036 -0.017 -0.219       
+## GR:CNTffMOD  0.290 -0.718 -0.565 -0.285 -0.010 -0.008  0.006 -0.006
+## GR:CNTfMOST  0.438 -0.662 -0.266 -0.563 -0.291 -0.003 -0.006  0.002
+##             GR:CNTMOD
+## GR                   
+## CNTeffctMOD          
+## CNTffctMOST          
+## c_unraall            
+## gndr                 
+## scale(ISEI)          
+## scale(agea)          
+## GR:CNTffMOD          
+## GR:CNTfMOST  0.491   
 ## 
 ## $power_RAW
 ## Linear mixed model fit by REML ['lmerMod']
-## Formula: power_RAW ~ GR * CNTeffect * ISEI + (1 | cntry/essround)
+## Formula: power_RAW ~ GR * CNTeffect + c_unraall + gndr + scale(ISEI) +  
+##     scale(agea) + (1 | cntry/essround)
 ##    Data: analysisData
 ## Weights: dweight
 ## 
-## REML criterion at convergence: 158168.8
+## REML criterion at convergence: 159622.4
 ## 
 ## Scaled residuals: 
 ##     Min      1Q  Median      3Q     Max 
-## -3.4060 -0.6884 -0.0795  0.6451  5.7021 
+## -3.5797 -0.6947 -0.0714  0.6284  5.6354 
 ## 
 ## Random effects:
 ##  Groups         Name        Variance Std.Dev.
-##  essround:cntry (Intercept) 0.007621 0.0873  
-##  cntry          (Intercept) 0.000000 0.0000  
-##  Residual                   1.007440 1.0037  
-## Number of obs: 54517, groups:  essround:cntry, 131; cntry, 30
+##  essround:cntry (Intercept) 0.007092 0.08421 
+##  cntry          (Intercept) 0.000000 0.00000 
+##  Residual                   0.978019 0.98895 
+## Number of obs: 55580, groups:  essround:cntry, 126; cntry, 29
 ## 
 ## Fixed effects:
-##                         Estimate Std. Error t value
-## (Intercept)            0.3120090  0.0313652   9.948
-## GR                    -0.2514248  0.0548133  -4.587
-## CNTeffectMOD          -0.0824607  0.0416357  -1.981
-## CNTeffectMOST         -0.0399400  0.0465788  -0.857
-## ISEI                  -0.0057376  0.0006001  -9.561
-## GR:CNTeffectMOD        0.1635945  0.0731284   2.237
-## GR:CNTeffectMOST       0.1819634  0.0783439   2.323
-## GR:ISEI                0.0018831  0.0010485   1.796
-## CNTeffectMOD:ISEI      0.0007646  0.0007798   0.980
-## CNTeffectMOST:ISEI     0.0001190  0.0008989   0.132
-## GR:CNTeffectMOD:ISEI  -0.0016699  0.0013760  -1.214
-## GR:CNTeffectMOST:ISEI -0.0021162  0.0015211  -1.391
+##                   Estimate Std. Error t value
+## (Intercept)      -0.173257   0.027808   -6.23
+## GR               -0.165230   0.032023   -5.16
+## CNTeffectMOD     -0.034962   0.025341   -1.38
+## CNTeffectMOST    -0.058237   0.027288   -2.13
+## c_unraall         0.001032   0.002475    0.42
+## gndr              0.137681   0.008321   16.55
+## scale(ISEI)      -0.122126   0.004338  -28.15
+## scale(agea)       0.171834   0.004697   36.59
+## GR:CNTeffectMOD   0.044001   0.044436    0.99
+## GR:CNTeffectMOST  0.074775   0.047150    1.59
 ## 
 ## Correlation of Fixed Effects:
-##             (Intr) GR     CNTfMOD CNTfMOST ISEI   GR:CNTfMOD GR:CNTfMOST
-## GR          -0.572                                                      
-## CNTeffctMOD -0.753  0.431                                               
-## CNTffctMOST -0.673  0.385  0.507                                        
-## ISEI        -0.795  0.455  0.599   0.535                                
-## GR:CNTffMOD  0.429 -0.750 -0.569  -0.289   -0.341                       
-## GR:CNTfMOST  0.400 -0.700 -0.302  -0.595   -0.318  0.524                
-## GR:ISEI      0.455 -0.798 -0.343  -0.306   -0.572  0.598      0.558     
-## CNTMOD:ISEI  0.612 -0.350 -0.788  -0.412   -0.770  0.449      0.245     
-## CNTMOST:ISE  0.531 -0.304 -0.400  -0.797   -0.668  0.228      0.474     
-## GR:CNTMOD:I -0.347  0.608  0.447   0.233    0.436 -0.791     -0.425     
-## GR:CNTMOST: -0.314  0.550  0.236   0.471    0.395 -0.412     -0.802     
-##             GR:ISE CNTMOD: CNTMOST: GR:CNTMOD:
-## GR                                            
-## CNTeffctMOD                                   
-## CNTffctMOST                                   
-## ISEI                                          
-## GR:CNTffMOD                                   
-## GR:CNTfMOST                                   
-## GR:ISEI                                       
-## CNTMOD:ISEI  0.440                            
-## CNTMOST:ISE  0.382  0.514                     
-## GR:CNTMOD:I -0.762 -0.567  -0.291             
-## GR:CNTMOST: -0.689 -0.304  -0.591    0.525    
+##             (Intr) GR     CNTMOD CNTMOS c_nrll gndr   s(ISEI scl(g)
+## GR          -0.359                                                 
+## CNTeffctMOD -0.441  0.432                                          
+## CNTffctMOST -0.425  0.399  0.505                                   
+## c_unraall   -0.592 -0.054 -0.083 -0.049                            
+## gndr        -0.448  0.003 -0.005 -0.006  0.001                     
+## scale(ISEI)  0.021 -0.004 -0.015  0.009  0.031 -0.060              
+## scale(agea) -0.003  0.007  0.014 -0.015 -0.036 -0.017 -0.219       
+## GR:CNTffMOD  0.290 -0.718 -0.565 -0.285 -0.010 -0.008  0.006 -0.006
+## GR:CNTfMOST  0.438 -0.662 -0.266 -0.563 -0.291 -0.003 -0.006  0.002
+##             GR:CNTMOD
+## GR                   
+## CNTeffctMOD          
+## CNTffctMOST          
+## c_unraall            
+## gndr                 
+## scale(ISEI)          
+## scale(agea)          
+## GR:CNTffMOD          
+## GR:CNTfMOST  0.491   
 ## 
 ## $security_RAW
 ## Linear mixed model fit by REML ['lmerMod']
-## Formula: security_RAW ~ GR * CNTeffect * ISEI + (1 | cntry/essround)
+## Formula: security_RAW ~ GR * CNTeffect + c_unraall + gndr + scale(ISEI) +  
+##     scale(agea) + (1 | cntry/essround)
 ##    Data: analysisData
 ## Weights: dweight
 ## 
-## REML criterion at convergence: 158282.8
+## REML criterion at convergence: 159809.5
 ## 
 ## Scaled residuals: 
 ##     Min      1Q  Median      3Q     Max 
-## -5.0359 -0.6522 -0.0186  0.6714  4.8910 
+## -5.1240 -0.6646 -0.0116  0.6649  4.7427 
 ## 
 ## Random effects:
-##  Groups         Name        Variance Std.Dev.
-##  essround:cntry (Intercept) 0.0137   0.117   
-##  cntry          (Intercept) 0.0000   0.000   
-##  Residual                   1.0084   1.004   
-## Number of obs: 54518, groups:  essround:cntry, 131; cntry, 30
+##  Groups         Name        Variance  Std.Dev. 
+##  essround:cntry (Intercept) 1.370e-02 1.170e-01
+##  cntry          (Intercept) 2.487e-14 1.577e-07
+##  Residual                   9.800e-01 9.899e-01
+## Number of obs: 55584, groups:  essround:cntry, 126; cntry, 29
 ## 
 ## Fixed effects:
-##                         Estimate Std. Error t value
-## (Intercept)            0.2281632  0.0346737   6.580
-## GR                    -0.2155170  0.0604977  -3.562
-## CNTeffectMOD          -0.0836199  0.0462309  -1.809
-## CNTeffectMOST         -0.1066702  0.0514384  -2.074
-## ISEI                  -0.0034670  0.0006006  -5.773
-## GR:CNTeffectMOD        0.1538123  0.0810608   1.897
-## GR:CNTeffectMOST       0.1762757  0.0862441   2.044
-## GR:ISEI                0.0008991  0.0010495   0.857
-## CNTeffectMOD:ISEI      0.0003815  0.0007805   0.489
-## CNTeffectMOST:ISEI     0.0016360  0.0009001   1.818
-## GR:CNTeffectMOD:ISEI  -0.0007666  0.0013772  -0.557
-## GR:CNTeffectMOST:ISEI -0.0014505  0.0015227  -0.953
+##                   Estimate Std. Error t value
+## (Intercept)      -0.345912   0.034785  -9.944
+## GR               -0.163766   0.041785  -3.919
+## CNTeffectMOD     -0.057426   0.033236  -1.728
+## CNTeffectMOST    -0.047001   0.035604  -1.320
+## c_unraall         0.002018   0.003233   0.624
+## gndr              0.259160   0.008331  31.107
+## scale(ISEI)      -0.076417   0.004344 -17.590
+## scale(agea)       0.094732   0.004707  20.127
+## GR:CNTeffectMOD   0.068527   0.058132   1.179
+## GR:CNTeffectMOST  0.085394   0.061329   1.392
 ## 
 ## Correlation of Fixed Effects:
-##             (Intr) GR     CNTfMOD CNTfMOST ISEI   GR:CNTfMOD GR:CNTfMOST
-## GR          -0.573                                                      
-## CNTeffctMOD -0.750  0.430                                               
-## CNTffctMOST -0.674  0.386  0.506                                        
-## ISEI        -0.719  0.412  0.539   0.485                                
-## GR:CNTffMOD  0.428 -0.746 -0.570  -0.288   -0.308                       
-## GR:CNTfMOST  0.402 -0.701 -0.302  -0.596   -0.289  0.524                
-## GR:ISEI      0.412 -0.723 -0.309  -0.277   -0.572  0.540      0.507     
-## CNTMOD:ISEI  0.554 -0.317 -0.710  -0.373   -0.770  0.405      0.223     
-## CNTMOST:ISE  0.480 -0.275 -0.360  -0.723   -0.667  0.205      0.431     
-## GR:CNTMOD:I -0.314  0.551  0.403   0.211    0.436 -0.714     -0.387     
-## GR:CNTMOST: -0.284  0.499  0.213   0.427    0.394 -0.372     -0.729     
-##             GR:ISE CNTMOD: CNTMOST: GR:CNTMOD:
-## GR                                            
-## CNTeffctMOD                                   
-## CNTffctMOST                                   
-## ISEI                                          
-## GR:CNTffMOD                                   
-## GR:CNTfMOST                                   
-## GR:ISEI                                       
-## CNTMOD:ISEI  0.440                            
-## CNTMOST:ISE  0.382  0.513                     
-## GR:CNTMOD:I -0.762 -0.567  -0.291             
-## GR:CNTMOST: -0.689 -0.304  -0.591    0.525</code></pre>
+##             (Intr) GR     CNTMOD CNTMOS c_nrll gndr   s(ISEI scl(g)
+## GR          -0.375                                                 
+## CNTeffctMOD -0.459  0.431                                          
+## CNTffctMOST -0.448  0.400  0.504                                   
+## c_unraall   -0.618 -0.055 -0.085 -0.046                            
+## gndr        -0.359  0.003 -0.004 -0.005  0.000                     
+## scale(ISEI)  0.017 -0.003 -0.011  0.007  0.024 -0.060              
+## scale(agea) -0.003  0.005  0.010 -0.011 -0.028 -0.017 -0.219       
+## GR:CNTffMOD  0.302 -0.716 -0.567 -0.286 -0.010 -0.006  0.005 -0.005
+## GR:CNTfMOST  0.457 -0.664 -0.266 -0.566 -0.289 -0.002 -0.004  0.002
+##             GR:CNTMOD
+## GR                   
+## CNTeffctMOD          
+## CNTffctMOST          
+## c_unraall            
+## gndr                 
+## scale(ISEI)          
+## scale(agea)          
+## GR:CNTffMOD          
+## GR:CNTfMOST  0.491</code></pre>
 </div>
 
 

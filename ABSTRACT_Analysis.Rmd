@@ -32,31 +32,22 @@ path <- system("locate /ess | grep /ess$",intern = TRUE)
 setwd(path)
 load("analysisData.rda")
 #names(analysisData)
-analysisData <- subset(analysisData, agea > 14 & agea < 36)
+analysisData <- subset(analysisData, agea < 37)
 analysisData$CNTeffect <- recode(analysisData$cntry,
 								 "c('HU', 'LV', 'LT', 'IS', 'HR', 'CY', 'GR', 'IE', 'IT', 'PT', 'ES') = 'MOST'; c('AT', 'BE', 'FI', 'FR','DE', 'NL', 'RO', 'SK', 'SL', 'GB', 'IL') = 'MOD'; c('BG', 'CZ', 'DK', 'LU','NO', 'PL', 'SE', 'CH', 'TR') = 'LEAST'; c('AL','EE', 'RU', 'SI', 'UA', 'XK') = NA")
+
+#names(analysisData)
+table(analysisData$gndr)
 ```
 ## Centered models
 ```{r centered, echo=FALSE}
 analysisData$GR <- ifelse(analysisData$year > 2008, 1, 0)
 response <- grep(".+_CENTER", names(analysisData), value = TRUE)
-analysisData[,response] <- apply(analysisData[,response],2,scale)
+analysisData[,response] <- apply(analysisData[,response],2,function(x) scale(x)*-1)
 output <- list()
 for( i in seq_along(response)){
 	cat("\nNow working on ", response[i], "\n")
-	form <- as.formula(paste(response[i]," ~ GR*CNTeffect + (1|cntry/essround)"))
-	output[[i]] <- lmer(form, data = analysisData, weights = dweight)
-} 
-
-names(output) <- response
-#round(sapply(output, fixef),3)
-lapply(output, summary)
-
-
-output <- list()
-for( i in seq_along(response)){
-	cat("\nNow working on ", response[i], "\n")
-	form <- as.formula(paste(response[i]," ~ GR*CNTeffect*ISEI + (1|cntry/essround)"))
+	form <- as.formula(paste(response[i]," ~ GR*CNTeffect + c_unraall + gndr + scale(ISEI) + scale(agea) + (1|cntry/essround)"))
 	output[[i]] <- lmer(form, data = analysisData, weights = dweight)
 } 
 
@@ -69,24 +60,12 @@ lapply(output, summary)
 ```{r raw, echo=FALSE}
 analysisData$GR <- ifelse(analysisData$year > 2008, 1, 0)
 response <- grep(".+_RAW", names(analysisData), value = TRUE)
-analysisData[,response] <- apply(analysisData[,response],2,scale)
+analysisData[,response] <- apply(analysisData[,response],2,function(x) scale(x)*-1)
 
 output <- list()
 for( i in seq_along(response)){
 	cat("\nNow working on ", response[i], "\n")
-	form <- as.formula(paste(response[i]," ~ GR*CNTeffect + (1|cntry/essround)"))
-	output[[i]] <- lmer(form, data = analysisData, weights = dweight)
-} 
-
-names(output) <- response
-#round(sapply(output, fixef),3)
-lapply(output, summary)
-
-
-output <- list()
-for( i in seq_along(response)){
-	cat("\nNow working on ", response[i], "\n")
-	form <- as.formula(paste(response[i]," ~ GR*CNTeffect*ISEI + (1|cntry/essround)"))
+	form <- as.formula(paste(response[i]," ~ GR*CNTeffect + c_unraall + gndr + scale(ISEI) + scale(agea) + (1|cntry/essround)"))
 	output[[i]] <- lmer(form, data = analysisData, weights = dweight)
 } 
 
