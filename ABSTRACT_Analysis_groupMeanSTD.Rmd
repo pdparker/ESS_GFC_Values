@@ -42,7 +42,7 @@ analysisData$GR <- ifelse(analysisData$year > 2008, 1, 0)
 response <- grep(".+_CENTER", names(analysisData), value = TRUE)
 splitD <- split(analysisData, analysisData$cntry)
 splitD <- lapply(splitD, function(x){
-	x[,response] = apply(x[,response],2,scale)
+	x[,response] = apply(x[,response],2,function(x) scale(x)*-1)
 	return(x)
 	}
 )
@@ -65,7 +65,7 @@ analysisData$GR <- ifelse(analysisData$year > 2008, 1, 0)
 response <- grep(".+_RAW", names(analysisData), value = TRUE)
 splitD <- split(analysisData, analysisData$cntry)
 splitD <- lapply(splitD, function(x){
-	x[,response] = apply(x[,response],2,scale)
+	x[,response] = apply(x[,response],2,function(x) scale(x)*-1)
 	return(x)
 	}
 )

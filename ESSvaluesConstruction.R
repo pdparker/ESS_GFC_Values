@@ -64,7 +64,7 @@ mergedIntegratedData$selfDirection_RAW <- rowMeans(mergedIntegratedData[, c("ipc
 mergedIntegratedData$stimulation_RAW <- rowMeans(mergedIntegratedData[, c("impdiff", "ipadvnt")],na.rm = TRUE)
 mergedIntegratedData$headonism_RAW <- rowMeans(mergedIntegratedData[, c("ipgdtim", "impfun")],na.rm = TRUE)
 mergedIntegratedData$achievement_RAW <- rowMeans(mergedIntegratedData[, c("ipshabt", "ipsuces")],na.rm = TRUE)
-mergedIntegratedData$power_RAW <- rowMeans(mergedIntegratedData[, c("ipshabt", "ipsuces")],na.rm = TRUE)
+mergedIntegratedData$power_RAW <- mergedIntegratedData$ipstrgv
 mergedIntegratedData$security_RAW <- rowMeans(mergedIntegratedData[, c("imprich", "iprspot")],na.rm = TRUE)
 ##Ipsatised Scores
 mergedIntegratedData$conformity_CENTER <- mergedIntegratedData$conformity_RAW - mergedIntegratedData$mrat
@@ -93,7 +93,7 @@ commonCNT <- unique(longMetaData$cntry)[unique(longMetaData$cntry) %in% unique(a
 # Checked 30 Sep 2015: No FALSE
 #Check gini
 tapply(analysisData$c_gini, list(analysisData$cntry, analysisData$year), mean, na.rm=TRUE)[commonCNT,] ==
-tapply(longMetaData$c_gini, list(longMetaData$cntry, longMetaData$year), unique)[commonCNT,]
+	tapply(longMetaData$c_gini, list(longMetaData$cntry, longMetaData$year), unique)[commonCNT,]
 #Check social expenditure
 tapply(analysisData$c_soexgni, list(analysisData$cntry, analysisData$year), mean, na.rm=TRUE)[commonCNT,] ==
 	tapply(longMetaData$c_soexgni, list(longMetaData$cntry, longMetaData$year), unique)[commonCNT,]
