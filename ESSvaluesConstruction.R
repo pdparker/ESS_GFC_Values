@@ -15,7 +15,7 @@ dates <- gsub("(.+)([0-9]{4})(.*)", "\\2", integratedDataLocation)
 load(integratedDataLocation[[1]])
 ####Extract required Data####
 #Common variable names across all rounds
-requiredVariableNames <- c("dweight", "essround", "cntry", "agea","gndr", 
+requiredVariableNames <- c("dweight", "essround", "cntry", "agea","gndr", "eisced",
 						   "ipcrtiv", "imprich","ipeqopt", "ipshabt","impsafe","impdiff",
 						   "ipfrule", "ipudrst","ipmodst", "ipgdtim","impfree","iphlppl",
 						   "ipsuces", "ipstrgv","ipadvnt", "ipbhprp","iprspot","iplylfr",
@@ -33,7 +33,7 @@ for (i in seq_along(integratedDataLocation)){
 	cat("completed\n")
 }
 
-names(integratedData[[6]])[27] <- "iscoco"
+names(integratedData[[6]])[28] <- "iscoco"
 integratedData[[6]]$iscoco <- isco08to88(integratedData[[6]]$iscoco)
 #Merge all data into single data frame
 mergedIntegratedData <- do.call(rbind.data.frame, integratedData)
