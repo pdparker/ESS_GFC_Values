@@ -23,7 +23,7 @@ knitr::opts_chunk$set(message=FALSE)
 path <- system("locate /ess | grep /ess$",intern = TRUE)
 setwd(path)
 load("analysisData.rda")
-libs <- list("lme4", "car")
+libs <- list("lme4", "car", "knitr")
 lapply(libs, library, character.only = TRUE)
 ```
 
@@ -47,14 +47,29 @@ splitD <- lapply(splitD, function(x){
 	}
 )
 analysisData <- do.call(rbind.data.frame, splitD)
+
 output <- list()
+deltaOutput <- matrix(NA, nrow = length(response), ncol = 6)
 for( i in seq_along(response)){
-	cat("\nNow working on ", response[i], "\n")
+	#cat("\nNow working on ", response[i], "\n")
 	form <- as.formula(paste(response[i]," ~ GR*CNTeffect + c_unraall + gndr + scale(ISEI) + scale(agea) +(1|cntry/essround)"))
 	output[[i]] <- lmer(form, data = analysisData, weights = dweight)
+	f <- fixef(output[[i]])
+	pars <- c("I", "GR", "MOD", "MOST", "UE", "SEX","SES","AGE", "GRxMOD", "GRxMOST")
+	v <- vcov(output[[i]])
+	names(f) <- pars
+	dimnames(v) <-list(pars, pars)
+	deltaOutput[i,] <- c(unlist(deltaMethod(f,v, g = "GR")[1:2]),
+						unlist(deltaMethod(f,v, g = "GR + GRxMOD")[1:2]),
+						unlist(deltaMethod(f,v, g = "GR + GRxMOST")[1:2])
+	)
 } 
 
 names(output) <- response
+colnames(deltaOutput) <- c("least.est", "least.se", "mod.est", "mod.se", "most.est", "most.se")
+row.names(deltaOutput) <- response
+kable(round(deltaOutput,3), format = "markdown", padding = 2)
+
 #round(sapply(output, fixef),3)
 lapply(output, summary)
 ```
@@ -72,12 +87,26 @@ splitD <- lapply(splitD, function(x){
 analysisData <- do.call(rbind.data.frame, splitD)
 
 output <- list()
+deltaOutput <- matrix(NA, nrow = length(response), ncol = 6)
+
 for( i in seq_along(response)){
-	cat("\nNow working on ", response[i], "\n")
+	#cat("\nNow working on ", response[i], "\n")
 	form <- as.formula(paste(response[i]," ~ GR*CNTeffect + c_unraall + gndr + scale(ISEI) + scale(agea) + (1|cntry/essround)"))
 	output[[i]] <- lmer(form, data = analysisData, weights = dweight)
+	f <- fixef(output[[i]])
+	pars <- c("I", "GR", "MOD", "MOST", "UE", "SEX","SES","AGE", "GRxMOD", "GRxMOST")
+	v <- vcov(output[[i]])
+	names(f) <- pars
+	dimnames(v) <-list(pars, pars)
+	deltaOutput[i,] <- c(unlist(deltaMethod(f,v, g = "GR")[1:2]),
+						unlist(deltaMethod(f,v, g = "GR + GRxMOD")[1:2]),
+						unlist(deltaMethod(f,v, g = "GR + GRxMOST")[1:2])
+	)
 } 
 
 names(output) <- response
+colnames(deltaOutput) <- c("least.est", "least.se", "mod.est", "mod.se", "most.est", "most.se")
+row.names(deltaOutput) <- response
+kable(round(deltaOutput,3), format = "markdown", padding = 2)
 lapply(output, summary)
 ```
