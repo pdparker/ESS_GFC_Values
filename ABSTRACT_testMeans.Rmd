@@ -1,0 +1,66 @@
+---
+title: "Preliminary Analaysis"
+author: "Phil Parker"
+date: "30 September 2015"
+output:
+  html_document:
+    toc: true
+    theme: journal
+    number_sections: true
+  md_document:
+    toc: true 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(warning=FALSE)
+knitr::opts_chunk$set(message=FALSE)
+```
+
+## Preliminary Analysis
+
+```{r cars, echo=FALSE}
+path <- system("locate /ess | grep /ess$",intern = TRUE)
+setwd(path)
+load("analysisData.rda")
+libs <- list("lme4", "car", "knitr", "dplyr")
+lapply(libs, library, character.only = TRUE)
+```
+
+```{r dataPrep, echo=FALSE}
+path <- system("locate /ess | grep /ess$",intern = TRUE)
+setwd(path)
+load("analysisData.rda")
+#names(analysisData)
+analysisData <- subset(analysisData,agea < 37)
+analysisData$CNTeffect <- recode(analysisData$cntry,
+								 "c('HU', 'LV', 'LT', 'IS', 'HR', 'CY', 'GR', 'IE', 'IT', 'PT', 'ES') = 'MOST'; c('AT', 'BE', 'FI', 'FR','DE', 'NL', 'RO', 'SK', 'SL', 'GB', 'IL') = 'MOD'; c('BG', 'CZ', 'DK', 'LU','NO', 'PL', 'SE', 'CH', 'TR') = 'LEAST'; c('AL','EE', 'RU', 'SI', 'UA', 'XK') = NA")
+```
+## Centered models
+```{r centered, echo=FALSE}
+analysisData$GR <- ifelse(analysisData$year > 2008, 1, 0)
+response <- grep(".+_CENTER", names(analysisData), value = TRUE)
+splitD <- split(analysisData, analysisData$cntry)
+splitD <- lapply(splitD, function(x){
+	x[,response] = apply(x[,response],2,function(x) scale(x)*-1)
+	return(x)
+	}
+)
+analysisData <- do.call(rbind.data.frame, splitD)
+
+df <- analysisData[,c("GR", "CNTeffect", response)]
+out <-df %>% group_by(CNTeffect, GR) %>% 
+	summarise_each(funs(round(mean(., na.rm=TRUE),2)))
+
+kable(out,format = "markdown",padding = 2)
+```
+
+
+```{r}
+df <- analysisData[,c("GR", "cntry", response)]
+out <-df %>% group_by(cntry, GR) %>% 
+	summarise_each(funs(round(mean(., na.rm=TRUE),2)))
+
+kable(out,format = "markdown",padding = 2)
+```
+
