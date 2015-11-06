@@ -6,7 +6,7 @@ if(Sys.info()[1] != "Darwin"){message("Only tested on Mac. Should also work on a
 path <- system("locate /ess | grep /ess$",intern = TRUE)
 setwd(path)
 #load required libraries
-libs <- list("lavaan", "survey", "Amelia", "foreign", "dplyr", "car", "isco88conversion")
+libs <- list("lavaan", "survey", "Amelia", "foreign", "dplyr", "car", "isco88conversion", "tidyr")
 lapply(libs, library, character.only = TRUE)
 #find all integrated databases
 integratedDataLocation <- list.files(".",pattern = "integrated",recursive = TRUE, full.names = TRUE)
@@ -81,6 +81,7 @@ mergedIntegratedData$security_CENTER <- mergedIntegratedData$security_RAW - merg
 
 ##### Merge with meta data ####
 load("longMetaData_COUNTRY.rda")
+#data_wide <- spread(longMetaData[,c(2,1,4)], year, c_soexgdp)
 #add year
 mergedIntegratedData$year <- recode(mergedIntegratedData$essround, "1 = 2002; 2 = 2004; 3 = 2006; 4 = 2008; 5 = 2010; 6 = 2012")
 analysisData <- merge(mergedIntegratedData, longMetaData, by = c("year", "cntry"))
@@ -95,8 +96,8 @@ commonCNT <- unique(longMetaData$cntry)[unique(longMetaData$cntry) %in% unique(a
 tapply(analysisData$c_gini, list(analysisData$cntry, analysisData$year), mean, na.rm=TRUE)[commonCNT,] ==
 	tapply(longMetaData$c_gini, list(longMetaData$cntry, longMetaData$year), unique)[commonCNT,]
 #Check social expenditure
-tapply(analysisData$c_soexgni, list(analysisData$cntry, analysisData$year), mean, na.rm=TRUE)[commonCNT,] ==
-	tapply(longMetaData$c_soexgni, list(longMetaData$cntry, longMetaData$year), unique)[commonCNT,]
+tapply(analysisData$c_soexgdp, list(analysisData$cntry, analysisData$year), mean, na.rm=TRUE)[commonCNT,] ==
+	tapply(longMetaData$c_soexgdp, list(longMetaData$cntry, longMetaData$year), unique)[commonCNT,]
 #Check unemployment
 tapply(analysisData$c_unraall, list(analysisData$cntry, analysisData$year), mean, na.rm=TRUE)[commonCNT,] ==
 	tapply(longMetaData$c_unraall, list(longMetaData$cntry, longMetaData$year), unique)[commonCNT,]

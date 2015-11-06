@@ -1,0 +1,76 @@
+---
+title: "Preliminary Analaysis"
+author: "Phil Parker"
+date: "30 September 2015"
+output:
+  html_document:
+    toc: true
+    theme: journal
+    number_sections: true
+  md_document:
+    toc: true 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(warning=FALSE)
+knitr::opts_chunk$set(message=FALSE)
+```
+
+## Preliminary Analysis
+
+```{r cars, echo=FALSE}
+path <- system("locate /ess | grep /ess$",intern = TRUE)
+setwd(path)
+load("analysisData.rda")
+libs <- list("lme4", "car", "knitr")
+lapply(libs, library, character.only = TRUE)
+```
+
+```{r dataPrep, echo=FALSE}
+path <- system("locate /ess | grep /ess$",intern = TRUE)
+setwd(path)
+load("analysisData.rda")
+#names(analysisData)
+analysisData <- subset(analysisData,agea < 37)
+analysisData$CNTeffect <- recode(analysisData$cntry,
+								 "c('HU', 'LV', 'LT', 'IS', 'HR', 'CY', 'GR', 'IE', 'IT', 'PT', 'ES') = 'MOST'; c('AT', 'BE', 'FI', 'FR','DE', 'NL', 'RO', 'SK', 'SL', 'GB', 'IL') = 'MOD'; c('BG', 'CZ', 'DK', 'LU','NO', 'PL', 'SE', 'CH', 'TR') = 'LEAST'; c('AL','EE', 'RU', 'SI', 'UA', 'XK') = NA")
+```
+## Centered models
+```{r centered, echo=FALSE}
+analysisData$GR <- ifelse(analysisData$year > 2008, 1, 0)
+response <- grep(".+_CENTER", names(analysisData), value = TRUE)
+splitD <- split(analysisData, analysisData$cntry)
+splitD <- lapply(splitD, function(x){
+	x[,response] = apply(x[,response],2,function(x) scale(x)*-1)
+	return(x)
+	}
+)
+analysisData <- do.call(rbind.data.frame, splitD)
+
+output <- list()
+deltaOutput <- matrix(NA, nrow = length(response), ncol = 6)
+for( i in seq_along(response)){
+	#cat("\nNow working on ", response[i], "\n")
+	form <- as.formula(paste(response[i]," ~ GR*scale(c_soexgdp) + c_unraall + gndr + scale(ISEI) + scale(agea) +(1|cntry/essround)"))
+	output[[i]] <- lmer(form, data = analysisData, weights = dweight)
+	f <- fixef(output[[i]])
+	pars <- c("I", "GR", "SOC", "UE", "SEX","SES","AGE", "GRxSOC")
+	v <- vcov(output[[i]])
+	names(f) <- pars
+	dimnames(v) <-list(pars, pars)
+	deltaOutput[i,] <- c(unlist(deltaMethod(f,v, g = "GR")[1:2]),
+						unlist(deltaMethod(f,v, g = "GR + GRxSOC*-1")[1:2]),
+						unlist(deltaMethod(f,v, g = "GR + GRxSOC*1")[1:2])
+	)
+} 
+
+names(output) <- response
+colnames(deltaOutput) <- c("mean.est", "mean.se", "low.est", "low.se", "high.est", "high.se")
+row.names(deltaOutput) <- response
+kable(round(deltaOutput,3), format = "markdown", padding = 2)
+
+#round(sapply(output, fixef),3)
+lapply(output, summary)
+```
+

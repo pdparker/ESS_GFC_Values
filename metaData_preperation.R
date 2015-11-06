@@ -10,9 +10,10 @@ path <- system("locate /ess | grep /ess$",intern = TRUE)
 setwd(path)
 #Load the data
 load("multilevelData/metaData_CountryLevel30092015.rda")
-extraction <- grep("c_(gini|soexgni|unraall)_20(02|04|06|08|10|12)", names(tmp))
+extraction <- grep("c_(gini|soexgdp|unraall)_20(02|04|06|08|10|12)", names(tmp))
 metaData <- tmp[,c(1,extraction)]
 rm(tmp)
+
 ##### Reorientation of Data #####
 longMetaData <- metaData %>% 
 	gather(key, value, -cntry) %>%
