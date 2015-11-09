@@ -32,7 +32,7 @@ path <- system("locate /ess | grep /ess$",intern = TRUE)
 setwd(path)
 load("analysisData.rda")
 #names(analysisData)
-analysisData <- subset(analysisData,agea < 37)
+analysisData <- subset(analysisData,agea > 17 & agea < 37)
 analysisData$CNTeffect <- recode(analysisData$cntry,
 								 "c('HU', 'LV', 'LT', 'IS', 'HR', 'CY', 'GR', 'IE', 'IT', 'PT', 'ES') = 'MOST'; c('AT', 'BE', 'FI', 'FR','DE', 'NL', 'RO', 'SK', 'SL', 'GB', 'IL') = 'MOD'; c('BG', 'CZ', 'DK', 'LU','NO', 'PL', 'SE', 'CH', 'TR') = 'LEAST'; c('AL','EE', 'RU', 'SI', 'UA', 'XK') = NA")
 ```
@@ -52,7 +52,7 @@ output <- list()
 deltaOutput <- matrix(NA, nrow = length(response), ncol = 6)
 for( i in seq_along(response)){
 	#cat("\nNow working on ", response[i], "\n")
-	form <- as.formula(paste(response[i]," ~ GR*scale(c_soexgdp) + c_unraall + gndr + scale(ISEI) + scale(agea) +(1|cntry/essround)"))
+	form <- as.formula(paste(response[i]," ~ GR*scale(c_soexgdp) + c_unraall + gndr + scale(eduyrs) + scale(agea) +(1|cntry/essround)"))
 	output[[i]] <- lmer(form, data = analysisData, weights = dweight)
 	f <- fixef(output[[i]])
 	pars <- c("I", "GR", "SOC", "UE", "SEX","SES","AGE", "GRxSOC")

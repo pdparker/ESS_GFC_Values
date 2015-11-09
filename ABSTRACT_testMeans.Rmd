@@ -32,10 +32,21 @@ path <- system("locate /ess | grep /ess$",intern = TRUE)
 setwd(path)
 load("analysisData.rda")
 #names(analysisData)
-analysisData <- subset(analysisData,agea < 37)
+#analysisData <- subset(analysisData,agea < 37)
 analysisData$CNTeffect <- recode(analysisData$cntry,
 								 "c('HU', 'LV', 'LT', 'IS', 'HR', 'CY', 'GR', 'IE', 'IT', 'PT', 'ES') = 'MOST'; c('AT', 'BE', 'FI', 'FR','DE', 'NL', 'RO', 'SK', 'SL', 'GB', 'IL') = 'MOD'; c('BG', 'CZ', 'DK', 'LU','NO', 'PL', 'SE', 'CH', 'TR') = 'LEAST'; c('AL','EE', 'RU', 'SI', 'UA', 'XK') = NA")
 ```
+
+```{r raw}
+response <- grep(".+_CENTER", names(analysisData), value = TRUE)
+df <- analysisData[,c("year", "cntry", response)]
+out <-df %>% group_by(cntry, year) %>% 
+	summarise_each(funs(round(mean(., na.rm=TRUE),2)))
+
+kable(out,format = "markdown",padding = 2)
+```
+
+
 ## Centered models
 ```{r centered, echo=FALSE}
 analysisData$GR <- ifelse(analysisData$year > 2008, 1, 0)

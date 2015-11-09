@@ -15,7 +15,7 @@ dates <- gsub("(.+)([0-9]{4})(.*)", "\\2", integratedDataLocation)
 load(integratedDataLocation[[1]])
 ####Extract required Data####
 #Common variable names across all rounds
-requiredVariableNames <- c("dweight", "essround", "cntry", "agea","gndr", "eisced",
+requiredVariableNames <- c("dweight", "essround", "cntry", "agea","gndr", "eisced","eduyrs",
 						   "ipcrtiv", "imprich","ipeqopt", "ipshabt","impsafe","impdiff",
 						   "ipfrule", "ipudrst","ipmodst", "ipgdtim","impfree","iphlppl",
 						   "ipsuces", "ipstrgv","ipadvnt", "ipbhprp","iprspot","iplylfr",
@@ -33,28 +33,28 @@ for (i in seq_along(integratedDataLocation)){
 	cat("completed\n")
 }
 
-names(integratedData[[6]])[28] <- "iscoco"
+names(integratedData[[6]])[29] <- "iscoco"
 integratedData[[6]]$iscoco <- isco08to88(integratedData[[6]]$iscoco)
 #Merge all data into single data frame
 mergedIntegratedData <- do.call(rbind.data.frame, integratedData)
 rm(integratedData)
 mergedIntegratedData$ISEI <- convert(as.character(mergedIntegratedData$iscoco), type = "ISEI")
 #Export to SPSS
-write.foreign(mergedIntegratedData, "mergedData.txt", "mergedData.sps", package="SPSS")
+#write.foreign(mergedIntegratedData, "mergedData.txt", "mergedData.sps", package="SPSS")
 
 #### Create Value Scales ####
 ##Bad Cases
 # There is a standard to remove cases based on consistent response or missing on more than 5 items
 	# I find this dubious but have included it for now
-missingSixOrMore <- which(rowSums(is.na(mergedIntegratedData[,4:24])) > 5)
-constantResponse <- apply(mergedIntegratedData[,4:24], 1,function(x) max(table(x))) > 16
+missingSixOrMore <- which(rowSums(is.na(mergedIntegratedData[,8:28])) > 5)
+constantResponse <- apply(mergedIntegratedData[,8:28], 1,function(x) max(table(x))) > 16
 constantResponse <-which(constantResponse)
 intersection <- union(constantResponse, missingSixOrMore)
 cat("Bad cases account for: ", length(intersection)/nrow(mergedIntegratedData)*100, "% of cases")
 #Subset out 'BAD' cases
 mergedIntegratedData <- mergedIntegratedData[-intersection, ]
 ##MRAT calculation
-mergedIntegratedData$mrat <- rowMeans(mergedIntegratedData[, 4:24],na.rm = TRUE)
+mergedIntegratedData$mrat <- rowMeans(mergedIntegratedData[, 8:28],na.rm = TRUE)
 ##Raw score calculation
 mergedIntegratedData$conformity_RAW <- rowMeans(mergedIntegratedData[, c("ipfrule", "ipbhprp")],na.rm = TRUE)
 mergedIntegratedData$tradition_RAW <- rowMeans(mergedIntegratedData[, c("ipmodst", "imptrad")],na.rm = TRUE)
