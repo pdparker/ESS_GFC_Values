@@ -32,7 +32,7 @@ path <- system("locate /ess | grep /ess$",intern = TRUE)
 setwd(path)
 load("analysisData.rda")
 #names(analysisData)
-analysisData <- subset(analysisData,agea < 37)
+analysisData <- subset(analysisData,agea > 17 & agea < 37)
 analysisData$CNTeffect <- recode(analysisData$cntry,
 								 "c('HU', 'LV', 'LT', 'IS', 'HR', 'CY', 'GR', 'IE', 'IT', 'PT', 'ES') = 'MOST'; c('AT', 'BE', 'FI', 'FR','DE', 'NL', 'RO', 'SK', 'SL', 'GB', 'IL') = 'MOD'; c('BG', 'CZ', 'DK', 'LU','NO', 'PL', 'SE', 'CH', 'TR') = 'LEAST'; c('AL','EE', 'RU', 'SI', 'UA', 'XK') = NA")
 ```
@@ -52,10 +52,10 @@ output <- list()
 deltaOutput <- matrix(NA, nrow = length(response), ncol = 6)
 for( i in seq_along(response)){
 	#cat("\nNow working on ", response[i], "\n")
-	form <- as.formula(paste(response[i]," ~ GR*CNTeffect + c_unraall + gndr + scale(ISEI) + scale(agea) +(1|cntry/essround)"))
+	form <- as.formula(paste(response[i]," ~ GR*CNTeffect + c_unraall + gndr + scale(eduyrs) + scale(agea) +(1|cntry/essround)"))
 	output[[i]] <- lmer(form, data = analysisData, weights = dweight)
 	f <- fixef(output[[i]])
-	pars <- c("I", "GR", "MOD", "MOST", "UE", "SEX","SES","AGE", "GRxMOD", "GRxMOST")
+	pars <- c("I", "GR", "MOD", "MOST", "UE", "SEX","EDU","AGE", "GRxMOD", "GRxMOST")
 	v <- vcov(output[[i]])
 	names(f) <- pars
 	dimnames(v) <-list(pars, pars)
@@ -71,42 +71,5 @@ row.names(deltaOutput) <- response
 kable(round(deltaOutput,3), format = "markdown", padding = 2)
 
 #round(sapply(output, fixef),3)
-lapply(output, summary)
-```
-
-## Raw score models
-```{r raw, echo=FALSE}
-analysisData$GR <- ifelse(analysisData$year > 2008, 1, 0)
-response <- grep(".+_RAW", names(analysisData), value = TRUE)
-splitD <- split(analysisData, analysisData$cntry)
-splitD <- lapply(splitD, function(x){
-	x[,response] = apply(x[,response],2,function(x) scale(x)*-1)
-	return(x)
-	}
-)
-analysisData <- do.call(rbind.data.frame, splitD)
-
-output <- list()
-deltaOutput <- matrix(NA, nrow = length(response), ncol = 6)
-
-for( i in seq_along(response)){
-	#cat("\nNow working on ", response[i], "\n")
-	form <- as.formula(paste(response[i]," ~ GR*CNTeffect + c_unraall + gndr + scale(ISEI) + scale(agea) + (1|cntry/essround)"))
-	output[[i]] <- lmer(form, data = analysisData, weights = dweight)
-	f <- fixef(output[[i]])
-	pars <- c("I", "GR", "MOD", "MOST", "UE", "SEX","SES","AGE", "GRxMOD", "GRxMOST")
-	v <- vcov(output[[i]])
-	names(f) <- pars
-	dimnames(v) <-list(pars, pars)
-	deltaOutput[i,] <- c(unlist(deltaMethod(f,v, g = "GR")[1:2]),
-						unlist(deltaMethod(f,v, g = "GR + GRxMOD")[1:2]),
-						unlist(deltaMethod(f,v, g = "GR + GRxMOST")[1:2])
-	)
-} 
-
-names(output) <- response
-colnames(deltaOutput) <- c("least.est", "least.se", "mod.est", "mod.se", "most.est", "most.se")
-row.names(deltaOutput) <- response
-kable(round(deltaOutput,3), format = "markdown", padding = 2)
 lapply(output, summary)
 ```

@@ -77,18 +77,17 @@ img {
 <div id="preliminary-analysis" class="section level2">
 <h2><span class="header-section-number">0.1</span> Preliminary Analysis</h2>
 <pre><code>## [[1]]
-##  [1] &quot;lme4&quot;      &quot;Rcpp&quot;      &quot;Matrix&quot;    &quot;stats&quot;     &quot;graphics&quot; 
-##  [6] &quot;grDevices&quot; &quot;utils&quot;     &quot;datasets&quot;  &quot;methods&quot;   &quot;base&quot;     
+## [1] &quot;lme4&quot;      &quot;Matrix&quot;    &quot;stats&quot;     &quot;graphics&quot;  &quot;grDevices&quot; &quot;utils&quot;    
+## [7] &quot;datasets&quot;  &quot;methods&quot;   &quot;base&quot;     
 ## 
 ## [[2]]
-##  [1] &quot;car&quot;       &quot;lme4&quot;      &quot;Rcpp&quot;      &quot;Matrix&quot;    &quot;stats&quot;    
-##  [6] &quot;graphics&quot;  &quot;grDevices&quot; &quot;utils&quot;     &quot;datasets&quot;  &quot;methods&quot;  
-## [11] &quot;base&quot;     
+##  [1] &quot;car&quot;       &quot;lme4&quot;      &quot;Matrix&quot;    &quot;stats&quot;     &quot;graphics&quot; 
+##  [6] &quot;grDevices&quot; &quot;utils&quot;     &quot;datasets&quot;  &quot;methods&quot;   &quot;base&quot;     
 ## 
 ## [[3]]
-##  [1] &quot;knitr&quot;     &quot;car&quot;       &quot;lme4&quot;      &quot;Rcpp&quot;      &quot;Matrix&quot;   
-##  [6] &quot;stats&quot;     &quot;graphics&quot;  &quot;grDevices&quot; &quot;utils&quot;     &quot;datasets&quot; 
-## [11] &quot;methods&quot;   &quot;base&quot;</code></pre>
+##  [1] &quot;knitr&quot;     &quot;car&quot;       &quot;lme4&quot;      &quot;Matrix&quot;    &quot;stats&quot;    
+##  [6] &quot;graphics&quot;  &quot;grDevices&quot; &quot;utils&quot;     &quot;datasets&quot;  &quot;methods&quot;  
+## [11] &quot;base&quot;</code></pre>
 </div>
 <div id="centered-models" class="section level2">
 <h2><span class="header-section-number">0.2</span> Centered models</h2>
@@ -252,10 +251,10 @@ img {
 ## -6.2712 -0.6138  0.0402  0.6552  5.1499 
 ## 
 ## Random effects:
-##  Groups         Name        Variance Std.Dev.
-##  essround:cntry (Intercept) 0.004043 0.06358 
-##  cntry          (Intercept) 0.000000 0.00000 
-##  Residual                   0.986153 0.99305 
+##  Groups         Name        Variance  Std.Dev. 
+##  essround:cntry (Intercept) 4.043e-03 6.358e-02
+##  cntry          (Intercept) 4.479e-14 2.116e-07
+##  Residual                   9.862e-01 9.931e-01
 ## Number of obs: 61638, groups:  essround:cntry, 123; cntry, 25
 ## 
 ## Fixed effects:
@@ -301,7 +300,7 @@ img {
 ## 
 ## Fixed effects:
 ##                      Estimate Std. Error t value
-## (Intercept)         -0.472605   0.024096  -19.61
+## (Intercept)         -0.472605   0.024095  -19.61
 ## GR                   0.066158   0.022067    3.00
 ## scale(c_soexgdp)    -0.006360   0.011846   -0.54
 ## c_unraall           -0.003608   0.002440   -1.48
@@ -336,7 +335,7 @@ img {
 ## Random effects:
 ##  Groups         Name        Variance  Std.Dev. 
 ##  essround:cntry (Intercept) 7.661e-03 8.753e-02
-##  cntry          (Intercept) 3.921e-14 1.980e-07
+##  cntry          (Intercept) 2.508e-16 1.584e-08
 ##  Residual                   9.802e-01 9.901e-01
 ## Number of obs: 61657, groups:  essround:cntry, 123; cntry, 25
 ## 
@@ -427,12 +426,12 @@ img {
 ##                       Estimate Std. Error t value
 ## (Intercept)          0.2824346  0.0180157   15.68
 ## GR                  -0.0029559  0.0143339   -0.21
-## scale(c_soexgdp)    -0.0076301  0.0076677   -1.00
+## scale(c_soexgdp)    -0.0076301  0.0076676   -1.00
 ## c_unraall            0.0017154  0.0015714    1.09
 ## gndr                -0.1970458  0.0078242  -25.18
 ## scale(eduyrs)        0.0242423  0.0040905    5.93
 ## scale(agea)         -0.2231373  0.0038905  -57.35
-## GR:scale(c_soexgdp) -0.0004607  0.0140036   -0.03
+## GR:scale(c_soexgdp) -0.0004607  0.0140035   -0.03
 ## 
 ## Correlation of Fixed Effects:
 ##             (Intr) GR     scl(_) c_nrll gndr   scl(d) scl(g)
@@ -499,10 +498,10 @@ img {
 ## -8.2835 -0.5961  0.0779  0.6694  4.1695 
 ## 
 ## Random effects:
-##  Groups         Name        Variance Std.Dev.
-##  essround:cntry (Intercept) 0.004217 0.06494 
-##  cntry          (Intercept) 0.000000 0.00000 
-##  Residual                   0.988034 0.99400 
+##  Groups         Name        Variance  Std.Dev. 
+##  essround:cntry (Intercept) 4.217e-03 6.494e-02
+##  cntry          (Intercept) 3.917e-15 6.258e-08
+##  Residual                   9.880e-01 9.940e-01
 ## Number of obs: 61648, groups:  essround:cntry, 123; cntry, 25
 ## 
 ## Fixed effects:

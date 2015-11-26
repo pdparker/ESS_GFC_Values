@@ -55,7 +55,7 @@ for( i in seq_along(response)){
 	form <- as.formula(paste(response[i]," ~ GR*scale(c_soexgdp) + c_unraall + gndr + scale(eduyrs) + scale(agea) +(1|cntry/essround)"))
 	output[[i]] <- lmer(form, data = analysisData, weights = dweight)
 	f <- fixef(output[[i]])
-	pars <- c("I", "GR", "SOC", "UE", "SEX","SES","AGE", "GRxSOC")
+	pars <- c("I", "GR", "SOC", "UE", "SEX","EDU","AGE", "GRxSOC")
 	v <- vcov(output[[i]])
 	names(f) <- pars
 	dimnames(v) <-list(pars, pars)
